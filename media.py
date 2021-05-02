@@ -1,4 +1,5 @@
 import time
+import os
 import analytics
 
 # Скачать все файлы с треда
@@ -23,9 +24,22 @@ if __name__ == '__main__':
     # Получаем посты
     thread.get_posts(json_thread)
 
-    # Скачиваем файлы в папку media (создайте если её нет)
+    # Создаём папку с медиа
+    if not os.path.exists('media'):
+        os.mkdir('media')
+
+    # Скачиваем файлы в папку media
     for post in thread.posts:
         for file in post.files:
-            file.save("media/" + file.name)
-            print(f'Скачен файл: {file.name}')
-            time.sleep(1)
+            download_path = "media/" + file.name
+
+            if os.path.exists(download_path):
+                print(f'Файл {file.name} существует')
+
+            try:
+                file.save("media/" + file.name)
+                print(f'Скачен файл: {file.name}')
+                time.sleep(0.5)
+            except:
+                print('.', end='')
+                time.sleep(3)
