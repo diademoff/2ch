@@ -48,4 +48,22 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(len(new), 2)
         self.assertEqual(list(new.keys())[0], "245684546")
         self.assertEqual(list(new.keys())[1], "695423564")
-        
+    
+    def test_dead_thread(self):
+        json_plain = self.read_file('threads_json.json')
+        b = analytics.Board.json_read_data(json_plain)
+
+        json_deleted_plain = self.read_file('threads_json_removed.json')
+        threads_deleted_1 = analytics.Board.json_read_data(json_deleted_plain).threads
+
+        json_deleted_plain2 = self.read_file('threads_json_removed2.json')
+        threads_deleted_2 = analytics.Board.json_read_data(json_deleted_plain2).threads
+
+        deleted = b.get_dead_threads(threads_deleted_1)
+        self.assertEqual(len(deleted), 1)
+        self.assertEqual(list(deleted.keys())[0], "245695443")
+
+        deleted = b.get_dead_threads(threads_deleted_2)
+        self.assertEqual(len(deleted), 2)
+        self.assertEqual(list(deleted.keys())[0], "245698531")
+        self.assertEqual(list(deleted.keys())[1], "245695443")

@@ -95,11 +95,11 @@ class Board:
                     self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
 
     def get_dead_threads(self, comparewith):
-        """`comparewith` это список тредов, который был в прошлой раз."""
+        """`comparewith` это новый список тредов"""
         dead = dict()
-        for old in self.threads.keys():
-            if not (old in comparewith.keys()):
-                dead[str(old)] = self.threads[old]
+        for t in self.threads.keys():
+            if t not in comparewith.keys():
+                dead[str(t)] = self.threads[t]
         return dead
 
     def get_new_threads(self, comparewith):
