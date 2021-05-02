@@ -74,6 +74,7 @@ class TestAnalytics(unittest.TestCase):
         thread = analytics.Thread('b')
         thread.get_posts(json_plain)
 
+        self.assertEqual(thread.unique_posters, 43)
         self.assertEqual(len(thread.posts), 7)
         self.assertEqual(len(thread.posts[0].files), 1)
 

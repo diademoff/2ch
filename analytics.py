@@ -36,7 +36,7 @@ class Post:
     files: []
 
     def __init__(self, json_post_data):
-        self.comment = json_post_data['comment']
+        self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
         self.num = json_post_data['num']
         self.files = []
         for json_file_data in json_post_data['files']:
@@ -53,6 +53,7 @@ class Thread:
     subject: str
     timestamp: int
     views: int
+    unique_posters: int # определяется по оп посту 
 
     board_name: str  # тред должен знать на какой он борде
     posts = []
@@ -82,6 +83,7 @@ class Thread:
     def get_posts(self, json_posts):
         """Перезаписыват посты в треде из json"""
         posts_json = json.loads(json_posts)
+        self.unique_posters = int(posts_json[0]['unique_posters'])
         self.posts = []
         for post in posts_json:
             self.posts.append(Post(post))
@@ -184,7 +186,3 @@ class Board:
 
 def download_json(link: str) -> str:
     return requests.get(link, stream=True).text
-
-
-if __name__ == "__main__":
-    pass
