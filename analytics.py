@@ -5,6 +5,7 @@ import sys
 import os
 from bs4 import BeautifulSoup
 
+
 class Post_file:
     displayname: str
     name: str
@@ -19,17 +20,26 @@ class Post_file:
         self.width = json_data['width']
         self.height = json_data['height']
 
+    def save(self, path: str):
+        r = requests.get(self.download_link)
+        with open(path, 'wb') as output:
+            output.write(r.content)
+
+    @property
+    def download_link(self):
+        return f'https://2ch.hk{self.path}'
+
+
 class Post:
     comment: str
     num: str
     files: []
-    
 
     def __init__(self, json_post_data):
         self.comment = json_post_data['comment']
         self.num = json_post_data['num']
         self.files = []
-        for json_file_data in  json_post_data['files']:
+        for json_file_data in json_post_data['files']:
             self.files.append(Post_file(json_file_data))
 
 
@@ -76,6 +86,9 @@ class Thread:
         for post in posts_json:
             self.posts.append(Post(post))
 
+    def json_download(self):
+        return download_json(self.json_posts_link)
+
     @property
     def json_posts_link(self) -> str:
         return f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
@@ -110,7 +123,7 @@ class Board:
         self.threads = threads
 
     @staticmethod
-    def json_read_data(json_text: str):
+    def from_json(json_text: str):
         """Спарсить json и вернуть борду"""
         json_data = json.loads(json_text)
         threads_json = json_data['threads']
@@ -148,13 +161,12 @@ class Board:
                 new_threads[str(new)] = comparewith[new]
         return new_threads
 
-    def json_download(self) -> str:
+    @staticmethod
+    def json_download(board_name: str) -> str:
         """Скачать json."""
-        try:
-            json_downloaded = requests.get(self.json_link, stream=True).text
-            return json_downloaded
-        except:
-            return None
+        download_link = Board(board_name).json_link
+        json_downloaded = requests.get(download_link, stream=True).text
+        return json_downloaded
 
     @property
     def thread_exists(self, num: str) -> bool:
@@ -168,6 +180,10 @@ class Board:
     def json_link(self):
         """Ссылка на список тредов json."""
         return f'http://2ch.hk/{self.name}/threads.json'
+
+
+def download_json(link: str) -> str:
+    return requests.get(link, stream=True).text
 
 
 if __name__ == "__main__":

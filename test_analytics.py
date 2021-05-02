@@ -12,7 +12,7 @@ class TestAnalytics(unittest.TestCase):
 
     def test_read_json(self):
         json_plain = self.read_file('threads_json.json')
-        b = analytics.Board.json_read_data(json_plain)
+        b = analytics.Board.from_json(json_plain)
         
         self.assertEqual(b.name, 'b')
         self.assertEqual(len(b.threads.keys()), 5)
@@ -32,13 +32,13 @@ class TestAnalytics(unittest.TestCase):
 
     def test_new_thread(self):
         json_plain = self.read_file('threads_json.json')
-        b = analytics.Board.json_read_data(json_plain)
+        b = analytics.Board.from_json(json_plain)
 
         json_withnew_plain = self.read_file('threads_json_withnew.json')
-        threads_withnew_1 = analytics.Board.json_read_data(json_withnew_plain).threads
+        threads_withnew_1 = analytics.Board.from_json(json_withnew_plain).threads
 
         json_withnew2_plain = self.read_file('threads_json_withnew2.json')
-        threads_withnew_2 = analytics.Board.json_read_data(json_withnew2_plain).threads
+        threads_withnew_2 = analytics.Board.from_json(json_withnew2_plain).threads
 
         new = b.get_new_threads(threads_withnew_1)
         self.assertEqual(len(new), 1)
@@ -51,13 +51,13 @@ class TestAnalytics(unittest.TestCase):
     
     def test_dead_thread(self):
         json_plain = self.read_file('threads_json.json')
-        b = analytics.Board.json_read_data(json_plain)
+        b = analytics.Board.from_json(json_plain)
 
         json_deleted_plain = self.read_file('threads_json_removed.json')
-        threads_deleted_1 = analytics.Board.json_read_data(json_deleted_plain).threads
+        threads_deleted_1 = analytics.Board.from_json(json_deleted_plain).threads
 
         json_deleted_plain2 = self.read_file('threads_json_removed2.json')
-        threads_deleted_2 = analytics.Board.json_read_data(json_deleted_plain2).threads
+        threads_deleted_2 = analytics.Board.from_json(json_deleted_plain2).threads
 
         deleted = b.get_dead_threads(threads_deleted_1)
         self.assertEqual(len(deleted), 1)
