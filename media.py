@@ -3,6 +3,7 @@ import os
 import dvach
 
 # Скачать все файлы с треда
+FOLDER_NAME = 'media' # название папки, куда будут скачиваться файлы
 
 if __name__ == '__main__':
     print('Введите название борды: ', end='')
@@ -25,19 +26,20 @@ if __name__ == '__main__':
     thread.get_posts(json_thread)
 
     # Создаём папку с медиа
-    if not os.path.exists('media'):
-        os.mkdir('media')
+    if not os.path.exists(FOLDER_NAME) and os.path.isdir(FOLDER_NAME):
+        os.mkdir(FOLDER_NAME)
 
     # Скачиваем файлы в папку media
     for post in thread.posts:
         for file in post.files:
-            download_path = "media/" + file.name
+            download_path = os.path.normpath(FOLDER_NAME + '/' + file.name)
 
             if os.path.exists(download_path):
                 print(f'Файл {file.name} существует')
+                continue
 
             try:
-                file.save("media/" + file.name)
+                file.save(download_path)
                 print(f'Скачен файл: {file.name}')
                 time.sleep(0.5)
             except:
