@@ -66,46 +66,24 @@ class Board:
     name: str
     threads: dict
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, threads = dict()):
         """Инициализировать борду. Пример имени: `b`."""
         self.name = name
-        self.threads = dict()
+        self.threads = threads
 
-    def reload_threads(self):
-        """Скачать json и спарсить треды."""
-        try:
-            json_downloaded = requests.get(self.json_link, stream=True).text
-            json_data = json.loads(json_downloaded)
-            threads_json = json_data['threads']
-        except:
-            return None
+    @staticmethod
+    def json_read_data(json_text: str):
+        """Спарсить json и вернуть борду"""
+        json_data = json.loads(json_text)
+        threads_json = json_data['threads']
+        name_json = json_data['board']
 
         downloaded_threads = dict()
         for thread_json in threads_json:
-            thread = Thread(self.name, thread_json)
+            thread = Thread(name_json, thread_json)
             downloaded_threads[thread.num] = thread
 
-        dead = self.get_dead_threads(downloaded_threads)
-        new = self.get_new_threads(downloaded_threads)
-
-        # Remove dead
-        for d in dead.keys():
-            self.threads.pop(dead[d].num)
-
-        # Add new
-        for n in new.keys():
-            self.threads[new[n].num] = new[n]
-
-        # Save score histry
-        for t in downloaded_threads.keys():
-            dw_thread = downloaded_threads[t]
-            if dw_thread.num not in self.threads.keys():
-                self.threads[dw_thread.num] = dw_thread
-                continue
-            if self.threads[dw_thread.num].score_history[-1] != dw_thread.score:
-                self.threads[dw_thread.num].score_history.append(dw_thread.score)
-
-        return BoardRefreshInfo(dead, new)
+        return Board(name_json, downloaded_threads)
 
     def sort_threads_by_score(self):
         """Отсортировать треды по очкам."""
@@ -131,6 +109,14 @@ class Board:
             if not (new in self.threads.keys()):
                 new_threads[str(new)] = comparewith[new]
         return new_threads
+    
+    def json_download(self) -> str:
+        """Скачать json."""
+        try:
+            json_downloaded = requests.get(self.json_link, stream=True).text
+            return json_downloaded
+        except:
+            return None
 
     @property
     def thread_exists(self, num: str) -> bool:
@@ -146,80 +132,5 @@ class Board:
         return f'http://2ch.hk/{self.name}/threads.json'
 
 
-def show_popular(num: int, board='b'):
-    b = Board(board)
-    while True:
-        res = b.reload_threads()
-        b.sort_threads_by_score()
-        os.system('clear')
-
-        print('Most popular: ')
-
-        for i in range(num):
-            if not (i < len(b.threads)):
-                break
-            t = b.threads[list(b.threads.keys())[i]]
-
-            str_status = '⬦'
-            if len(t.score_history) > 2:
-                if t.score_history[-2] < t.score_history[-1]:
-                    str_status = '↑'
-                elif t.score_history[-2] == t.score_history[-1]:
-                    str_status = '⬦'
-                else:
-                    str_status = '↓'
-
-            text_limit = 155
-            comment_formatted = ('{0:' + str(text_limit) + '}').format(t.comment[:text_limit:])
-            score_formated = '{0:3}'.format(round(t.score))
-            posts_count_formatted = '{0:3}'.format(t.posts_count)
-            print(f"{str_status} /{board} scr:{score_formated}:{posts_count_formatted} | {comment_formatted} | {t.get_link}")
-
-        if res is None:
-            print('Refresh error')
-
-        time.sleep(15)
-
-def show_tracker(boards_list='b news sex v hw gg dev soc rf ma psy fet'):
-    boards = []
-    print('Scanning...')
-    for b in boards_list.split(' '):
-        boards.append(Board(b))
-        while True:
-            r = boards[-1].reload_threads()
-            if not (r is None):
-                break
-            time.sleep(5)
-    print('Done')
-    
-    while True:
-        for b in boards:
-            info = b.reload_threads()
-
-            if info is None:
-                print('.',end='')
-                continue
-
-            board_name = '{0:5}'.format(b.name)
-            text_limit = 155
-
-            for n in info.newThreads:
-                thread = info.newThreads[n]
-                comment_formatted = ('{0:' + str(text_limit) + '}').format(thread.comment[:text_limit:])
-                print(f"Новый на /{board_name} | {comment_formatted} | {thread.get_link}")
-                os.system(f'notify-send -t 23000 \"/{board_name} {thread.comment}\"')
-                time.sleep(2)
-
-        time.sleep(7)
-
 if __name__ == "__main__":
-
-    for arg in sys.argv:
-        if 'popular' in arg:
-            show_popular(int(arg.split('=')[1]))
-        elif arg == 'tracker':
-            show_tracker()
-
-    print('Запустите с использование параметров:')
-    print('popular=[num] - отображать самые популярные треды')
-    print('tracker - мониторить новые треды')
+    pass
