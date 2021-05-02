@@ -103,7 +103,7 @@ class Board:
         return dead
 
     def get_new_threads(self, comparewith):
-        """`comparewith` это список тредов, который был в прошлой раз."""
+        """`comparewith` это новый список тредов"""
         new_threads = dict()
         for new in comparewith.keys():
             if not (new in self.threads.keys()):

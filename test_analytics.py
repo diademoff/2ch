@@ -29,3 +29,23 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(b.threads[i].subject, "Продолжаем наблюдать за тупорылостью зумерков")
         self.assertEqual(b.threads[i].timestamp, 1619952370)
         self.assertEqual(b.threads[i].views, 0)
+
+    def test_new_thread(self):
+        json_plain = self.read_file('threads_json.json')
+        b = analytics.Board.json_read_data(json_plain)
+
+        json_withnew_plain = self.read_file('threads_json_withnew.json')
+        threads_withnew_1 = analytics.Board.json_read_data(json_withnew_plain).threads
+
+        json_withnew2_plain = self.read_file('threads_json_withnew2.json')
+        threads_withnew_2 = analytics.Board.json_read_data(json_withnew2_plain).threads
+
+        new = b.get_new_threads(threads_withnew_1)
+        self.assertEqual(len(new), 1)
+        self.assertEqual(list(new.keys())[0], "245684546")
+
+        new = b.get_new_threads(threads_withnew_2)
+        self.assertEqual(len(new), 2)
+        self.assertEqual(list(new.keys())[0], "245684546")
+        self.assertEqual(list(new.keys())[1], "695423564")
+        
