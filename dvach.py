@@ -88,6 +88,30 @@ class Thread:
         for post in posts_json:
             self.posts.append(Post(post))
 
+    def get_hierarchy(self, html_thread):
+        """
+        Получить иерархию тредов (без учета ОП-поста). 
+        
+        Ключ является номером поста, значение - это список ответов на пост
+        """
+        ref_map = {}
+
+        soup = BeautifulSoup(html_thread, "lxml")
+        posts = soup.find_all('div', class_="thread__post") 
+
+        for post in posts:
+            post_num = str(post.get('id'))
+            post_num = post_num.split('-')[1]
+
+            refmap = post.find_all('div', class_='post__refmap')[0]
+            refs = refmap.find_all('a', class_='post-reply-link')
+
+            ref_map[post_num] = []
+            for ref in refs:
+                ref_map[post_num].append(str(ref.get('data-num')))
+
+        return ref_map
+
     def json_download(self):
         return download_json(self.json_posts_link)
 

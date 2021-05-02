@@ -1,0 +1,2399 @@
+<main class="cntnt__right">
+	<div class="navbar">
+		<a id="hideFm" class="desktop hidefm">&lt;&lt;</a>
+		<script>
+			(function () {
+				var c;
+				try { c = st.styling.fm.collapsed; } catch (e) { c = false; }
+				if (c) {
+					document.getElementsByClassName('cntnt__left')[0].style.display = 'none';
+					document.getElementById('hideFm').innerHTML = '>>';
+				}
+			})()
+
+		</script>
+		<a id="top"></a>
+		<div class="thread-nav desktop">
+			<form class="search desktop" action="/makaba/makaba.fcgi" method="POST" enctype="multipart/form-data">
+				<input type="hidden" name="board" value="rf">
+				<input type="hidden" name="task" value="search">
+				<input type="text" name="find" class="input" placeholder="Поиск [enter]">
+			</form>
+
+			<div class="thread-nav__inner"><a href="/rf/">Назад</a> | <a href="#bottom">Вниз</a> | <a
+					href="/rf/catalog.html" class="desktop" target="_blank">Каталог</a> | <a href="#"
+					class="postbtn-update">Обновить тред</a> | <span class="autorefresh"
+					style="display: inline-block;"><input type="checkbox" class="autorefresh-checkbox"
+						id="autorefresh-checkbox-top" checked="checked"> Автообновление <span
+						class="autorefresh-countdown">через 19</span></span></div>
+
+			<div class="thread-nav__stats"><span title="Всего постов в треде" class="post-posts"><svg
+						xmlns="http://www.w3.org/2000/svg" class="icon">
+						<use xlink:href="#icon__posts"></use>
+					</svg> 27</span> <span title="Всего файлов в треде" class="post-files"><svg
+						xmlns="http://www.w3.org/2000/svg" class="icon">
+						<use xlink:href="#icon__images"></use>
+					</svg> 27</span> <span title="Постеры" class="post-posters"><svg xmlns="http://www.w3.org/2000/svg"
+						class="icon">
+						<use xlink:href="#icon__users"></use>
+					</svg> 8</span></div>
+
+
+		</div>
+
+		<div class="thread-nav-mob mobile">
+			<a class="button-mob" href="#">Назад</a>
+			<a class="button-mob" href="#bottom">Вниз</a>
+			<a class="button-mob" href="/rf/catalog.html">Каталог</a>
+			<a class="button-mob" href="#" onclick="PostF.updateThread(); return false;">Обновить</a>
+		</div>
+
+	</div>
+
+	<div id="posts-form">
+
+
+		<div id="thread-4280792" class="thread">
+
+
+
+			<div id="post-4280792" class="thread__oppost">
+				<div class="post post_type_oppost" id="post-body-4280792" data-num="4280792">
+
+					<div class="post__details" id="post-details-4280792">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280792">
+						<span class="post__detailpart">
+
+							<span class="post__title">
+								Хочу хиккимотоцикл, какие подводные?
+							</span>
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:26:44</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280792" id="4280792"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280792"
+								class="postbtn-reply-href post__reflink" data-num="4280792">4280792</a><span
+								class="post__number">1</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_favorite icon desktop" data-num="4280792"
+								id="fa-star4280792">
+								<use xlink:href="#icon__star"></use>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_expandimg icon desktop" data-num="4280792">
+								<use xlink:href="#icon__expandimg"></use>
+							</svg><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280792">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280792" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199584048590.jpg"
+									title="oxxy! .jpg"> oxxy! .jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">81Кб, 521x954</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199584048590.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199584048590s.jpg" alt="521x954"
+									id="img-4280792-312869d32207d7ac18be96d10e6cb226" class="post__file-preview   "
+									data-type="1" data-title="oxxy! .jpg" data-width="521" data-height="954"
+									data-md5="4280792-312869d32207d7ac18be96d10e6cb226"
+									data-src="/rf/src/4280792/16199584048590.jpg" width="136" height="250">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280792" class="post__message post__message_op">
+						Хочу хиккимотоцикл, какие подводные?
+
+					</article>
+					<div id="refmap-4280792" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280795" data-thread="4280792"
+							href="/rf/res/4280792.html#4280795">&gt;&gt;4280795</a> <a class="post-reply-link"
+							data-num="4280800" data-thread="4280792"
+							href="/rf/res/4280792.html#4280800">&gt;&gt;4280800</a> <a class="post-reply-link"
+							data-num="4280846" data-thread="4280792"
+							href="/rf/res/4280792.html#4280846">&gt;&gt;4280846</a> <a class="post-reply-link"
+							data-num="4280852" data-thread="4280792"
+							href="/rf/res/4280792.html#4280852">&gt;&gt;4280852</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280795" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280795" data-num="4280795">
+
+					<div class="post__details" id="post-details-4280795">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280795">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:28:58</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280795" id="4280795"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280795"
+								class="postbtn-reply-href post__reflink" data-num="4280795">4280795</a><span
+								class="post__number">2</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280795">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280795" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199585398860.jpg"
+									title="27.jpg"> 27.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">107Кб, 1000x1495</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199585398860.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199585398860s.jpg" alt="1000x1495"
+									id="img-4280795-4da2c65d76020a2171587bcaec9fdbd2" class="post__file-preview   "
+									data-type="1" data-title="27.jpg" data-width="1000" data-height="1495"
+									data-md5="4280795-4da2c65d76020a2171587bcaec9fdbd2"
+									data-src="/rf/src/4280792/16199585398860.jpg" width="133" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280795" class="post__message ">
+						<a href="/rf/res/4280792.html#4280792" class="post-reply-link" data-thread="4280792"
+							data-num="4280792">&gt;&gt;4280792 (OP)</a><br><span class="unkfunc">&gt;какие
+							подводные?</span><br>Кому-то придётся отскребать твои хиккимозги от асфальта и собирать твои
+						хиккиконечности по обочинам.
+
+					</article>
+					<div id="refmap-4280795" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280805" data-thread="4280792"
+							href="/rf/res/4280792.html#4280805">&gt;&gt;4280805</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280800" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280800" data-num="4280800">
+
+					<div class="post__details" id="post-details-4280800">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280800">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:32:16</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280800" id="4280800"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280800"
+								class="postbtn-reply-href post__reflink" data-num="4280800">4280800</a><span
+								class="post__number">3</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280800">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280800" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199587395630.jpg"
+									title="nazrin.jpg"> nazrin.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">356Кб, 850x1250</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199587395630.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199587395630s.jpg" alt="850x1250"
+									id="img-4280800-5088c47c0304ab07423eaffae24d87f8" class="post__file-preview   "
+									data-type="1" data-title="nazrin.jpg" data-width="850" data-height="1250"
+									data-md5="4280800-5088c47c0304ab07423eaffae24d87f8"
+									data-src="/rf/src/4280792/16199587395630.jpg" width="136" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280800" class="post__message ">
+						<a href="/rf/res/4280792.html#4280792" class="post-reply-link" data-thread="4280792"
+							data-num="4280792">&gt;&gt;4280792 (OP)</a><br>Чем хиккимотоцикл отличается от обычного
+						мотоцикла, чудесец?<br>А хиккемашина от машины чем отличается? М?<br><br>
+
+					</article>
+					<div id="refmap-4280800" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280802" data-thread="4280792"
+							href="/rf/res/4280792.html#4280802">&gt;&gt;4280802</a> <a class="post-reply-link"
+							data-num="4280803" data-thread="4280792"
+							href="/rf/res/4280792.html#4280803">&gt;&gt;4280803</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280802" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280802" data-num="4280802">
+
+					<div class="post__details" id="post-details-4280802">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280802">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:33:31</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280802" id="4280802"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280802"
+								class="postbtn-reply-href post__reflink" data-num="4280802">4280802</a><span
+								class="post__number">4</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280802">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280802" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199588129520.jpg"
+									title="1530108844398.jpg"> 1530108844398.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">32Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199588129520.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199588129520s.jpg" alt="640x479"
+									id="img-4280802-b402bd3934951fa3a55deaf590d4d320" class="post__file-preview   "
+									data-type="1" data-title="1530108844398.jpg" data-width="640" data-height="479"
+									data-md5="4280802-b402bd3934951fa3a55deaf590d4d320"
+									data-src="/rf/src/4280792/16199588129520.jpg" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280802" class="post__message ">
+						<a href="/rf/res/4280792.html#4280800" class="post-reply-link" data-thread="4280792"
+							data-num="4280800">&gt;&gt;4280800</a><br>Хиккемашина это как трансформер, может быть
+						машиной, а может быть убежищем для хикки.
+
+					</article>
+					<div id="refmap-4280802" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280808" data-thread="4280792"
+							href="/rf/res/4280792.html#4280808">&gt;&gt;4280808</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280803" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280803" data-num="4280803">
+
+					<div class="post__details" id="post-details-4280803">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280803">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:34:15</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280803" id="4280803"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280803"
+								class="postbtn-reply-href post__reflink" data-num="4280803">4280803</a><span
+								class="post__number">5</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280803">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280803" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199588563840.jpg"
+									title="Чун Юнь 62.jpg"> Чун Юнь 62.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">83Кб, 966x1252</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199588563840.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199588563840s.jpg" alt="966x1252"
+									id="img-4280803-d514bbfe34a990b47e36cc1d344de42f" class="post__file-preview   "
+									data-type="1" data-title="Чун Юнь 62.jpg" data-width="966" data-height="1252"
+									data-md5="4280803-d514bbfe34a990b47e36cc1d344de42f"
+									data-src="/rf/src/4280792/16199588563840.jpg" width="154" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280803" class="post__message ">
+						<a href="/rf/res/4280792.html#4280800" class="post-reply-link" data-thread="4280792"
+							data-num="4280800">&gt;&gt;4280800</a><br>Хикки мотоцикл не захочет выезжать из гаража.
+
+					</article>
+					<div id="refmap-4280803" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280805" class="thread__post">
+				<div class="post post_type_reply  " id="post-body-4280805" data-num="4280805">
+
+					<div class="post__details" id="post-details-4280805">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280805">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:35:21</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280805" id="4280805"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280805"
+								class="postbtn-reply-href post__reflink" data-num="4280805">4280805</a><span
+								class="post__number">6</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280805">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280805" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<article id="m4280805" class="post__message ">
+						<a href="/rf/res/4280792.html#4280795" class="post-reply-link" data-thread="4280792"
+							data-num="4280795">&gt;&gt;4280795</a><br>Если на дороге долбаёб не соблюдающий скоростные
+						режимы, в любом случае кто-то пострадает, разницы нет мотоцикл или авто.
+
+					</article>
+					<div id="refmap-4280805" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280808" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280808" data-num="4280808">
+
+					<div class="post__details" id="post-details-4280808">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280808">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:39:01</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280808" id="4280808"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280808"
+								class="postbtn-reply-href post__reflink" data-num="4280808">4280808</a><span
+								class="post__number">7</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280808">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280808" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199591428240.jpg"
+									title="nazrin.jpg"> nazrin.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">356Кб, 850x1250</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199591428240.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199591428240s.jpg" alt="850x1250"
+									id="img-4280808-5088c47c0304ab07423eaffae24d87f8" class="post__file-preview   "
+									data-type="1" data-title="nazrin.jpg" data-width="850" data-height="1250"
+									data-md5="4280808-5088c47c0304ab07423eaffae24d87f8"
+									data-src="/rf/src/4280792/16199591428240.jpg" width="136" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280808" class="post__message ">
+						<a href="/rf/res/4280792.html#4280802" class="post-reply-link" data-thread="4280792"
+							data-num="4280802">&gt;&gt;4280802</a><br>Чудесец, сколько стоит хиккемашина? Вижу, ты её
+						уже себе приобрёл, постоянно в этой хиккемашине сидишь и не вылазишь. Как там тебе живётся, в
+						хиккемашине этой, чудесец? Не тесно там? <br><br>Если есть хиккемашина, то нужен и хиккегараж, а
+						то не гоже хикке рядом с обычными машинами парковаться. Он у тебя тоже есть?
+
+					</article>
+					<div id="refmap-4280808" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280812" data-thread="4280792"
+							href="/rf/res/4280792.html#4280812">&gt;&gt;4280812</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280809" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280809" data-num="4280809">
+
+					<div class="post__details" id="post-details-4280809">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280809">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:39:05</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280809" id="4280809"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280809"
+								class="postbtn-reply-href post__reflink" data-num="4280809">4280809</a><span
+								class="post__number">8</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280809">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280809" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199591468880.png"
+									title="Суисей330.png"> Суисей330.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">402Кб, 537x621</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199591468880.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199591468880s.jpg" alt="537x621"
+									id="img-4280809-4969b370d85e68ec4d6a25411d4af290" class="post__file-preview   "
+									data-type="2" data-title="Суисей330.png" data-width="537" data-height="621"
+									data-md5="4280809-4969b370d85e68ec4d6a25411d4af290"
+									data-src="/rf/src/4280792/16199591468880.png" width="172" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280809" class="post__message ">
+						В хиккебаре отожмут, чудесец.
+
+					</article>
+					<div id="refmap-4280809" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280812" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280812" data-num="4280812">
+
+					<div class="post__details" id="post-details-4280812">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280812">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:42:46</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280812" id="4280812"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280812"
+								class="postbtn-reply-href post__reflink" data-num="4280812">4280812</a><span
+								class="post__number">9</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280812">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280812" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199593680380.png"
+									title="1579579061403.jpg"> 1579579061403.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">124Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199593680380.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199593680380s.jpg" alt="640x479"
+									id="img-4280812-9ba02cfef6ffc8433485c4b73c5e6601" class="post__file-preview   "
+									data-type="2" data-title="1579579061403.jpg" data-width="640" data-height="479"
+									data-md5="4280812-9ba02cfef6ffc8433485c4b73c5e6601"
+									data-src="/rf/src/4280792/16199593680380.png" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280812" class="post__message ">
+						<a href="/rf/res/4280792.html#4280808" class="post-reply-link" data-thread="4280792"
+							data-num="4280808">&gt;&gt;4280808</a><br>В моем случае бесплатно досталась мне. Ложусь,
+						закрываю глаза и представляю как я катаюсь на хиккемашине. Нет, не тесно, она когда
+						трансформируется, то становится достаточно большой и просторной, чудесец. Хиккегаража нет, у
+						моей хиккемашины есть карманный режим, она становится такой маленькой, что её можно поставить на
+						полочку и она будет там стоять никому не мешать, чудесец.
+
+					</article>
+					<div id="refmap-4280812" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280818" data-thread="4280792"
+							href="/rf/res/4280792.html#4280818">&gt;&gt;4280818</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280818" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280818" data-num="4280818">
+
+					<div class="post__details" id="post-details-4280818">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280818">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:47:17</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280818" id="4280818"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280818"
+								class="postbtn-reply-href post__reflink" data-num="4280818">4280818</a><span
+								class="post__number">10</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280818">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280818" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199596379900.png"
+									title="Суисей329.png"> Суисей329.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">400Кб, 518x627</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199596379900.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199596379900s.jpg" alt="518x627"
+									id="img-4280818-a5ed9582eb0febd237d0e7f254e27d1f" class="post__file-preview   "
+									data-type="2" data-title="Суисей329.png" data-width="518" data-height="627"
+									data-md5="4280818-a5ed9582eb0febd237d0e7f254e27d1f"
+									data-src="/rf/src/4280792/16199596379900.png" width="165" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280818" class="post__message ">
+						<a href="/rf/res/4280792.html#4280812" class="post-reply-link" data-thread="4280792"
+							data-num="4280812">&gt;&gt;4280812</a><br>По наследству Сави, чудесец? Чудесец новые
+						разработки получил. Она же меньше пальца будет, чудесец?
+
+					</article>
+					<div id="refmap-4280818" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280824" data-thread="4280792"
+							href="/rf/res/4280792.html#4280824">&gt;&gt;4280824</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280824" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280824" data-num="4280824">
+
+					<div class="post__details" id="post-details-4280824">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280824">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:52:02</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280824" id="4280824"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280824"
+								class="postbtn-reply-href post__reflink" data-num="4280824">4280824</a><span
+								class="post__number">11</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280824">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280824" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199599231440.jpg"
+									title="1546705447915.jpg"> 1546705447915.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">32Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199599231440.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199599231440s.jpg" alt="640x479"
+									id="img-4280824-4cb7351c39dda68827d7788c0a3474c6" class="post__file-preview   "
+									data-type="1" data-title="1546705447915.jpg" data-width="640" data-height="479"
+									data-md5="4280824-4cb7351c39dda68827d7788c0a3474c6"
+									data-src="/rf/src/4280792/16199599231440.jpg" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280824" class="post__message ">
+						<a href="/rf/res/4280792.html#4280818" class="post-reply-link" data-thread="4280792"
+							data-num="4280818">&gt;&gt;4280818</a><br>Да, по наследству Сави, чудесец. Да, такая вот она
+						маленькая миниатюрная хиккемашина, чудесец.
+
+					</article>
+					<div id="refmap-4280824" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280827" data-thread="4280792"
+							href="/rf/res/4280792.html#4280827">&gt;&gt;4280827</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280827" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280827" data-num="4280827">
+
+					<div class="post__details" id="post-details-4280827">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280827">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:54:09</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280827" id="4280827"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280827"
+								class="postbtn-reply-href post__reflink" data-num="4280827">4280827</a><span
+								class="post__number">12</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280827">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280827" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199600511390.png"
+									title="Суисей328.png"> Суисей328.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">473Кб, 493x657</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199600511390.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199600511390s.jpg" alt="493x657"
+									id="img-4280827-5ddb28f790b4e5b1cd2d5c3c7e12f1ff" class="post__file-preview   "
+									data-type="2" data-title="Суисей328.png" data-width="493" data-height="657"
+									data-md5="4280827-5ddb28f790b4e5b1cd2d5c3c7e12f1ff"
+									data-src="/rf/src/4280792/16199600511390.png" width="150" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280827" class="post__message ">
+						<a href="/rf/res/4280792.html#4280824" class="post-reply-link" data-thread="4280792"
+							data-num="4280824">&gt;&gt;4280824</a><br>А если в машине случайно оставить руку, чудесец,
+						она тоже станет маленькой?, что ещё там есть, чудесец, скажи скажи скажи! Чуднесец!
+
+					</article>
+					<div id="refmap-4280827" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280834" data-thread="4280792"
+							href="/rf/res/4280792.html#4280834">&gt;&gt;4280834</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280834" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280834" data-num="4280834">
+
+					<div class="post__details" id="post-details-4280834">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280834">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 15:59:51</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280834" id="4280834"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280834"
+								class="postbtn-reply-href post__reflink" data-num="4280834">4280834</a><span
+								class="post__number">13</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280834">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280834" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199603920460.png"
+									title="1481336468072.jpg"> 1481336468072.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">124Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199603920460.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199603920460s.jpg" alt="640x479"
+									id="img-4280834-64fccbb08d88e7501258f8511a062f81" class="post__file-preview   "
+									data-type="2" data-title="1481336468072.jpg" data-width="640" data-height="479"
+									data-md5="4280834-64fccbb08d88e7501258f8511a062f81"
+									data-src="/rf/src/4280792/16199603920460.png" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280834" class="post__message ">
+						<a href="/rf/res/4280792.html#4280827" class="post-reply-link" data-thread="4280792"
+							data-num="4280827">&gt;&gt;4280827</a><br>Нет, тогда хиккемашина выплюнет руку, чудесец. Там
+						есть много чего, когда хиккемашина в режиме убежища, там есть ванная комната, кухня, мощный пк с
+						играми и аниме, уютный диван с пледом и дакимакурой, бесконечный запас всяких вкусностей и
+						различных напитков, ещё много чего, хиккемашина в режиме убежища это целый дворец, чудесец.
+
+					</article>
+					<div id="refmap-4280834" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280835" data-thread="4280792"
+							href="/rf/res/4280792.html#4280835">&gt;&gt;4280835</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280835" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280835" data-num="4280835">
+
+					<div class="post__details" id="post-details-4280835">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280835">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:02:43</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280835" id="4280835"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280835"
+								class="postbtn-reply-href post__reflink" data-num="4280835">4280835</a><span
+								class="post__number">14</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280835">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280835" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199605640730.png"
+									title="Суисей330.png"> Суисей330.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">402Кб, 537x621</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199605640730.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199605640730s.jpg" alt="537x621"
+									id="img-4280835-3683731c2586f949d3551255d5c41f1f" class="post__file-preview   "
+									data-type="2" data-title="Суисей330.png" data-width="537" data-height="621"
+									data-md5="4280835-3683731c2586f949d3551255d5c41f1f"
+									data-src="/rf/src/4280792/16199605640730.png" width="172" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280835" class="post__message ">
+						<a href="/rf/res/4280792.html#4280834" class="post-reply-link" data-thread="4280792"
+							data-num="4280834">&gt;&gt;4280834</a><br>Главный вопрос, там есть Сави, чудесец. Мне он
+						очень нужен сейчас Сави, я не знаю что это, он мне нужен, чудесец. Чудесец! Чудесец-чудесец!
+
+					</article>
+					<div id="refmap-4280835" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280840" data-thread="4280792"
+							href="/rf/res/4280792.html#4280840">&gt;&gt;4280840</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280840" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280840" data-num="4280840">
+
+					<div class="post__details" id="post-details-4280840">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280840">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:05:03</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280840" id="4280840"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280840"
+								class="postbtn-reply-href post__reflink" data-num="4280840">4280840</a><span
+								class="post__number">15</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280840">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280840" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199607048200.jpg"
+									title="1618230083186.jpg"> 1618230083186.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">32Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199607048200.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199607048200s.jpg" alt="640x479"
+									id="img-4280840-4108a4738130659c6b0ef1115537a54d" class="post__file-preview   "
+									data-type="1" data-title="1618230083186.jpg" data-width="640" data-height="479"
+									data-md5="4280840-4108a4738130659c6b0ef1115537a54d"
+									data-src="/rf/src/4280792/16199607048200.jpg" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280840" class="post__message ">
+						<a href="/rf/res/4280792.html#4280835" class="post-reply-link" data-thread="4280792"
+							data-num="4280835">&gt;&gt;4280835</a><br>Конечно там есть Сави, чудесец! Там есть Сави, да,
+						чудесец.
+
+					</article>
+					<div id="refmap-4280840" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280841" data-thread="4280792"
+							href="/rf/res/4280792.html#4280841">&gt;&gt;4280841</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280841" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280841" data-num="4280841">
+
+					<div class="post__details" id="post-details-4280841">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280841">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:06:18</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280841" id="4280841"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280841"
+								class="postbtn-reply-href post__reflink" data-num="4280841">4280841</a><span
+								class="post__number">16</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280841">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280841" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199607793600.png"
+									title="Суисей327.png"> Суисей327.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">354Кб, 397x576</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199607793600.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199607793600s.jpg" alt="397x576"
+									id="img-4280841-ac8ab0c6308043402f07fe7b6a118385" class="post__file-preview   "
+									data-type="2" data-title="Суисей327.png" data-width="397" data-height="576"
+									data-md5="4280841-ac8ab0c6308043402f07fe7b6a118385"
+									data-src="/rf/src/4280792/16199607793600.png" width="137" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280841" class="post__message ">
+						<a href="/rf/res/4280792.html#4280840" class="post-reply-link" data-thread="4280792"
+							data-num="4280840">&gt;&gt;4280840</a><br>Хорошо, чудесец, хорошо, чудесец. Хорошо! Хорошо,
+						чудесец! Лучше быть и не может и сейчас, мне очень нужен Сави, чудесец. Тебе тоже нужен Сави,
+						чудесец.
+
+					</article>
+					<div id="refmap-4280841" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280857" data-thread="4280792"
+							href="/rf/res/4280792.html#4280857">&gt;&gt;4280857</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280846" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280846" data-num="4280846">
+
+					<div class="post__details" id="post-details-4280846">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280846">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:11:32</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280846" id="4280846"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280846"
+								class="postbtn-reply-href post__reflink" data-num="4280846">4280846</a><span
+								class="post__number">17</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280846">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280846" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199610934120.png"
+									title="upload20210421011348219.png"> upload202104210[...].png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">363Кб, 906x794</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199610934120.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199610934120s.jpg" alt="906x794"
+									id="img-4280846-66e930fb5063e28e0ae0aa633e8c2ec3" class="post__file-preview   "
+									data-type="2" data-title="upload20210421011348219.png" data-width="906"
+									data-height="794" data-md5="4280846-66e930fb5063e28e0ae0aa633e8c2ec3"
+									data-src="/rf/src/4280792/16199610934120.png" width="200" height="175">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280846" class="post__message ">
+						<a href="/rf/res/4280792.html#4280792" class="post-reply-link" data-thread="4280792"
+							data-num="4280792">&gt;&gt;4280792 (OP)</a><br>Нормальный такой хиккимотоцыкл сильно так
+						ударит по твоему хиккикарману, полагаю.
+
+					</article>
+					<div id="refmap-4280846" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280852" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280852" data-num="4280852">
+
+					<div class="post__details" id="post-details-4280852">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280852">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:16:03</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280852" id="4280852"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280852"
+								class="postbtn-reply-href post__reflink" data-num="4280852">4280852</a><span
+								class="post__number">18</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280852">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280852" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199613643550.jpg"
+									title="1619961358085.jpg"> 1619961358085.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">339Кб, 1067x1600</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199613643550.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199613643550s.jpg" alt="1067x1600"
+									id="img-4280852-980a9c741a2fd8554d9660985fb8d4f6" class="post__file-preview   "
+									data-type="1" data-title="1619961358085.jpg" data-width="1067" data-height="1600"
+									data-md5="4280852-980a9c741a2fd8554d9660985fb8d4f6"
+									data-src="/rf/src/4280792/16199613643550.jpg" width="133" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280852" class="post__message ">
+						<a href="/rf/res/4280792.html#4280792" class="post-reply-link" data-thread="4280792"
+							data-num="4280792">&gt;&gt;4280792 (OP)</a><br>Ну и на какой именно упал твой
+						взгляд?<br>Полагаю, если с приставкой "хикки" - то какой-то совковый малыш который будет
+						постоянно на выебонах и хуй, блять, когда нормально поедет.<br><br>Возьми себе лучше ебучего
+						китайца, на японца а уж тем более америкоса бабла хуй хватит и запчастей не так много будет.
+
+					</article>
+					<div id="refmap-4280852" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280857" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280857" data-num="4280857">
+
+					<div class="post__details" id="post-details-4280857">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280857">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:20:38</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280857" id="4280857"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280857"
+								class="postbtn-reply-href post__reflink" data-num="4280857">4280857</a><span
+								class="post__number">19</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280857">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280857" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199616399050.jpg"
+									title="nazrin.jpg"> nazrin.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">271Кб, 850x1157</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199616399050.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199616399050s.jpg" alt="850x1157"
+									id="img-4280857-9336f0174d7ae405ae241e91212a9054" class="post__file-preview   "
+									data-type="1" data-title="nazrin.jpg" data-width="850" data-height="1157"
+									data-md5="4280857-9336f0174d7ae405ae241e91212a9054"
+									data-src="/rf/src/4280792/16199616399050.jpg" width="146" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280857" class="post__message ">
+						<a href="/rf/res/4280792.html#4280841" class="post-reply-link" data-thread="4280792"
+							data-num="4280841">&gt;&gt;4280841</a><br>Чудесец-чудесец, дай потрогать ушки твои, чудесец!
+						Мягкие ушки, чудесецно-кошачьи ушки!
+
+					</article>
+					<div id="refmap-4280857" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280859" data-thread="4280792"
+							href="/rf/res/4280792.html#4280859">&gt;&gt;4280859</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280859" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280859" data-num="4280859">
+
+					<div class="post__details" id="post-details-4280859">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280859">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:22:47</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280859" id="4280859"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280859"
+								class="postbtn-reply-href post__reflink" data-num="4280859">4280859</a><span
+								class="post__number">20</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280859">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280859" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199617686510.png"
+									title="Суисей328.png"> Суисей328.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">473Кб, 493x657</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199617686510.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199617686510s.jpg" alt="493x657"
+									id="img-4280859-23ca3548d6c59aad29541dc7928bec1f" class="post__file-preview   "
+									data-type="2" data-title="Суисей328.png" data-width="493" data-height="657"
+									data-md5="4280859-23ca3548d6c59aad29541dc7928bec1f"
+									data-src="/rf/src/4280792/16199617686510.png" width="150" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280859" class="post__message ">
+						<a href="/rf/res/4280792.html#4280857" class="post-reply-link" data-thread="4280792"
+							data-num="4280857">&gt;&gt;4280857</a><br>Чудесец, хорошо. Хорошо! Сави! Сави-сави! Дай
+						свои, чудесец. <a href="https://youtu.be/E-Xxo6utgNA" target="_blank"
+							rel="nofollow noopener noreferrer">https://youtu.be/E-Xxo6utgNA</a><span href="#"
+							class="media-expand-button">[РАСКРЫТЬ]</span>
+
+					</article>
+					<div id="refmap-4280859" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280864" data-thread="4280792"
+							href="/rf/res/4280792.html#4280864">&gt;&gt;4280864</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280864" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280864" data-num="4280864">
+
+					<div class="post__details" id="post-details-4280864">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280864">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:29:04</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280864" id="4280864"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280864"
+								class="postbtn-reply-href post__reflink" data-num="4280864">4280864</a><span
+								class="post__number">21</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280864">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280864" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199621454030.jpg"
+									title="nazrin.jpg"> nazrin.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">173Кб, 850x1006</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199621454030.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199621454030s.jpg" alt="850x1006"
+									id="img-4280864-54d80681bdfa1fa736cdcf2cc59fdc17" class="post__file-preview   "
+									data-type="1" data-title="nazrin.jpg" data-width="850" data-height="1006"
+									data-md5="4280864-54d80681bdfa1fa736cdcf2cc59fdc17"
+									data-src="/rf/src/4280792/16199621454030.jpg" width="168" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280864" class="post__message ">
+						<a href="/rf/res/4280792.html#4280859" class="post-reply-link" data-thread="4280792"
+							data-num="4280859">&gt;&gt;4280859</a><br>Держи, чудесец..<br>Осторожно только трогай ушки
+						мои, чудесец!<br>И недолго! Стесняюсь же, чудесец
+
+					</article>
+					<div id="refmap-4280864" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280866" data-thread="4280792"
+							href="/rf/res/4280792.html#4280866">&gt;&gt;4280866</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280866" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280866" data-num="4280866">
+
+					<div class="post__details" id="post-details-4280866">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280866">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:33:13</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280866" id="4280866"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280866"
+								class="postbtn-reply-href post__reflink" data-num="4280866">4280866</a><span
+								class="post__number">22</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280866">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280866" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199623941430.png"
+									title="Суисей330.png"> Суисей330.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">402Кб, 537x621</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199623941430.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199623941430s.jpg" alt="537x621"
+									id="img-4280866-121b24c5f3a14f4faaad8722466540f8" class="post__file-preview   "
+									data-type="2" data-title="Суисей330.png" data-width="537" data-height="621"
+									data-md5="4280866-121b24c5f3a14f4faaad8722466540f8"
+									data-src="/rf/src/4280792/16199623941430.png" width="172" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280866" class="post__message ">
+						<a href="/rf/res/4280792.html#4280864" class="post-reply-link" data-thread="4280792"
+							data-num="4280864">&gt;&gt;4280864</a><br>Сааави, Сави, чудесец. Хорошо! Хорошо! Чудесные
+						уши, чудесец. Хорошо! В хиккемашине поместятся такие уши?
+
+					</article>
+					<div id="refmap-4280866" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280870" data-thread="4280792"
+							href="/rf/res/4280792.html#4280870">&gt;&gt;4280870</a> <a class="post-reply-link"
+							data-num="4280871" data-thread="4280792"
+							href="/rf/res/4280792.html#4280871">&gt;&gt;4280871</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280870" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280870" data-num="4280870">
+
+					<div class="post__details" id="post-details-4280870">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280870">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:35:13</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280870" id="4280870"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280870"
+								class="postbtn-reply-href post__reflink" data-num="4280870">4280870</a><span
+								class="post__number">23</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280870">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280870" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199625151180.jpg"
+									title="1559271949475.jpg"> 1559271949475.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">32Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199625151180.jpg" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199625151180s.jpg" alt="640x479"
+									id="img-4280870-62fe69ef7e21cae4331eca9d05117ddd" class="post__file-preview   "
+									data-type="1" data-title="1559271949475.jpg" data-width="640" data-height="479"
+									data-md5="4280870-62fe69ef7e21cae4331eca9d05117ddd"
+									data-src="/rf/src/4280792/16199625151180.jpg" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280870" class="post__message ">
+						<a href="/rf/res/4280792.html#4280866" class="post-reply-link" data-thread="4280792"
+							data-num="4280866">&gt;&gt;4280866</a><br>Там и ещё более большие ушки поместятся, чудесец.
+
+					</article>
+					<div id="refmap-4280870" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280874" data-thread="4280792"
+							href="/rf/res/4280792.html#4280874">&gt;&gt;4280874</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280871" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280871" data-num="4280871">
+
+					<div class="post__details" id="post-details-4280871">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280871">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:39:35</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280871" id="4280871"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280871"
+								class="postbtn-reply-href post__reflink" data-num="4280871">4280871</a><span
+								class="post__number">24</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280871">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280871" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199627764980.png"
+									title="nazrin.png"> nazrin.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">1498Кб, 1000x1387</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199627764980.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199627764980s.jpg" alt="1000x1387"
+									id="img-4280871-e154e6897f5a1f4322bb1eb7815f64c8" class="post__file-preview   "
+									data-type="2" data-title="nazrin.png" data-width="1000" data-height="1387"
+									data-md5="4280871-e154e6897f5a1f4322bb1eb7815f64c8"
+									data-src="/rf/src/4280792/16199627764980.png" width="144" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280871" class="post__message ">
+						<a href="/rf/res/4280792.html#4280866" class="post-reply-link" data-thread="4280792"
+							data-num="4280866">&gt;&gt;4280866</a><br>Поместятся, чудесец, конечно поместятся! Вот купим
+						хиккемашину, тогда и увидишь<br><br>Будем зелёный чай с лимоном пить, чудесец, роллтон
+						заваривать и живот больше никогда болеть не будет. Втуберов всяких смотреть.. Для счастья и не
+						нужно более. Верно, чудесец?
+
+					</article>
+					<div id="refmap-4280871" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280879" data-thread="4280792"
+							href="/rf/res/4280792.html#4280879">&gt;&gt;4280879</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280874" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280874" data-num="4280874">
+
+					<div class="post__details" id="post-details-4280874">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280874">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:40:36</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280874" id="4280874"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280874"
+								class="postbtn-reply-href post__reflink" data-num="4280874">4280874</a><span
+								class="post__number">25</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280874">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280874" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199628379250.png"
+									title="Суисей328.png"> Суисей328.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">473Кб, 493x657</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199628379250.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199628379250s.jpg" alt="493x657"
+									id="img-4280874-ffb2c57f875fbdad94aa05824eadcab7" class="post__file-preview   "
+									data-type="2" data-title="Суисей328.png" data-width="493" data-height="657"
+									data-md5="4280874-ffb2c57f875fbdad94aa05824eadcab7"
+									data-src="/rf/src/4280792/16199628379250.png" width="150" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280874" class="post__message ">
+						<a href="/rf/res/4280792.html#4280870" class="post-reply-link" data-thread="4280792"
+							data-num="4280870">&gt;&gt;4280870</a><br>Правда-правда, чудесец Сави, Правда? правда?
+
+					</article>
+					<div id="refmap-4280874" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280890" data-thread="4280792"
+							href="/rf/res/4280792.html#4280890">&gt;&gt;4280890</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280879" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280879" data-num="4280879">
+
+					<div class="post__details" id="post-details-4280879">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280879">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:41:43</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280879" id="4280879"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280879"
+								class="postbtn-reply-href post__reflink" data-num="4280879">4280879</a><span
+								class="post__number">26</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280879">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280879" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199629049630.png"
+									title="Суисей329.png"> Суисей329.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">400Кб, 518x627</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199629049630.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199629049630s.jpg" alt="518x627"
+									id="img-4280879-5afdb0b1ee44b952b69703e9a9cc6573" class="post__file-preview   "
+									data-type="2" data-title="Суисей329.png" data-width="518" data-height="627"
+									data-md5="4280879-5afdb0b1ee44b952b69703e9a9cc6573"
+									data-src="/rf/src/4280792/16199629049630.png" width="165" height="200">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280879" class="post__message ">
+						<a href="/rf/res/4280792.html#4280871" class="post-reply-link" data-thread="4280792"
+							data-num="4280871">&gt;&gt;4280871</a><br>Чудесец Сави, чудесец Сави! Сави! Верно, чудесец!
+						Сави! Сааави! Чудо, чудесец. Хиккемашину покупать и не нужно вовсе.
+
+					</article>
+					<div id="refmap-4280879" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280890" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280890" data-num="4280890">
+
+					<div class="post__details" id="post-details-4280890">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280890">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 16:59:24</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280890" id="4280890"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280890"
+								class="postbtn-reply-href post__reflink" data-num="4280890">4280890</a><span
+								class="post__number">27</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280890">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280890" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199639651050.png"
+									title="1569193462676.jpg"> 1569193462676.jpg</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">124Кб, 640x479</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199639651050.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199639651050s.jpg" alt="640x479"
+									id="img-4280890-b74514744a2581a9e333995d1f3d1ea4" class="post__file-preview   "
+									data-type="2" data-title="1569193462676.jpg" data-width="640" data-height="479"
+									data-md5="4280890-b74514744a2581a9e333995d1f3d1ea4"
+									data-src="/rf/src/4280792/16199639651050.png" width="200" height="149">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280890" class="post__message ">
+						<a href="/rf/res/4280792.html#4280874" class="post-reply-link" data-thread="4280792"
+							data-num="4280874">&gt;&gt;4280874</a><br>Правда-правда, чудесец.
+
+					</article>
+					<div id="refmap-4280890" class="post__refmap" style="display: block;"><a class="post-reply-link"
+							data-num="4280891" data-thread="4280792"
+							href="/rf/res/4280792.html#4280891">&gt;&gt;4280891</a> </div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="post-4280891" class="thread__post">
+				<div class="post post_type_reply post_withimg " id="post-body-4280891" data-num="4280891">
+
+					<div class="post__details" id="post-details-4280891">
+						<input type="checkbox" name="delete" class="turnmeoff" value="4280891">
+						<span class="post__detailpart">
+
+
+							<span class="post__anon">Обреченный</span>
+
+
+
+
+							<span class="post__time">02/05/21 Вск 17:00:38</span>
+						</span>
+						<span class="post__detailpart"><a href="/rf/res/4280792.html#4280891" id="4280891"
+								class="post__reflink">№</a><a href="/rf/res/4280792.html#4280891"
+								class="postbtn-reply-href post__reflink" data-num="4280891">4280891</a><span
+								class="post__number">28</span></span>
+						<span class="post__detailpart"><svg xmlns="http://www.w3.org/2000/svg"
+								class="post__btn post__btn_type_menu icon desktop" data-num="4280891">
+								<use xlink:href="#icon__addmenu"></use>
+							</svg><span data-num="4280891" onclick="addAdminMenu(this); return false;"
+								onmouseout="removeAdminMenu(event); return false;"><svg
+									xmlns="http://www.w3.org/2000/svg" class="post__btn post__btn_type_adm icon">
+									<use xlink:href="#icon__report"></use>
+								</svg></span>
+						</span>
+
+
+						<br class="turnmeoff">
+					</div>
+
+					<div class="post__images post__images_type_single ">
+						<figure class="post__image">
+							<figcaption class="post__file-attr">
+								<a class="desktop" target="_blank" href="/rf/src/4280792/16199640398980.png"
+									title="Суисей333.png"> Суисей333.png</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon js-post-findimg desktop">
+									<use xlink:href="#icon__findimg"></use>
+								</svg>
+
+								<span class="post__filezise">348Кб, 532x525</span>
+							</figcaption>
+							<a href="/rf/src/4280792/16199640398980.png" class="post__image-link" target="_blank"
+								onclick="return false;">
+								<img src="/rf/thumb/4280792/16199640398980s.jpg" alt="532x525"
+									id="img-4280891-48e4d12f8d104d5f2392641bf23f0170" class="post__file-preview   "
+									data-type="2" data-title="Суисей333.png" data-width="532" data-height="525"
+									data-md5="4280891-48e4d12f8d104d5f2392641bf23f0170"
+									data-src="/rf/src/4280792/16199640398980.png" width="200" height="197">
+								<!-- loading="lazy" -->
+							</a>
+						</figure>
+					</div>
+
+					<article id="m4280891" class="post__message ">
+						<a href="/rf/res/4280792.html#4280890" class="post-reply-link" data-thread="4280792"
+							data-num="4280890">&gt;&gt;4280890</a><br>Спасибо, чудесец. Спасибо-спасибо, чудесец!
+
+					</article>
+					<div id="refmap-4280891" class="post__refmap" style="display: none;"></div>
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<div class="navbar">
+		<a id="bottom"></a>
+
+		<div class="thread-nav desktop">
+			<div class="thread-nav__inner">
+				<a href="/rf/">Назад</a> | <a href="#top">Вверх</a>
+				| <a href="#" id="postbtn-favorite-bottom" onclick="return false;">Подписаться на тред</a>
+				| <a href="#" class="postbtn-update">Обновить тред</a>
+				| <span class="autorefresh" style="display: inline-block;"><input type="checkbox"
+						class="autorefresh-checkbox" id="autorefresh-checkbox-bot" checked="checked"> Автообновление
+					<span class="autorefresh-countdown">через 19</span></span>
+			</div>
+			<div class="thread-nav__stats"><span title="Всего постов в треде" class="post-posts"><svg
+						xmlns="http://www.w3.org/2000/svg" class="icon">
+						<use xlink:href="#icon__posts"></use>
+					</svg> 27</span> <span title="Всего файлов в треде" class="post-files"><svg
+						xmlns="http://www.w3.org/2000/svg" class="icon">
+						<use xlink:href="#icon__images"></use>
+					</svg> 27</span> <span title="Постеры" class="post-posters"><svg xmlns="http://www.w3.org/2000/svg"
+						class="icon">
+						<use xlink:href="#icon__users"></use>
+					</svg> 8</span> </div>
+		</div>
+
+
+		<div class="thread-nav-mob mobile">
+			<a class="button-mob" href="#">Назад</a>
+			<a class="button-mob" href="#top">Вверх</a>
+			<a class="button-mob" href="/rf/catalog.html">Каталог</a>
+			<a class="button-mob" href="#" onclick="PostF.updateThread(); return false;">Обновить</a>
+		</div>
+
+	</div>
+	<footer class="footer">
+		<div class="newpost">
+			<div class="newpost__wrapper">
+				<a class="newpost__label newpost__label_bot desktop" href="#">Ответить в тред</a>
+				<span class="newpost__label button-mob mobile newpost__label_bot">Ответить в тред</span>
+			</div>
+			<div id="BottomNormalReply"></div>
+		</div>
+
+		<hr class="prerekl-hr">
+		<section class="mmm">
+			<!--<script type="text/javascript" async src="https://relap.io/v7/relap.js" data-relap-token="RT1F-3_7usQ5MomM"></script>
+						<div style="width: calc(100% - 30px);min-height: 260px;"><div class="js-relap-anchor" data-relap-id="LNvbd65vlW6UpKSk"></div></div>-->
+
+			<a href="/banners/CExQeE4tdixQmH1q/" target="_blank"><img alt="Check this out!" class="mmm__img"
+					src="/banners/CExQeE4tdixQmH1q.jpg"></a>
+
+		</section>
+		<hr>
+
+		<section class="nb desktop">
+			<div class="nb__switcher">
+				<a href="#" data-switch="hour" class="nb__switcher_active">Топ за час</a> •
+				<a href="#" data-switch="day">Топ за сегодня</a> •
+				<a href="#" data-switch="latest">Последние 10</a>
+			</div>
+			<div class="nb__data">
+				<div class="nb__item">• <a href="/news/res/9892567.html">«Лысый из Brazzers» попросил</a></div>
+				<div class="nb__item">• <a href="/news/res/9892658.html">Сисян больше не сможет находить недвигу русских
+						чиновников в Чехии</a></div>
+				<div class="nb__item">• <a href="/news/res/9892669.html">В Пензе мужчина завершил банковскую операцию и
+						оказался под </a></div>
+				<div class="nb__item">• <a href="/news/res/9891217.html">Сталин захотел победить на выборах в Индии</a>
+				</div>
+				<div class="nb__item">• <a href="/news/res/9891196.html">«Ушел Мишаня»: Алла Пугачева не может прийти в
+						себя после страшной трагедии</a></div>
+				<div class="nb__item">• <a href="/news/res/9891453.html">Читать книги - признак экстремизма!</a></div>
+			</div>
+		</section>
+
+		<hr>
+
+
+		<div class="desktop adminbar adminbar-bottom">
+			<div class="adminbar__boards" id="boardNavBottom">
+				<span class="adminbar__cat">Тематика&nbsp;[<a title="автомобили и транспорт" href="/au/">au</a> / <a
+						title="велосипеды" href="/bi/">bi</a> / <a title="бизнес" href="/biz/">biz</a> / <a
+						title="книги" href="/bo/">bo</a> / <a title="комиксы и мультфильмы" href="/c/">c</a> / <a
+						title="другие страны и туризм" href="/em/">em</a> / <a title="мода и стиль" href="/fa/">fa</a> /
+					<a title="физкультура" href="/fiz/">fiz</a> / <a title="иностранные языки" href="/fl/">fl</a> / <a
+						title="футбол" href="/ftb/">ftb</a> / <a title="hip-hop" href="/hh/">hh</a> / <a title="история"
+						href="/hi/">hi</a> / <a title="медицина" href="/me/">me</a> / <a title="магия"
+						href="/mg/">mg</a> / <a title="my little pony" href="/mlp/">mlp</a> / <a title="мотоциклы"
+						href="/mo/">mo</a> / <a title="Фильмы" href="/mov/">mov</a> / <a title="музыка"
+						href="/mu/">mu</a> / <a title="животные и природа" href="/ne/">ne</a> / <a title="психология"
+						href="/psy/">psy</a> / <a title="религия" href="/re/">re</a> / <a title="наука"
+						href="/sci/">sci</a> / <a title="научная фантастика" href="/sf/">sf</a> / <a
+						title="паранормальные явления" href="/sn/">sn</a> / <a title="спорт" href="/sp/">sp</a> / <a
+						title="космос и астрономия" href="/spc/">spc</a> / <a title="тв и кино" href="/tv/">tv</a> / <a
+						title="образование" href="/un/">un</a> / <a title="оружие" href="/w/">w</a> / <a
+						title="warhammer" href="/wh/">wh</a> / <a title="военная техника и оружие" href="/wm/">wm</a> /
+					<a title="обои и высокое разрешение" href="/wp/">wp</a> / <a title="теории заговора"
+						href="/zog/">zog</a>]</span>
+				<span class="adminbar__cat">Творчество&nbsp;[<a title="дизаен" href="/de/">de</a> / <a title="столовая"
+						href="/di/">di</a> / <a title="хобби" href="/diy/">diy</a> / <a title="музыканты"
+						href="/mus/">mus</a> / <a title="живопись" href="/pa/">pa</a> / <a title="фото" href="/p/">p</a>
+					/ <a title="Работа и карьера" href="/wrk/">wrk</a> / <a title="путешествия" href="/trv/">trv</a>]
+				</span>
+				<span class="adminbar__cat">Техника и софт&nbsp;[<a title="gamedev" href="/gd/">gd</a> / <a
+						title="компьютерное железо" href="/hw/">hw</a> / <a title="мобильные устройства и приложения"
+						href="/mobi/">mobi</a> / <a title="программирование" href="/pr/">pr</a> / <a
+						title="радиотехника" href="/ra/">ra</a> / <a title="программы" href="/s/">s</a> / <a
+						title="техника" href="/t/">t</a> / <a title="веб-мастера" href="/web/">web</a>]</span>
+				<span class="adminbar__cat">Игры&nbsp;[<a title="настольные игры" href="/bg/">bg</a> / <a
+						title="консоли" href="/cg/">cg</a> / <a title="Российские визуальные новеллы"
+						href="/ruvn/">ruvn</a> / <a title="the elder scrolls" href="/tes/">tes</a> / <a
+						title="video games" href="/v/">v</a> / <a title="video games general" href="/vg/">vg</a> / <a
+						title="Текстовые авторские рпг" href="/wr/">wr</a>]</span>
+				<span class="adminbar__cat">Японская культура&nbsp;[<a title="аниме" href="/a/">a</a> / <a
+						title="фэндом" href="/fd/">fd</a> / <a title="японская культура" href="/ja/">ja</a> / <a
+						title="манга" href="/ma/">ma</a> / <a title="визуальные новеллы" href="/vn/">vn</a>]</span>
+				<span class="adminbar__cat">Разное&nbsp;[<a title="дискуссии о два.ч" href="/d/">d</a> / <a title="бред"
+						href="/b/">b</a> / <a title="оэкаки" href="/o/">o</a> / <a title="общение" href="/soc/">soc</a>
+					/ <a title="анимация" href="/media/">media</a> / <a title="просьбы" href="/r/">r</a> / <a
+						title="здесь живет абу" href="/abu/">abu</a> / <a title="Убежище" href="/rf/">rf</a>]</span>
+				<span class="adminbar__cat">Взрослым&nbsp;[<a title="трапы" href="/fg/">fg</a> / <a title="фурри"
+						href="/fur/">fur</a> / <a title="хорошие девушки" href="/gg/">gg</a> / <a title="геи"
+						href="/ga/">ga</a> / <a title="Электронные сигареты" href="/vape/">vape</a> / <a title="хентай"
+						href="/h/">h</a> / <a title="прочий хентай" href="/ho/">ho</a> / <a title="hardcore"
+						href="/hc/">hc</a> / <a title="extreme pron" href="/e/">e</a> / <a title="фетиш"
+						href="/fet/">fet</a> / <a title="секс и отношения" href="/sex/">sex</a> / <a title="фагготрия"
+						href="/fag/">fag</a>]</span>
+				<span class="adminbar__cat">Политика&nbsp;[<a title="International" href="/int/">int</a> / <a
+						title="Политика" href="/po/">po</a> / <a title="новости" href="/news/">news</a>]</span>
+				<span class="adminbar__cat">[&nbsp;<a title="Юзердоски" href="/userboards.html" target="_blank">Прочие
+						доски</a>&nbsp;]</span>
+			</div>
+			<hr>
+
+		</div>
+
+		<section class="footer__info">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="iconsvg"
+				aria-hidden="true" style="display: none;">
+				<symbol id="icon__infinity" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M17.59 15.08L18.14 15.18L18.66 15.31L19.18 15.47L19.67 15.66L20.15 15.88L20.62 16.12L21.06 16.38L21.49 16.66L21.91 16.95L22.3 17.25L22.68 17.57L23.04 17.89L23.38 18.22L23.7 18.54L24 18.87L24.3 18.54L24.62 18.22L24.96 17.89L25.32 17.57L25.7 17.25L26.09 16.95L26.51 16.66L26.94 16.38L27.38 16.12L27.85 15.88L28.33 15.66L28.82 15.47L29.34 15.31L29.86 15.18L30.41 15.08L30.97 15.02L31.54 15L32.35 15.04L33.14 15.14L33.91 15.32L34.64 15.55L35.34 15.85L36.01 16.2L36.64 16.61L37.22 17.06L37.76 17.57L38.25 18.11L38.69 18.7L39.06 19.32L39.38 19.98L39.64 20.67L39.82 21.38L39.93 22.12L39.97 22.88L39.93 23.63L39.82 24.37L39.64 25.08L39.38 25.77L39.06 26.43L38.69 27.05L38.25 27.64L37.76 28.18L37.22 28.69L36.64 29.14L36.01 29.55L35.34 29.9L34.64 30.2L33.91 30.43L33.14 30.61L32.35 30.71L31.54 30.75L30.97 30.73L30.41 30.67L29.86 30.57L29.34 30.44L28.82 30.28L28.33 30.09L27.85 29.87L27.38 29.63L26.94 29.37L26.51 29.09L26.09 28.8L25.7 28.5L25.32 28.18L24.96 27.86L24.62 27.53L24.3 27.21L24 26.88L23.7 27.21L23.38 27.53L23.04 27.86L22.68 28.18L22.3 28.5L21.91 28.8L21.49 29.09L21.06 29.37L20.62 29.63L20.15 29.87L19.67 30.09L19.18 30.28L18.66 30.44L18.14 30.57L17.59 30.67L17.03 30.73L16.46 30.75L15.65 30.71L14.86 30.61L14.09 30.43L13.36 30.2L12.66 29.9L11.99 29.55L11.36 29.14L10.78 28.69L10.24 28.18L9.75 27.64L9.31 27.05L8.94 26.43L8.62 25.77L8.36 25.08L8.18 24.37L8.07 23.63L8.03 22.88L8.07 22.12L8.18 21.38L8.36 20.67L8.62 19.98L8.94 19.32L9.31 18.7L9.75 18.11L10.24 17.57L10.78 17.06L11.36 16.61L11.99 16.2L12.66 15.85L13.36 15.55L14.09 15.32L14.86 15.14L15.65 15.04L16.46 15L17.03 15.02L17.59 15.08ZM28.86 20.79L27.75 21.81L26.85 22.88L27.75 23.95L28.87 24.96L30.15 25.73L31.54 26.02L32.96 25.78L34.11 25.1L34.89 24.1L35.18 22.88L34.89 21.65L34.11 20.65L32.96 19.97L31.54 19.73L30.15 20.03L28.86 20.79ZM13.89 20.65L13.11 21.65L12.82 22.88L13.11 24.1L13.89 25.1L15.04 25.78L16.46 26.02L17.85 25.72L19.14 24.96L20.25 23.94L21.15 22.88L20.25 21.8L19.13 20.79L17.85 20.02L16.46 19.73L15.04 19.97L13.89 20.65Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__star" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M28.02 18.06L37 19.43L30.5 26.09L32.03 35.5L24 31.06L15.97 35.5L17.5 26.09L11 19.43L19.98 18.06L24 9.5L28.02 18.06Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__hide" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path fill="#ececec"
+						d="M28.67 24L37 32.33L32.33 37L24 28.67L15.67 37L11 32.33L19.33 24L11 15.67L15.67 11L24 19.33L32.33 11L37 15.67L28.67 24Z">
+					</path>
+				</symbol>
+				<symbol id="icon__addmenu" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path fill="#ececec"
+						d="M26.17 31.15L14.08 38.34L14.06 24L14.05 9.66L26.15 16.82L38.25 23.97L26.17 31.15Z"></path>
+				</symbol>
+				<symbol id="icon__report" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M20.89 35.38C20.68 35.61 20.59 35.89 20.59 36.2C20.59 36.61 20.59 39.89 20.59 40.3C20.59 40.61 20.68 40.89 20.89 41.12C21.09 41.35 21.33 41.47 21.62 41.47C22.02 41.47 25.32 41.47 25.72 41.47C26 41.47 26.24 41.35 26.45 41.12C26.65 40.89 26.75 40.61 26.75 40.3C26.75 39.89 26.75 36.61 26.75 36.2C26.75 35.89 26.65 35.61 26.45 35.38C26.24 35.15 26 35.03 25.72 35.03C24.9 35.03 22.02 35.03 21.62 35.03C21.33 35.03 21.09 35.15 20.89 35.38Z"
+						fill="#ececec"></path>
+					<path
+						d="M21.26 7.5C20.98 7.5 20.73 7.67 20.54 8.03C20.33 8.38 20.24 8.8 20.25 9.28C20.3 11.43 20.66 28.58 20.7 30.72C20.72 31.21 20.83 31.62 21.04 31.98C21.25 32.33 21.5 32.51 21.78 32.51C22.2 32.51 25.53 32.51 25.96 32.51C26.24 32.51 26.48 32.33 26.7 31.98C26.91 31.62 27.01 31.21 27.03 30.72C27.08 28.58 27.44 11.43 27.48 9.28C27.49 8.8 27.4 8.38 27.2 8.03C27 7.67 26.76 7.5 26.47 7.5C25.95 7.5 21.78 7.5 21.26 7.5Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__pinned" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M27.89 8.84L27.99 8.85L28.08 8.87L28.18 8.88L28.28 8.9L28.37 8.93L28.46 8.95L28.55 8.98L28.64 9.02L28.73 9.05L28.82 9.09L28.9 9.14L28.98 9.18L29.06 9.23L29.14 9.29L29.22 9.34L29.3 9.4L29.37 9.47L29.45 9.53L29.52 9.6L29.59 9.68L38.11 18.89L38.18 18.97L38.24 19.05L38.3 19.12L38.36 19.2L38.41 19.28L38.46 19.37L38.51 19.45L38.55 19.54L38.59 19.62L38.63 19.71L38.66 19.8L38.69 19.89L38.72 19.98L38.74 20.07L38.76 20.17L38.77 20.26L38.79 20.36L38.8 20.45L38.8 20.55L38.8 20.65L38.8 20.75L38.8 20.85L38.79 20.95L38.78 21.04L38.76 21.14L38.74 21.23L38.72 21.32L38.7 21.4L38.67 21.49L38.63 21.57L38.6 21.65L38.56 21.73L38.52 21.81L38.47 21.89L38.42 21.96L38.37 22.03L38.31 22.1L38.25 22.17L38.19 22.24L38.12 22.3L38.05 22.36L37.98 22.42L37.91 22.48L37.83 22.53L37.76 22.58L37.68 22.62L37.6 22.66L37.52 22.7L37.44 22.73L37.35 22.76L37.27 22.78L37.18 22.81L37.09 22.83L37 22.84L36.91 22.85L36.81 22.86L36.72 22.86L36.62 22.86L36.52 22.86L36.42 22.86L36.32 22.85L36.22 22.83L36.13 22.82L36.03 22.8L35.94 22.77L35.85 22.75L35.76 22.72L35.67 22.68L35.58 22.65L35.49 22.61L35.41 22.56L35.33 22.52L35.25 22.47L35.17 22.41L35.09 22.36L35.01 22.3L34.94 22.23L34.86 22.17L34.79 22.1L34.72 22.02L27.95 28.28L28.08 28.43L28.2 28.58L28.31 28.73L28.42 28.89L28.51 29.05L28.6 29.22L28.68 29.39L28.75 29.57L28.82 29.75L28.88 29.94L28.92 30.13L28.97 30.32L29 30.52L29.02 30.73L29.04 30.93L29.05 31.15L29.05 31.36L29.05 31.59L29.03 31.81L29.01 32.04L28.98 32.28L28.95 32.5L28.9 32.73L28.85 32.95L28.8 33.16L28.73 33.37L28.66 33.58L28.59 33.78L28.5 33.98L28.41 34.17L28.31 34.36L28.21 34.55L28.1 34.73L27.98 34.91L27.86 35.08L27.72 35.25L27.58 35.41L27.44 35.57L27.29 35.73L27.13 35.88L27.09 35.91L27.06 35.94L27.02 35.97L26.98 36L26.95 36.02L26.91 36.04L26.87 36.06L26.83 36.08L26.79 36.1L26.74 36.11L26.7 36.12L26.66 36.14L26.61 36.15L26.57 36.15L26.52 36.16L26.47 36.16L26.43 36.16L26.38 36.16L26.33 36.16L26.28 36.16L26.23 36.16L26.18 36.15L26.13 36.14L26.08 36.13L26.04 36.12L25.99 36.11L25.95 36.09L25.9 36.07L25.86 36.06L25.81 36.04L25.77 36.01L25.73 35.99L25.69 35.97L25.65 35.94L25.61 35.91L25.57 35.88L25.54 35.85L25.5 35.82L25.46 35.78L25.43 35.74L20.05 29.93L12.62 34.76L12.58 34.78L12.54 34.81L12.5 34.82L12.46 34.84L12.42 34.85L12.37 34.86L12.33 34.86L12.29 34.86L12.25 34.86L12.22 34.86L12.18 34.85L12.14 34.84L12.1 34.82L12.06 34.81L12.02 34.78L11.99 34.76L11.95 34.73L11.91 34.7L11.88 34.67L11.84 34.63L11.83 34.62L11.81 34.6L11.8 34.58L11.78 34.56L11.77 34.54L11.76 34.53L11.74 34.51L11.73 34.49L11.72 34.47L11.71 34.45L11.71 34.43L11.7 34.41L11.69 34.39L11.69 34.37L11.68 34.35L11.68 34.33L11.67 34.3L11.67 34.28L11.67 34.26L11.67 34.24L11.67 34.22L11.67 34.19L11.67 34.17L11.67 34.15L11.67 34.13L11.67 34.11L11.68 34.09L11.68 34.06L11.69 34.04L11.69 34.02L11.7 34L11.71 33.98L11.71 33.96L11.72 33.94L11.73 33.92L11.74 33.91L11.75 33.89L11.76 33.87L11.77 33.85L11.78 33.83L11.8 33.81L17.51 27.17L11.79 21L11.76 20.96L11.73 20.92L11.7 20.88L11.67 20.84L11.64 20.8L11.62 20.76L11.59 20.72L11.57 20.68L11.55 20.63L11.53 20.59L11.52 20.54L11.5 20.5L11.49 20.45L11.48 20.41L11.47 20.36L11.46 20.31L11.45 20.26L11.45 20.22L11.45 20.17L11.45 20.12L11.45 20.07L11.45 20.02L11.45 19.97L11.46 19.92L11.47 19.87L11.48 19.83L11.49 19.78L11.5 19.74L11.51 19.7L11.53 19.66L11.55 19.62L11.57 19.58L11.59 19.54L11.61 19.5L11.64 19.46L11.66 19.43L11.69 19.39L11.72 19.36L11.75 19.32L11.79 19.29L11.95 19.14L12.12 19L12.29 18.87L12.47 18.75L12.65 18.63L12.83 18.52L13.02 18.41L13.2 18.32L13.4 18.23L13.6 18.15L13.8 18.07L14 18L14.21 17.94L14.42 17.89L14.63 17.84L14.85 17.8L15.07 17.77L15.3 17.74L15.53 17.72L15.76 17.71L16 17.71L16.22 17.71L16.44 17.73L16.66 17.74L16.87 17.77L17.08 17.8L17.28 17.85L17.48 17.9L17.67 17.95L17.85 18.02L18.03 18.09L18.21 18.17L18.38 18.25L18.55 18.35L18.71 18.45L18.86 18.56L19.01 18.67L19.16 18.8L19.29 18.93L19.43 19.07L26.2 12.81L26.13 12.73L26.07 12.65L26.01 12.58L25.95 12.5L25.9 12.42L25.85 12.33L25.8 12.25L25.76 12.16L25.72 12.08L25.68 11.99L25.65 11.9L25.62 11.81L25.59 11.72L25.57 11.63L25.55 11.53L25.53 11.44L25.52 11.34L25.51 11.25L25.51 11.15L25.51 11.05L25.51 10.95L25.51 10.85L25.52 10.75L25.53 10.66L25.55 10.56L25.57 10.47L25.59 10.38L25.61 10.3L25.64 10.21L25.67 10.13L25.71 10.05L25.75 9.97L25.79 9.89L25.84 9.81L25.89 9.74L25.94 9.67L26 9.6L26.06 9.53L26.12 9.46L26.19 9.4L26.26 9.34L26.33 9.28L26.4 9.22L26.48 9.17L26.55 9.12L26.63 9.08L26.71 9.04L26.79 9L26.87 8.97L26.96 8.94L27.04 8.92L27.13 8.89L27.22 8.87L27.31 8.86L27.4 8.85L27.5 8.84L27.59 8.84L27.69 8.84L27.79 8.84L27.89 8.84ZM31.51 19.07L31.41 19.12L31.32 19.19L25.39 24.67L25.31 24.79L25.25 24.89L25.22 24.99L25.21 25.08L25.22 25.19L25.25 25.31L25.31 25.42L25.39 25.52L25.49 25.61L25.59 25.67L25.7 25.72L25.82 25.74L25.94 25.74L26.04 25.71L26.15 25.66L26.24 25.59L32.17 20.11L32.25 20.02L32.31 19.92L32.34 19.82L32.35 19.7L32.34 19.58L32.31 19.47L32.25 19.36L32.17 19.26L32.07 19.17L31.97 19.1L31.86 19.06L31.74 19.04L31.62 19.04L31.51 19.07Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__closed" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M31.85 18.96C31.85 14 28.33 9.97 24 9.97C19.67 9.97 16.15 14 16.15 18.96C16.15 19.34 16.15 21.28 16.15 24.75L20.07 24.75C20.07 21.28 20.07 19.34 20.07 18.96C20.07 16.48 21.83 14.46 24 14.46C26.16 14.46 27.93 16.48 27.93 18.96C27.93 19.34 27.93 21.28 27.93 24.75L31.85 24.75C31.85 21.28 31.85 19.34 31.85 18.96Z"
+						fill="#ececec"></path>
+					<path
+						d="M31.64 21.46L32.03 21.59L32.4 21.76L32.74 21.97L33.06 22.22L33.34 22.51L33.59 22.83L33.8 23.17L33.97 23.54L34.1 23.94L34.17 24.35L34.2 24.78L34.2 33.33L34.17 33.76L34.1 34.17L33.97 34.57L33.8 34.94L33.59 35.28L33.34 35.6L33.06 35.89L32.74 36.14L32.4 36.35L32.03 36.52L31.64 36.65L31.23 36.72L30.8 36.75L17.2 36.75L16.77 36.72L16.36 36.65L15.97 36.52L15.6 36.35L15.26 36.14L14.94 35.89L14.66 35.6L14.41 35.28L14.2 34.94L14.03 34.57L13.9 34.17L13.83 33.76L13.8 33.33L13.8 24.78L13.83 24.35L13.9 23.94L14.03 23.54L14.2 23.17L14.41 22.83L14.66 22.51L14.94 22.22L15.26 21.97L15.6 21.76L15.97 21.59L16.36 21.46L16.77 21.39L17.2 21.36L30.8 21.36L31.23 21.39L31.64 21.46ZM22.8 26.99L22.43 27.53L22.3 28.2L22.36 28.65L22.54 29.05L22.81 29.38L23.15 29.65L23.15 32.47L23.22 32.81L23.4 33.08L23.67 33.26L24 33.33L24.33 33.26L24.6 33.08L24.78 32.81L24.85 32.47L24.85 29.65L25.19 29.38L25.46 29.05L25.64 28.65L25.7 28.2L25.57 27.53L25.2 26.99L24.66 26.62L24 26.49L23.34 26.62L22.8 26.99Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__eye" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m24.02963,9.92749c-9.14398,0 -17.43622,5.48836 -23.55505,14.40292c-0.4993,0.73035 -0.4993,1.75069 0,2.48104c6.11883,8.9253 14.41107,14.41366 23.55505,14.41366s17.43622,-5.48836 23.55505,-14.40292c0.4993,-0.73035 0.4993,-1.75069 0,-2.48104c-6.11883,-8.9253 -14.41107,-14.41366 -23.55505,-14.41366zm0.65594,26.6685c-6.06988,0.41888 -11.08242,-5.06949 -10.70061,-11.7393c0.31328,-5.4991 4.37619,-9.95638 9.38873,-10.30008c6.06988,-0.41888 11.08242,5.06949 10.70061,11.7393c-0.32307,5.48836 -4.38598,9.94564 -9.38873,10.30008zm-0.30349,-5.09097c-3.2699,0.22555 -5.97198,-2.72807 -5.7566,-6.31538c0.16643,-2.96436 2.35942,-5.35948 5.0615,-5.5528c3.2699,-0.22555 5.97198,2.72807 5.7566,6.31538c-0.17622,2.9751 -2.36921,5.37022 -5.0615,5.5528z">
+					</path>
+				</symbol>
+				<symbol id="icon__delete" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m30.658632,24.14835l11.948419,-12.460366c1.890567,-1.97173 1.890567,-5.168094 0,-7.138814c-1.88863,-1.970721 -4.955356,-1.970721 -6.843986,0l-11.948419,12.462385l-11.948419,-12.462385c-1.88863,-1.970721 -4.955356,-1.970721 -6.843986,0c-1.890567,1.97173 -1.890567,5.168094 0,7.138814l11.947451,12.460366l-11.947451,12.460366c-1.890567,1.97173 -1.890567,5.168094 0,7.138814c0.943831,0.98637 2.18388,1.47804 3.421993,1.47804c1.237145,0 2.478162,-0.491671 3.421993,-1.47804l11.948419,-12.460366l11.948419,12.461375c0.944799,0.98637 2.18388,1.47804 3.421993,1.47804s2.478162,-0.491671 3.421993,-1.47804c1.890567,-1.97173 1.890567,-5.168094 0,-7.138814l-11.948419,-12.461375z">
+					</path>
+				</symbol>
+				<symbol id="icon__update" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m38.94809,9.10626l-4.36267,4.23742c2.92392,2.82943 4.54367,6.59253 4.54367,10.59653c0,8.25339 -6.93695,14.96263 -15.47046,14.96263l0,-2.99253l-6.18818,5.98505l6.18818,5.98505l0,-2.99253c11.94164,0 21.65864,-9.39803 21.65864,-20.94768c0,-5.605 -2.26023,-10.87185 -6.36919,-14.83395z">
+					</path>
+					<path stroke="null"
+						d="m29.84682,5.98505l-6.18818,-5.98505l0,2.99253c-11.94164,0 -21.65864,9.39803 -21.65864,20.94768c0,5.605 2.26023,10.87185 6.36919,14.83395l4.36267,-4.23742c-2.92392,-2.82943 -4.54367,-6.59253 -4.54367,-10.59653c0,-8.25339 6.93695,-14.96263 15.47046,-14.96263l0,2.99253l6.18818,-5.98505z">
+					</path>
+				</symbol>
+				<symbol id="icon__images" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m12.47074,22.23783c2.94597,0 5.34227,-2.30135 5.34227,-5.12968c0,-2.83017 -2.3963,-5.13152 -5.34227,-5.13152s-5.34227,2.30135 -5.34227,5.1306c0,2.82925 2.3963,5.1306 5.34227,5.1306z">
+					</path>
+					<path stroke="null"
+						d="m0,0l0,36.85115l0,11.05534l47.96437,0l0,-11.05534l0,-36.85115l-47.96437,0zm1.91857,1.84256l44.12722,0l0,25.46691l-10.86297,-9.56379c-0.18802,-0.16491 -0.43552,-0.2469 -0.69069,-0.24138c-0.25421,0.01106 -0.49403,0.11884 -0.66575,0.29942l-8.02252,8.43799l3.65297,3.50823c0.37508,0.36022 0.37508,0.94247 0,1.30269c-0.18706,0.18057 -0.43264,0.27086 -0.67822,0.27086s-0.49116,-0.09029 -0.67822,0993l-3.67023,-3.36635l-4.5499,-4.36963c-0.35877,-0.34364 -0.93243,-0.36114 -1.31231,-0.04054l-16.05368,13.57412l-0.59572,0l0,-35.00859zm44.12722,44.22138l-44.12722,0l0,-7.37023l44.12722,0l0,7.37023z">
+					</path>
+				</symbol>
+				<symbol id="icon__users" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m29.06227,10.65946c2.2191,1.36769 3.77517,3.68209 4.05848,6.3686c0.90501,0.41566 1.90945,0.6547 2.97438,0.6547c3.88778,0 7.03884,-3.09746 7.03884,-6.9185c0,-3.82163 -3.15107,-6.91909 -7.03884,-6.91909c-3.85064,0.00118 -6.97416,3.04329 -7.03285,6.81429zm-4.61131,14.1667c3.88778,0 7.03884,-3.09805 7.03884,-6.91909s-3.15167,-6.9185 -7.03884,-6.9185c-3.88718,0 -7.04004,3.09805 -7.04004,6.91909s3.15287,6.9185 7.04004,6.9185zm2.98576,0.4716l-5.97272,0c-4.96948,0 -9.01238,3.97471 -9.01238,8.85963l0,7.1799l0.01857,0.11245l0.50312,0.15484c4.74248,1.45659 8.86264,1.94231 12.25389,1.94231c6.62377,0 10.46303,-1.85635 10.69962,-1.97469l0.47017,-0.23374l0.05031,0l0,-7.18108c0.0018,-4.88493 -4.04111,-8.85963 -9.01058,-8.85963zm11.64536,-7.14281l-5.9266,0c-0.06409,2.33089 -1.07631,4.42982 -2.6773,5.93939c4.41725,1.29115 7.64917,5.31766 7.64917,10.07365l0,2.21255c5.85173,-0.21078 9.22381,-1.84105 9.44602,-1.95056l0.47017,-0.23433l0.05031,0l0,-7.18226c0,-4.88434 -4.0429,-8.85845 -9.01178,-8.85845zm-26.98204,-0.47101c1.37698,0 2.65813,-0.39506 3.74343,-1.06801c0.34499,-2.21196 1.55128,-4.14486 3.27445,-5.46132c0.00719,-0.12953 0.01977,-0.25788 0.01977,-0.38858c0,-3.82163 -3.15167,-6.91909 -7.03765,-6.91909c-3.88837,0 -7.03884,3.09746 -7.03884,6.91909c0,3.81986 3.15047,6.91791 7.03884,6.91791zm6.3213,6.4104c-1.5932,-1.50192 -2.60183,-3.58966 -2.6755,-5.90642c-0.21981,-0.0159 -0.43723,-0.03297 -0.66124,-0.03297l-5.97212,0c-4.96948,0 -9.01238,3.97412 -9.01238,8.85845l0,7.18108l0.01857,0.11069l0.50312,0.15602c3.80452,1.16751 7.19996,1.70563 10.14918,1.87519l0,-2.1684c0.0012,-4.75599 3.23193,-8.78133 7.65037,-10.07365z">
+					</path>
+				</symbol>
+				<symbol id="icon__posts" viewBox="0 0 48 48">
+					<path
+						d="m4.88875,2.70305l38.30907,0c2.59544,0 4.78863,2.14374 4.78863,4.68065l0,25.7436c0,2.53691 -2.19319,4.68065 -4.78863,4.68065l-22.7923,0l-7.74322,8.3261c-0.15483,0.16538 -0.37032,0.2551 -0.5906,0.2551c-0.09657,0 -0.19394,-0.01716 -0.28812,-0.05227c-0.30727,-0.11624 -0.50999,-0.40566 -0.50999,-0.72784l0,-7.80109l-6.38484,0c-2.59544,0 -4.78863,-2.14374 -4.78863,-4.68065l0,-25.7436c0,-2.53691 2.19319,-4.68065 4.78863,-4.68065z">
+					</path>
+				</symbol>
+				<symbol id="icon__youtube" viewBox="0 0 48 48">
+					<path fill="#D8362A"
+						d="m47.51108,13.01698c0,0 -0.4957,-3.95058 -1.89997,-5.69613c-1.81744,-2.29683 -3.88267,-2.29683 -4.79134,-2.38873c-6.69132,-0.55118 -16.7697,-0.64308 -16.7697,-0.64308l0,0c0,0 -10.07839,0.0919 -16.7697,0.64308c-0.90867,0.0919 -2.97391,0.1838 -4.79134,2.38873c-1.487,1.74565 -1.89997,5.69613 -1.89997,5.69613s-0.4957,4.68556 -0.4957,9.37112l0,4.31807c0,4.68556 0.4957,9.27922 0.4957,9.27922s0.4957,3.95058 1.89997,5.69613c1.81744,2.29683 4.21311,2.20493 5.28704,2.48063c3.79995,0.45918 16.27401,0.55108 16.27401,0.55108s10.07839,0 16.7697,-0.64308c0.90867,-0.0919 2.97391,-0.1838 4.79134,-2.38873c1.40437,-1.74554 1.89997,-5.69613 1.89997,-5.69613s0.4957,-4.68556 0.4957,-9.27922l0,-4.31807c0,-4.68545 -0.4957,-9.37101 -0.4957,-9.37101">
+					</path>
+					<polygon fill="#FFFFFF"
+						points="15.4072265625,13.140213012695312 15.4072265625,36.90620422363281 38.737548828125,25.29708480834961 ">
+					</polygon>
+				</symbol>
+				<symbol id="icon__thumbdown" viewBox="0 0 48 48">
+					<path stroke="null"
+						d="m11.1579,5.24227l-8.0705,0c-0.48576,0 -0.90605,0.18335 -1.26136,0.54996c-0.35492,0.3664 -0.53248,0.80051 -0.53248,1.30192l0,18.5207c0,0.50151 0.17756,0.93582 0.53258,1.30212c0.35492,0.3663 0.77521,0.54986 1.26136,0.54986l8.0704,0c0.48566,0 0.90585,-0.18356 1.26097,-0.54986c0.35492,-0.3662 0.53238,-0.80051 0.53238,-1.30212l0,-18.5207c0,-0.50141 -0.17756,-0.93542 -0.53238,-1.30192c-0.35502,-0.36671 -0.77521,-0.54996 -1.26097,-0.54996zm-3.22284,6.85856c-0.35492,0.3666 -0.77521,0.54976 -1.26097,0.54976c-0.5045,0 -0.9296,-0.18315 -1.275,-0.54976c-0.3456,-0.3666 -0.51834,-0.80051 -0.51834,-1.30243c0,-0.52067 0.17265,-0.95974 0.51834,-1.31672c0.3455,-0.35687 0.7705,-0.53516 1.275,-0.53516c0.48576,0 0.90605,0.17829 1.26097,0.53516c0.35541,0.35687 0.53258,0.79605 0.53258,1.31672c0,0.50151 -0.17756,0.93542 -0.53258,1.30243z">
+					</path>
+					<path stroke="null"
+						d="m44.58927,21.30295c0.28081,-0.84896 0.42019,-1.58197 0.41823,-2.19872c0.05644,-1.46622 -0.3454,-2.7877 -1.20522,-3.96444c0.31772,-1.08046 0.31772,-2.20926 0,-3.386c-0.27944,-1.09971 -0.78463,-2.00604 -1.51283,-2.71989c0.16794,-2.16091 -0.28955,-3.90657 -1.37315,-5.23788c-1.19579,-1.46612 -3.03576,-2.21889 -5.52069,-2.2572l-1.00901,0l-2.12952,0l-0.47633,0c-1.2328,0 -2.57837,0.1495 -4.03545,0.4485c-1.45639,0.2992 -2.59172,0.57905 -3.40393,0.83943c-0.8127,0.26028 -1.93851,0.64138 -3.37674,1.14289c-2.29805,0.8294 -3.77397,1.25388 -4.42776,1.27303c-0.48576,0.01956 -0.90605,0.20737 -1.26097,0.56445c-0.35502,0.35657 -0.53258,0.78602 -0.53258,1.28753l0,18.54928c0,0.48215 0.16863,0.90187 0.5047,1.25844c0.33607,0.35718 0.73781,0.55503 1.20482,0.59374c0.44807,0.03892 1.1581,0.60773 2.12972,1.70724c0.97171,1.09961 1.91506,2.26713 2.83033,3.50195c1.27049,1.67775 2.21413,2.83523 2.83043,3.47205c0.33607,0.34684 0.62523,0.80984 0.86845,1.38878c0.24263,0.57854 0.40655,1.0464 0.49116,1.40338c0.08392,0.35667 0.20956,0.93998 0.37848,1.75093c0.13035,0.75196 0.24725,1.34064 0.35031,1.76481c0.10277,0.42448 0.28445,0.92609 0.54612,1.50463c0.26207,0.57935 0.57939,1.0611 0.95326,1.44676c0.35472,0.36691 0.77521,0.55046 1.26097,0.55046c0.85991,0 1.62973,-0.10125 2.31238,-0.30387c0.68187,-0.20251 1.24212,-0.45296 1.68145,-0.75196c0.43943,-0.29971 0.8129,-0.68953 1.1213,-1.17228c0.3084,-0.48215 0.53238,-0.91646 0.67244,-1.30222c0.14046,-0.38637 0.25264,-0.86781 0.33627,-1.44635c0.08392,-0.57935 0.13133,-1.01356 0.14046,-1.30283c0.00913,-0.28927 0.01413,-0.6652 0.01413,-1.1287c0,-0.7326 -0.09305,-1.47068 -0.27983,-2.21362c-0.18737,-0.74223 -0.36513,-1.30699 -0.53277,-1.69336c-0.16794,-0.38576 -0.42019,-0.93521 -0.75636,-1.64896c-0.05644,-0.11595 -0.14949,-0.28998 -0.28013,-0.52138c-0.13035,-0.2314 -0.2338,-0.44404 -0.3084,-0.63682c-0.07489,-0.19278 -0.14939,-0.42428 -0.22369,-0.69449l7.7625,0c1.45688,0 2.71343,-0.55016 3.76877,-1.64998c1.05573,-1.09951 1.59282,-2.40153 1.61157,-3.90626c-0.00137,-1.69711 -0.5153,-3.13444 -1.54286,-4.31108z">
+					</path>
+				</symbol>
+				<symbol id="icon__thunder" viewBox="0 0 48 48">
+					<path
+						d="m35.47596,15.39264l-9.23387,0l3.40869,-11.84396c0.32006,-1.38697 -0.60012,-2.75568 -1.85638,-2.75568l-11.52233,0c-0.96019,0 -1.77636,0.81211 -1.90438,1.89795l-2.56052,21.89946c-0.15203,1.31397 0.74415,2.48194 1.90438,2.48194l9.49792,0l-3.68875,17.74769c-0.28806,1.38697 0.64013,2.69181 1.86438,2.69181c0.67214,0 1.31227,-0.40149 1.66434,-1.09497l14.08285,-27.73932c0.74415,-1.45084 -0.17604,-3.28492 -1.65633,-3.28492z">
+					</path>
+				</symbol>
+				<symbol id="icon__expand" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M15.06 29.6C13.9 28.44 13.25 27.79 13.12 27.66C12.6 27.14 11.81 26.98 11.13 27.27C10.45 27.55 10 28.22 10 28.96C10 29.6 10 34.78 10 35.42C10 36.43 10.82 37.25 11.83 37.25C12.47 37.25 17.65 37.25 18.29 37.25C18.29 37.25 18.29 37.25 18.3 37.25C19.31 37.25 20.12 36.43 20.12 35.42C20.12 34.89 19.9 34.41 19.53 34.07C19.41 33.95 18.78 33.32 17.65 32.19C21.14 28.7 23.08 26.76 23.46 26.37C24.18 25.66 24.18 24.5 23.46 23.79C22.75 23.07 21.59 23.07 20.88 23.79C20.1 24.56 18.16 26.5 15.06 29.6Z"
+						fill="#ececec"></path>
+					<path
+						d="M29.71 9.25C28.97 9.25 28.3 9.7 28.02 10.38C27.73 11.06 27.89 11.85 28.41 12.37C28.54 12.5 29.19 13.15 30.35 14.31C26.86 17.8 24.92 19.74 24.54 20.13C23.82 20.84 23.82 22 24.54 22.71C24.89 23.07 25.36 23.25 25.83 23.25C26.3 23.25 26.76 23.07 27.12 22.71C27.51 22.33 29.45 20.39 32.94 16.9C34.1 18.06 34.75 18.71 34.88 18.84C35.23 19.19 35.7 19.37 36.17 19.37C36.41 19.37 36.65 19.33 36.87 19.23C37.55 18.95 38 18.28 38 17.54C38 16.9 38 11.72 38 11.08C38 10.07 37.18 9.25 36.17 9.25C34.88 9.25 30.35 9.25 29.71 9.25Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__expandimg" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M32.9 8.57L33.09 8.66L33.25 8.77L33.39 8.91L33.5 9.07L33.59 9.26L33.64 9.45L33.66 9.66L33.66 13.61L33.66 13.65L33.68 13.69L33.69 13.72L33.72 13.76L33.74 13.78L33.78 13.81L33.81 13.82L33.85 13.84L33.89 13.84L37.84 13.84L38.05 13.86L38.24 13.91L38.43 14L38.59 14.11L38.73 14.25L38.84 14.41L38.93 14.6L38.98 14.79L39 15L38.98 15.21L38.93 15.4L38.84 15.59L38.73 15.75L38.59 15.89L38.43 16L38.24 16.09L38.05 16.14L37.84 16.16L33.89 16.16L33.85 16.16L33.81 16.18L33.78 16.19L33.74 16.22L33.72 16.24L33.69 16.28L33.68 16.31L33.66 16.35L33.66 16.39L33.66 20.34L33.64 20.55L33.59 20.74L33.5 20.93L33.39 21.09L33.25 21.23L33.09 21.34L32.9 21.43L32.71 21.48L32.5 21.5L32.29 21.48L32.1 21.43L31.91 21.34L31.75 21.23L31.61 21.09L31.5 20.93L31.41 20.74L31.36 20.55L31.34 20.34L31.34 16.39L31.34 16.35L31.32 16.31L31.31 16.28L31.28 16.24L31.26 16.22L31.22 16.19L31.19 16.18L31.15 16.16L31.11 16.16L27.16 16.16L26.95 16.14L26.76 16.09L26.57 16L26.41 15.89L26.27 15.75L26.16 15.59L26.07 15.4L26.02 15.21L26 15L26.02 14.79L26.07 14.6L26.16 14.41L26.27 14.25L26.41 14.11L26.57 14L26.76 13.91L26.95 13.86L27.16 13.84L31.11 13.84L31.15 13.84L31.19 13.82L31.22 13.81L31.26 13.78L31.28 13.76L31.31 13.72L31.32 13.69L31.34 13.65L31.34 13.61L31.34 9.66L31.36 9.45L31.41 9.26L31.5 9.07L31.61 8.91L31.75 8.77L31.91 8.66L32.1 8.57L32.29 8.52L32.5 8.5L32.71 8.52L32.9 8.57Z"
+						fill="#ececec"></path>
+					<path
+						d="M22.92 22.5C24.07 22.5 25 23.43 25 24.58C25 27.17 25 32.83 25 35.42C25 36.57 24.07 37.5 22.92 37.5C20.33 37.5 14.67 37.5 12.08 37.5C10.93 37.5 10 36.57 10 35.42C10 32.83 10 27.17 10 24.58C10 23.43 10.93 22.5 12.08 22.5C14.67 22.5 20.33 22.5 22.92 22.5Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__findimg" viewBox="0 0 48 48">
+					<path
+						d="M9.01 0C6.53 0 3.26 0 1.5 1.5C0 3.26 0 6.52 0 9C0 12 0 36 0 39C0 41.48 0 44.74 1.5 46.5C3.26 48 6.53 48 9.01 48C12.01 48 36.01 48 39.01 48C41.48 48 44.74 48 46.5 46.5C48 44.74 48 41.48 48 39C48 36 48 12 48 9C48 6.52 48 3.26 46.5 1.5C44.74 0 41.48 0 39.01 0C36.01 0 12.01 0 9.01 0Z">
+					</path>
+					<path
+						d="M23.56 11.55L24.07 11.61L24.57 11.69L25.07 11.79L25.56 11.92L26.04 12.07L26.51 12.24L26.98 12.43L27.44 12.65L27.88 12.88L28.32 13.14L28.74 13.42L29.16 13.72L29.56 14.03L29.95 14.37L30.32 14.73L30.68 15.1L31.02 15.49L31.33 15.89L31.63 16.31L31.91 16.73L32.17 17.17L32.4 17.62L32.62 18.07L32.81 18.54L32.98 19.01L33.13 19.49L33.26 19.98L33.36 20.48L33.44 20.98L33.5 21.49L33.54 22.01L33.55 22.52L33.54 22.93L33.52 23.34L33.48 23.75L33.43 24.15L33.36 24.55L33.28 24.94L33.19 25.33L33.08 25.72L32.95 26.1L32.82 26.48L32.66 26.85L32.5 27.21L32.32 27.57L32.13 27.92L31.93 28.27L31.71 28.61L31.48 28.94L36.98 34.43L37.09 34.56L37.19 34.7L37.28 34.84L37.35 34.99L37.41 35.14L37.46 35.3L37.49 35.46L37.5 35.62L37.5 35.78L37.49 35.95L37.46 36.11L37.41 36.26L37.35 36.42L37.28 36.57L37.19 36.71L37.09 36.85L36.98 36.97L36.91 37.03L36.85 37.09L36.78 37.14L36.71 37.19L36.64 37.24L36.57 37.28L36.49 37.32L36.42 37.35L36.34 37.38L36.27 37.41L36.19 37.43L36.11 37.45L36.03 37.47L35.95 37.48L35.87 37.49L35.79 37.5L35.7 37.5L35.62 37.5L35.54 37.49L35.46 37.48L35.38 37.47L35.3 37.45L35.22 37.43L35.14 37.41L35.07 37.38L34.99 37.35L34.92 37.32L34.84 37.28L34.77 37.24L34.7 37.19L34.63 37.14L34.56 37.09L34.5 37.03L34.43 36.97L28.94 31.48L28.61 31.71L28.27 31.93L27.92 32.13L27.57 32.32L27.21 32.5L26.85 32.66L26.48 32.81L26.1 32.95L25.72 33.08L25.33 33.18L24.94 33.28L24.55 33.36L24.15 33.43L23.75 33.48L23.34 33.52L22.94 33.54L22.53 33.55L22.01 33.54L21.49 33.5L20.99 33.44L20.48 33.36L19.99 33.26L19.5 33.13L19.01 32.98L18.54 32.81L18.07 32.61L17.62 32.4L17.17 32.16L16.73 31.91L16.31 31.63L15.89 31.33L15.49 31.01L15.1 30.68L14.73 30.32L14.37 29.94L14.03 29.56L13.72 29.15L13.42 28.74L13.14 28.32L12.88 27.88L12.65 27.43L12.43 26.98L12.24 26.51L12.07 26.03L11.92 25.55L11.79 25.06L11.69 24.57L11.61 24.06L11.55 23.55L11.51 23.04L11.5 22.52L11.51 22.01L11.55 21.49L11.61 20.98L11.69 20.48L11.79 19.98L11.92 19.49L12.07 19.01L12.24 18.54L12.43 18.07L12.65 17.61L12.88 17.17L13.14 16.73L13.42 16.31L13.72 15.89L14.03 15.49L14.37 15.1L14.73 14.73L15.1 14.37L15.49 14.03L15.89 13.72L16.31 13.42L16.73 13.14L17.17 12.88L17.62 12.65L18.07 12.43L18.54 12.24L19.01 12.07L19.5 11.92L19.99 11.79L20.48 11.69L20.99 11.61L21.49 11.55L22.01 11.51L22.53 11.5L23.04 11.51L23.56 11.55ZM21.22 15.21L20.59 15.35L19.98 15.54L19.39 15.78L18.82 16.08L18.27 16.43L17.76 16.83L17.27 17.27L16.83 17.75L16.43 18.27L16.08 18.81L15.79 19.39L15.54 19.98L15.35 20.59L15.21 21.22L15.13 21.87L15.1 22.52L15.13 23.18L15.21 23.82L15.35 24.45L15.54 25.07L15.79 25.66L16.08 26.23L16.43 26.78L16.83 27.29L17.27 27.78L17.76 28.22L18.27 28.62L18.82 28.96L19.39 29.26L19.98 29.51L20.59 29.7L21.22 29.84L21.87 29.92L22.53 29.95L23.18 29.92L23.83 29.84L24.46 29.7L25.07 29.51L25.66 29.26L26.23 28.96L26.78 28.62L27.29 28.22L27.78 27.78L28.22 27.29L28.62 26.78L28.97 26.23L29.26 25.66L29.51 25.07L29.7 24.45L29.84 23.82L29.93 23.18L29.96 22.52L29.93 21.87L29.84 21.22L29.7 20.59L29.51 19.98L29.26 19.39L28.97 18.82L28.62 18.27L28.22 17.75L27.78 17.27L27.29 16.83L26.78 16.43L26.23 16.08L25.66 15.78L25.07 15.54L24.46 15.35L23.83 15.21L23.18 15.12L22.53 15.09L21.87 15.12L21.22 15.21Z"
+						fill="#ececec"></path>
+				</symbol>
+				<symbol id="icon__nightmode" viewBox="0 0 48 48">
+					<path
+						d="M17.94 0.63L17.75 0.95L17.57 1.28L17.39 1.61L17.22 1.94L17.05 2.27L16.89 2.61L16.74 2.95L16.59 3.3L16.45 3.65L16.31 4L16.18 4.35L16.05 4.71L15.94 5.07L15.82 5.43L15.72 5.8L15.62 6.17L15.52 6.54L15.44 6.91L15.36 7.29L15.28 7.66L15.22 8.04L15.16 8.43L15.1 8.81L15.06 9.2L15.02 9.59L14.99 9.98L14.96 10.37L14.94 10.77L14.93 11.16L14.93 11.56L14.96 12.66L15.04 13.75L15.17 14.82L15.36 15.87L15.6 16.9L15.89 17.92L16.22 18.91L16.61 19.88L17.03 20.82L17.5 21.75L18.02 22.64L18.57 23.51L19.17 24.34L19.8 25.15L20.47 25.93L21.18 26.67L21.92 27.38L22.69 28.05L23.5 28.68L24.34 29.28L25.2 29.83L26.09 30.35L27.01 30.82L27.96 31.25L28.93 31.63L29.92 31.96L30.93 32.25L31.96 32.49L33.01 32.68L34.08 32.81L35.17 32.9L36.26 32.92L36.67 32.92L37.07 32.91L37.48 32.89L37.88 32.86L38.27 32.83L38.67 32.79L39.06 32.74L39.45 32.69L39.84 32.62L40.23 32.56L40.61 32.48L41 32.4L41.37 32.31L41.75 32.21L42.12 32.11L42.5 32L42.86 31.88L43.23 31.76L43.59 31.63L43.95 31.49L44.31 31.35L44.66 31.2L45.01 31.05L45.36 30.89L45.7 30.72L46.04 30.55L46.37 30.37L46.71 30.19L47.04 30L47.36 29.81L47.68 29.61L48 29.4L47.74 30.39L47.43 31.37L47.09 32.33L46.71 33.26L46.29 34.18L45.84 35.08L45.35 35.96L44.82 36.81L44.26 37.64L43.67 38.44L43.05 39.22L42.4 39.98L41.72 40.7L41 41.4L40.26 42.06L39.5 42.7L38.71 43.31L37.89 43.88L37.05 44.42L36.18 44.93L35.3 45.4L34.39 45.83L33.46 46.23L32.51 46.59L31.55 46.92L30.56 47.2L29.56 47.44L28.55 47.64L27.52 47.79L26.47 47.91L25.42 47.98L24.35 48L23.09 47.97L21.86 47.87L20.64 47.72L19.44 47.5L18.26 47.23L17.11 46.9L15.98 46.52L14.87 46.08L13.79 45.6L12.74 45.06L11.72 44.47L10.73 43.84L9.78 43.16L8.86 42.43L7.98 41.67L7.13 40.86L6.33 40.01L5.56 39.13L4.84 38.21L4.16 37.25L3.52 36.26L2.94 35.24L2.4 34.19L1.91 33.11L1.48 32L1.09 30.87L0.77 29.71L0.49 28.54L0.28 27.34L0.13 26.12L0.03 24.88L0 23.62L0.02 22.56L0.09 21.51L0.2 20.47L0.36 19.45L0.55 18.44L0.79 17.45L1.07 16.47L1.38 15.51L1.74 14.56L2.13 13.64L2.56 12.74L3.02 11.85L3.52 10.99L4.05 10.15L4.62 9.34L5.21 8.55L5.84 7.78L6.5 7.04L7.19 6.33L7.9 5.65L8.64 5L9.41 4.37L10.2 3.78L11.02 3.22L11.86 2.69L12.73 2.2L13.61 1.74L14.52 1.32L15.44 0.93L16.39 0.58L17.35 0.27L18.33 0L18.13 0.31L17.94 0.63Z">
+					</path>
+				</symbol>
+				<symbol id="icon__naup" viewBox="0 0 48 32">
+					<path
+						d="M26.8 1.21C26 0.4 25.07 0 24 0C22.91 0 21.99 0.4 21.23 1.21C19.22 3.33 3.18 20.3 1.17 22.42C0.39 23.25 0 24.24 0 25.39C0 26.56 0.39 27.54 1.17 28.32C1.4 28.56 3.25 30.52 3.48 30.76C4.22 31.59 5.14 32 6.25 32C7.36 32 8.29 31.59 9.03 30.76C10.03 29.71 15.02 24.44 24 14.96C32.98 24.44 37.98 29.71 38.97 30.76C39.71 31.59 40.64 32 41.75 32C42.83 32 43.77 31.59 44.55 30.76C44.78 30.52 46.63 28.56 46.86 28.32C47.62 27.52 48 26.54 48 25.39C48 24.24 47.61 23.25 46.83 22.42C42.82 18.18 28.81 3.33 26.8 1.21Z">
+					</path>
+				</symbol>
+				<symbol id="icon__sticker" viewBox="0 0 48 48">
+					<path
+						d="M23.21 0.45C22.29 -0.47 20.72 0.11 20.61 1.4C19.34 16.26 31.75 28.65 46.6 27.39C47.89 27.28 48.47 25.71 47.55 24.79C42.68 19.92 25.64 2.88 23.21 0.45Z">
+					</path>
+					<path
+						d="M40.13 32.4C40.64 33.42 39.9 34.62 38.76 34.62C37.19 34.62 11.85 34.62 10.2 34.62C9.07 34.62 8.32 33.42 8.83 32.4C9.5 31.07 14.82 20.42 15.49 19.09C16.05 17.97 17.66 17.97 18.22 19.09C18.4 19.45 19.29 21.23 20.89 24.43C22.22 21.77 22.96 20.3 23.11 20C18.98 14.66 16.98 7.96 17.56 1.14C17.57 1.03 17.58 0.91 17.6 0.8C0.08 5.68 -6.07 27.83 7.05 40.95C20.19 54.09 42.33 47.88 47.2 30.4C45.6 30.66 42.09 30.62 38.9 29.95C39.15 30.44 40.01 32.16 40.13 32.4Z">
+					</path>
+				</symbol>
+			</svg>
+			<div class="footer__speed"></div>
+			<br>Все права и копирайты на этой странице принадлежат правообладателям. За любую размещенную информацию
+			несет личную ответственность постер (лицо, загрузившее эту информацию). Все комментарии принадлежат лицам,
+			отправившим их.<br>
+			Если вы обнаружили информацию, размещённую против правил, пожалуйста, <a href="mailto:admin@2ch.hk">сообщите
+				нам</a> об этом.<br><br> Зеркала Двача: 2ch.hk, 2ch.pm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so
+			<!--LiveInternet counter-->
+			<script>document.write("<a href='//www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t26.2;r" + escape(document.referrer) + ((typeof (screen) == "undefined") ? "" : ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ? screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) + ";h" + escape(document.title.substring(0, 80)) + ";" + Math.random() + "' border=0 width=88 height=15 alt='' title='LiveInternet: показано число посетителей за сегодня'><\/a>")</script>
+			<a href="//www.liveinternet.ru/click" target="_blank"><img
+					src="//counter.yadro.ru/hit?t26.2;r;s1920*1080*24;uhttps%3A//2ch.hk/rf/res/4280792.html;h/rf/%20-%20%u0425%u043E%u0447%u0443%20%u0445%u0438%u043A%u043A%u0438%u043C%u043E%u0442%u043E%u0446%u0438%u043A%u043B%2C%20%u043A%u0430%u043A%u0438%u0435%20%u043F%u043E%u0434%u0432%u043E%u0434%u043D%u044B%u0435%3F;0.25970581319611097"
+					alt="" title="LiveInternet: показано число посетителей за сегодня" nta0bc2we="" width="88"
+					height="15" border="0"></a>
+			<!--/LiveInternet-->
+			<script>
+					(function (i, s, o, g, r, a, m) {
+						i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+							(i[r].q = i[r].q || []).push(arguments)
+						}, i[r].l = 1 * new Date(); a = s.createElement(o),
+							m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+					})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+				ga('create', 'UA-53637455-1', 'auto');
+				ga('send', 'pageview');
+			</script>
+		</section>
+	</footer>
+</main>

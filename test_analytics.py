@@ -87,3 +87,29 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(thread.posts[0].files[0].width, 1000)
         self.assertEqual(thread.posts[0].files[0].height, 666)
 
+    def test_get_hierarchy(self):
+        html = self.read_file('thread_html')
+
+        thread = dvach.Thread('rf')
+        hierarchy = thread.get_hierarchy(html)
+
+        self.assertEqual(len(hierarchy), 27)
+
+        self.assertEqual(len(hierarchy['4280795']), 1)
+        self.assertEqual(len(hierarchy['4280800']), 2)
+        self.assertEqual(len(hierarchy['4280802']), 1)
+        self.assertEqual(len(hierarchy['4280803']), 0)
+        self.assertEqual(len(hierarchy['4280805']), 0)
+        self.assertEqual(len(hierarchy['4280808']), 1)
+        self.assertEqual(len(hierarchy['4280809']), 0)
+        self.assertEqual(len(hierarchy['4280812']), 1)
+        self.assertEqual(len(hierarchy['4280818']), 1)
+        self.assertEqual(len(hierarchy['4280824']), 1)
+        self.assertEqual(len(hierarchy['4280827']), 1)
+
+        self.assertEqual(hierarchy['4280795'][0], '4280805')
+
+        self.assertEqual(hierarchy['4280800'][0], '4280802')
+        self.assertEqual(hierarchy['4280800'][1], '4280803')
+
+        self.assertEqual(hierarchy['4280802'][0], '4280808')
