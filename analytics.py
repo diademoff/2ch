@@ -5,9 +5,32 @@ import sys
 import os
 from bs4 import BeautifulSoup
 
+class Post_file:
+    displayname: str
+    name: str
+    path: str
+    width: int
+    height: int
+
+    def __init__(self, json_data):
+        self.displayname = json_data['displayname']
+        self.name = json_data['name']
+        self.path = json_data['path']
+        self.width = json_data['width']
+        self.height = json_data['height']
 
 class Post:
-    pass
+    comment: str
+    num: str
+    files: []
+    
+
+    def __init__(self, json_post_data):
+        self.comment = json_post_data['comment']
+        self.num = json_post_data['num']
+        self.files = []
+        for json_file_data in  json_post_data['files']:
+            self.files.append(Post_file(json_file_data))
 
 
 class Thread:
@@ -21,12 +44,16 @@ class Thread:
     timestamp: int
     views: int
 
-    board_name: str
+    board_name: str  # тред должен знать на какой он борде
     posts = []
     score_history = []
 
-    def __init__(self, board_name: str, json_thread_data):
-        """Инициализация треда."""
+    def __init__(self, board_name: str, json_thread_data=''):
+        """
+        Инициализация треда.
+
+        json_thread_data - json от борды (там нет списка постов)
+        """
         if json_thread_data != '':
             self.comment = json_thread_data['comment']
             self.lasthit = int(json_thread_data['lasthit'])
@@ -36,11 +63,22 @@ class Thread:
             self.subject = json_thread_data['subject']
             self.timestamp = int(json_thread_data['timestamp'])
             self.views = int(json_thread_data['views'])
-            # clean comments
+            # отчистить от html
             self.comment = BeautifulSoup(self.comment, 'lxml').text.strip()
 
             self.score_history = [self.score]
         self.board_name = board_name
+
+    def get_posts(self, json_posts):
+        """Перезаписыват посты в треде из json"""
+        posts_json = json.loads(json_posts)
+        self.posts = []
+        for post in posts_json:
+            self.posts.append(Post(post))
+
+    @property
+    def json_posts_link(self) -> str:
+        return f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
 
     @property
     def get_link(self) -> str:
@@ -66,7 +104,7 @@ class Board:
     name: str
     threads: dict
 
-    def __init__(self, name: str, threads = dict()):
+    def __init__(self, name: str, threads=dict()):
         """Инициализировать борду. Пример имени: `b`."""
         self.name = name
         self.threads = threads
@@ -109,7 +147,7 @@ class Board:
             if not (new in self.threads.keys()):
                 new_threads[str(new)] = comparewith[new]
         return new_threads
-    
+
     def json_download(self) -> str:
         """Скачать json."""
         try:

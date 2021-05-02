@@ -67,3 +67,22 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(len(deleted), 2)
         self.assertEqual(list(deleted.keys())[0], "2")
         self.assertEqual(list(deleted.keys())[1], "3")
+
+    def test_read_posts(self):
+        json_plain = self.read_file('posts_json.json')
+
+        thread = analytics.Thread('b')
+        thread.get_posts(json_plain)
+
+        self.assertEqual(len(thread.posts), 7)
+        self.assertEqual(len(thread.posts[0].files), 1)
+
+        # Проверка правильности первого поста.
+        self.assertEqual(thread.posts[0].comment, "О чём говорить с тней на свидании? Помоги, двач, умоляю.")
+        self.assertEqual(thread.posts[0].num, "245701589")
+        self.assertEqual(thread.posts[0].files[0].displayname, "3741000.jpg")
+        self.assertEqual(thread.posts[0].files[0].name, "16199547970060.jpg")
+        self.assertEqual(thread.posts[0].files[0].path, "/b/src/245701589/16199547970060.jpg")
+        self.assertEqual(thread.posts[0].files[0].width, 1000)
+        self.assertEqual(thread.posts[0].files[0].height, 666)
+
