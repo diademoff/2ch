@@ -26,7 +26,7 @@ if __name__ == '__main__':
     thread.get_posts(json_thread)
 
     # Создаём папку с медиа
-    if not os.path.exists(FOLDER_NAME) and os.path.isdir(FOLDER_NAME):
+    if not os.path.exists(FOLDER_NAME):
         os.mkdir(FOLDER_NAME)
 
     # Скачиваем файлы в папку media
