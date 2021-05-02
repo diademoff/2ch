@@ -23,7 +23,7 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(b.threads[i].board_name, 'b')
         self.assertEqual(b.threads[i].comment, 'Продолжаем наблюдать за тупорылостью зумерков')
         self.assertEqual(b.threads[i].lasthit, 1619954786)
-        self.assertEqual(b.threads[i].num, "245698531")
+        self.assertEqual(b.threads[i].num, "1")
         self.assertEqual(b.threads[i].posts_count, 54)
         self.assertEqual(b.threads[i].score, 0)
         self.assertEqual(b.threads[i].subject, "Продолжаем наблюдать за тупорылостью зумерков")
@@ -42,12 +42,12 @@ class TestAnalytics(unittest.TestCase):
 
         new = b.get_new_threads(threads_withnew_1)
         self.assertEqual(len(new), 1)
-        self.assertEqual(list(new.keys())[0], "245684546")
+        self.assertEqual(list(new.keys())[0], "6")
 
         new = b.get_new_threads(threads_withnew_2)
         self.assertEqual(len(new), 2)
-        self.assertEqual(list(new.keys())[0], "245684546")
-        self.assertEqual(list(new.keys())[1], "695423564")
+        self.assertEqual(list(new.keys())[0], "6")
+        self.assertEqual(list(new.keys())[1], "7")
     
     def test_dead_thread(self):
         json_plain = self.read_file('threads_json.json')
@@ -61,9 +61,9 @@ class TestAnalytics(unittest.TestCase):
 
         deleted = b.get_dead_threads(threads_deleted_1)
         self.assertEqual(len(deleted), 1)
-        self.assertEqual(list(deleted.keys())[0], "245695443")
+        self.assertEqual(list(deleted.keys())[0], "3")
 
         deleted = b.get_dead_threads(threads_deleted_2)
         self.assertEqual(len(deleted), 2)
-        self.assertEqual(list(deleted.keys())[0], "245698531")
-        self.assertEqual(list(deleted.keys())[1], "245695443")
+        self.assertEqual(list(deleted.keys())[0], "2")
+        self.assertEqual(list(deleted.keys())[1], "3")
