@@ -1,6 +1,6 @@
 import time
 import os
-import analytics
+import dvach
 
 # Скачать все файлы с треда
 
@@ -11,9 +11,9 @@ if __name__ == '__main__':
     thread_num = input()
 
     # Скачиваем json борды
-    board_json = analytics.Board.json_download(board_name)
+    board_json = dvach.Board.json_download(board_name)
 
-    board = analytics.Board.from_json(board_json)
+    board = dvach.Board.from_json(board_json)
 
     # Тред с которого скачивать файлы
     thread = board.threads[thread_num]
