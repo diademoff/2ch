@@ -262,7 +262,13 @@ if len(post.files) > 0:
 
 # FAQ
 * Ты используешь api двача
-Да. А конкретно: https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board=b&thread=245778221&post=1 и http://2ch.hk/b/threads.json
+
+Да. А конкретно: 
+```py
+f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
+f'http://2ch.hk/{self.name}/threads.json'
+``` 
 * Зачем тебе beautiful soup?
+
 Преимущественно чтобы убирать html теги в постах. Если в посте **жирный текст**, то получается так:
 `<strong>текст</strong>`. Этот тэг нужно убрать, чтобы остался только текст.
