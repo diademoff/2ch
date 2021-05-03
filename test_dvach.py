@@ -1,19 +1,34 @@
 import unittest
 import dvach
+import os
 
 
 class TestAnalytics(unittest.TestCase):
 
     def read_file(self, file_name) -> str:
-        f = open(f'test_files/{file_name}')
+        """Прочитать файл в директории test_files/
+
+        В директории `test_files/` собраны файлы которые используются для тестирования
+
+        Args:
+            file_name (str): название файла в директории test_files/
+
+        Returns:
+            str: Содержимое файла
+        """
+        f = open(os.path.normpath(f'test_files/{file_name}'))
         text = f.read()
         f.close()
         return text
 
     def test_read_json(self):
+        """Тест парсинга json доски
+        """
         json_plain = self.read_file('threads_json.json')
+
+        # Тест этой функции
         b = dvach.Board.from_json(json_plain)
-        
+
         self.assertEqual(b.name, 'b')
         self.assertEqual(len(b.threads.keys()), 5)
 
@@ -31,6 +46,8 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(b.threads[i].views, 0)
 
     def test_new_thread(self):
+        """Тест обнаружения новых тредов на доске
+        """
         json_plain = self.read_file('threads_json.json')
         b = dvach.Board.from_json(json_plain)
 
@@ -40,16 +57,20 @@ class TestAnalytics(unittest.TestCase):
         json_withnew2_plain = self.read_file('threads_json_withnew2.json')
         threads_withnew_2 = dvach.Board.from_json(json_withnew2_plain).threads
 
+        # Тест если добавляется один тред
         new = b.get_new_threads(threads_withnew_1)
         self.assertEqual(len(new), 1)
         self.assertEqual(list(new.keys())[0], "6")
 
+        # Тест если добавляется два треда
         new = b.get_new_threads(threads_withnew_2)
         self.assertEqual(len(new), 2)
         self.assertEqual(list(new.keys())[0], "6")
         self.assertEqual(list(new.keys())[1], "7")
-    
+
     def test_dead_thread(self):
+        """Тест обнаружения умерших тредов на доске
+        """
         json_plain = self.read_file('threads_json.json')
         b = dvach.Board.from_json(json_plain)
 
@@ -59,19 +80,24 @@ class TestAnalytics(unittest.TestCase):
         json_deleted_plain2 = self.read_file('threads_json_removed2.json')
         threads_deleted_2 = dvach.Board.from_json(json_deleted_plain2).threads
 
+        # Тест если удаляется один тред
         deleted = b.get_dead_threads(threads_deleted_1)
         self.assertEqual(len(deleted), 1)
         self.assertEqual(list(deleted.keys())[0], "3")
 
+        # Тест если удаляется два треда
         deleted = b.get_dead_threads(threads_deleted_2)
         self.assertEqual(len(deleted), 2)
         self.assertEqual(list(deleted.keys())[0], "2")
         self.assertEqual(list(deleted.keys())[1], "3")
 
     def test_read_posts(self):
+        """Тест парсига постов в треде по json
+        """
         json_plain = self.read_file('posts_json.json')
 
         thread = dvach.Thread('b')
+        # Тест этой функции
         thread.get_posts(json_plain)
 
         self.assertEqual(thread.unique_posters, 43)
@@ -88,9 +114,13 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(thread.posts[0].files[0].height, 666)
 
     def test_get_hierarchy(self):
+        """Тест обнаружения иерархии по html странице треда
+        """
         html = self.read_file('thread_html')
 
         thread = dvach.Thread('rf')
+
+        # Тест этой функции
         hierarchy = thread.get_hierarchy(html)
 
         self.assertEqual(len(hierarchy), 27)
