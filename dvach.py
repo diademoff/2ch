@@ -80,6 +80,10 @@ class Thread:
             self.score_history = [self.score]
         self.board_name = board_name
 
+    def update_posts(self):
+        json_posts = self.json_download()
+        self.get_posts(json_posts)
+
     def get_posts(self, json_posts):
         """Перезаписыват посты в треде из json"""
         posts_json = json.loads(json_posts)
