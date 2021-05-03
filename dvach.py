@@ -1,8 +1,6 @@
 import json
-import time
+from typing import List
 import requests
-import sys
-import os
 from bs4 import BeautifulSoup
 
 
@@ -33,7 +31,7 @@ class Post_file:
 class Post:
     comment: str
     num: str
-    files: []
+    files: List[Post_file]
 
     def __init__(self, json_post_data):
         self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
@@ -53,7 +51,7 @@ class Thread:
     subject: str
     timestamp: int
     views: int
-    unique_posters: int # определяется по оп посту 
+    unique_posters: int  # определяется по оп посту
 
     board_name: str  # тред должен знать на какой он доске
     posts = []
@@ -96,14 +94,14 @@ class Thread:
 
     def get_hierarchy(self, html_thread):
         """
-        Получить иерархию тредов (без учета ОП-поста). 
-        
+        Получить иерархию тредов (без учета ОП-поста).
+
         Ключ является номером поста, значение - это список ответов на пост
         """
         ref_map = {}
 
         soup = BeautifulSoup(html_thread, "lxml")
-        posts = soup.find_all('div', class_="thread__post") 
+        posts = soup.find_all('div', class_="thread__post")
 
         for post in posts:
             post_num = str(post.get('id'))
@@ -216,7 +214,6 @@ class Board:
         json_downloaded = requests.get(download_link, stream=True).text
         return json_downloaded
 
-    @property
     def thread_exists(self, num: str) -> bool:
         """Существует ли тред."""
         for thread in self.threads:
