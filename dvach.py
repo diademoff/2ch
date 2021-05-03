@@ -81,11 +81,13 @@ class Thread:
         self.board_name = board_name
 
     def update_posts(self):
+        """Скачать посты и обновить их список
+        """
         json_posts = self.json_download()
         self.get_posts(json_posts)
 
     def get_posts(self, json_posts):
-        """Перезаписыват посты в треде из json"""
+        """Перезаписать список постов в треде из json"""
         posts_json = json.loads(json_posts)
         self.unique_posters = int(posts_json[0]['unique_posters'])
         self.posts = []
@@ -117,6 +119,11 @@ class Thread:
         return ref_map
 
     def json_download(self):
+        """Скачать json постов
+
+        Returns:
+            str: json постов
+        """
         return download_json(self.json_posts_link)
 
     @property
@@ -154,7 +161,14 @@ class Board:
 
     @staticmethod
     def from_json(json_text: str):
-        """Спарсить json и вернуть борду"""
+        """Спарсить json и вернуть борду
+
+        Args:
+            json_text (str): json с списом тредов и именем борды
+
+        Returns:
+            Board: Возвращает борду сформированную из json
+        """
         json_data = json.loads(json_text)
         threads_json = json_data['threads']
         name_json = json_data['board']
@@ -167,7 +181,8 @@ class Board:
         return Board(name_json, downloaded_threads)
 
     def sort_threads_by_score(self):
-        """Отсортировать треды по очкам."""
+        """Сортировка тредов по очкам
+        """
         for i in range(len(self.threads.keys())):
             for j in range(len(self.threads.keys())):
                 key_i = list(self.threads.keys())[i]
@@ -216,4 +231,12 @@ class Board:
 
 
 def download_json(link: str) -> str:
+    """Скачать json
+
+    Args:
+        link (str): ссылка на скачивание
+
+    Returns:
+        str: возвращает json
+    """
     return requests.get(link, stream=True).text
