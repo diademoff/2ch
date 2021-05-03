@@ -5,6 +5,31 @@ import os
 # Скачать все файлы со всех тредов доски
 BOARD = 'b'
 FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
+KEY_WORDS = [  # список ключевых слов
+    "WEBM",
+    "webm",
+    "цуиь"
+]
+
+
+def IsOk(comment: str):
+    """Подходит ли тред по ключевым словам
+
+    Если хотя бы одно ключевое слово есть в тексте, тогда подходит.
+
+    Args:
+        comment (str): Текст в ОП-посте
+
+    Returns:
+        bool: Подходит ли по ключевым словам
+    """
+    if len(KEY_WORDS) != 0:
+        for word in KEY_WORDS:
+            if word in comment:
+                return True  # подходит если есть одно из ключевых слов
+    else:
+        return True  # Подходит если ключевые слова не указаны.
+    return False
 
 
 if __name__ == '__main__':
@@ -26,6 +51,9 @@ if __name__ == '__main__':
             # Тред с которого скачивать файлы
             thread = board.threads[thread_num]
 
+            if not IsOk(thread.comment):
+                continue  # Если не подходит - пропускаем
+
             # Скачиваем посты треда
             try:
                 thread.update_posts()
@@ -40,12 +68,12 @@ if __name__ == '__main__':
                     download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
                     download_path = os.path.normpath(f'{download_folder}/' + file.name)
 
-                    # Создаём папку с медиа треда 
+                    # Создаём папку с медиа треда
                     if not os.path.exists(download_folder):
                         os.mkdir(download_folder)
 
                     if os.path.exists(download_path):
-                        print(f'Файл {file.name} из треда {thread_num} существует')
+                        # print(f'Файл {file.name} из треда {thread_num} существует')
                         continue
 
                     try:
