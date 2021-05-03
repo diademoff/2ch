@@ -1,4 +1,4 @@
-# Мониторинг борд
+# Мониторинг доск
 
 import dvach
 import time
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     board_names = 'b news sex v hw gg dev soc rf ma psy fet'
     boards = []
 
-    # Добавить все борды в общий список
+    # Добавить все доски в общий список
     for board_name in board_names.split(' '):
         board_json = dvach.Board.json_download(board_name)
         boards.append(dvach.Board.from_json(board_json))
@@ -36,7 +36,7 @@ if __name__ == '__main__':
         for i in range(len(boards)):
             b = boards[i]
 
-            # Скачать борду с новыми тредами
+            # Скачать доску с новыми тредами
             try:
                 board_json = dvach.Board.json_download(b.name)
                 updated_board = dvach.Board.from_json(board_json)
@@ -44,7 +44,7 @@ if __name__ == '__main__':
                 time.sleep(3)
                 continue
 
-            # Сравнить скаченную борду с существующей
+            # Сравнить скаченную доску с существующей
             new = b.get_new_threads(updated_board.threads)
 
             # Добавить все новые треды в общий список
@@ -52,7 +52,7 @@ if __name__ == '__main__':
             for key in new.keys():
                 new_threads.append(new[key])
 
-            # Заменить старую борду новой чтобы потом сравнивать с новой
+            # Заменить старую доску новой чтобы потом сравнивать с новой
             boards[i].threads = updated_board.threads
             time.sleep(1)
 

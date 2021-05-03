@@ -6,12 +6,12 @@ import dvach
 FOLDER_NAME = 'media' # название папки, куда будут скачиваться файлы
 
 if __name__ == '__main__':
-    print('Введите название борды: ', end='')
+    print('Введите название доски: ', end='')
     board_name = input()
     print('Введите номер треда: ', end='')
     thread_num = input()
 
-    # Скачиваем борду с тредами
+    # Скачиваем доску с тредами
     board = dvach.Board(board_name)
     board.update_threads()
 

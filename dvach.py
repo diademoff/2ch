@@ -44,7 +44,7 @@ class Post:
 
 
 class Thread:
-    """Тред борды."""
+    """Тред доски."""
     comment: str
     lasthit: int
     num: str
@@ -55,7 +55,7 @@ class Thread:
     views: int
     unique_posters: int # определяется по оп посту 
 
-    board_name: str  # тред должен знать на какой он борде
+    board_name: str  # тред должен знать на какой он доске
     posts = []
     score_history = []
 
@@ -63,7 +63,7 @@ class Thread:
         """
         Инициализация треда.
 
-        json_thread_data - json от борды (там нет списка постов)
+        json_thread_data - json от доски (там нет списка постов)
         """
         if json_thread_data != '':
             self.comment = json_thread_data['comment']
@@ -137,7 +137,7 @@ class Thread:
 
 
 class BoardRefreshInfo:
-    """Информация об изменениях на борде."""
+    """Информация об изменениях на доске."""
 
     deadThreads = []
     newThreads = []
@@ -149,25 +149,25 @@ class BoardRefreshInfo:
 
 
 class Board:
-    """Борда."""
+    """Доска."""
 
     name: str
     threads: dict
 
     def __init__(self, name: str, threads=dict()):
-        """Инициализировать борду. Пример имени: `b`."""
+        """Инициализировать доску. Пример имени: `b`."""
         self.name = name
         self.threads = threads
 
     @staticmethod
     def from_json(json_text: str):
-        """Спарсить json и вернуть борду
+        """Спарсить json и вернуть доску
 
         Args:
-            json_text (str): json с списом тредов и именем борды
+            json_text (str): json с списом тредов и именем доски
 
         Returns:
-            Board: Возвращает борду сформированную из json
+            Board: Возвращает доску сформированную из json
         """
         json_data = json.loads(json_text)
         threads_json = json_data['threads']

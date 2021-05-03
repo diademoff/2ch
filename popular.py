@@ -20,10 +20,10 @@ def print_threads(threads):
         print(f"{score_str} | {comment_formatted} | {thread.get_link}")
 
 if __name__=='__main__':
-    # борда, которую нужно парсить
+    # доска, которую нужно парсить
     board_name = 'b'
 
-    # Инициализация борды с тредами
+    # Инициализация доски с тредами
     board = dvach.Board.from_json(dvach.Board.json_download(board_name))
 
     while True:
