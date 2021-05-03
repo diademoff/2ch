@@ -25,6 +25,7 @@ python {название скрипта}.py
 * Скачать все файлы с треда [`media.py`](./media.py)
 * Уведомления о новых тредах на досках [`tracker.py`](./tracker.py)
 * Самые популярные треды на доске [`popular.py`](./popular.py)
+* Скачивать все файлы доски [`board_media.py`](./board_media.py)
 
 [Я ретард](https://drive.google.com/file/d/1LLfW1EWSTYcFTAoCR02h_Ai04-IzOlba/) памагите!
 
