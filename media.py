@@ -11,19 +11,15 @@ if __name__ == '__main__':
     print('Введите номер треда: ', end='')
     thread_num = input()
 
-    # Скачиваем json борды
-    board_json = dvach.Board.json_download(board_name)
-
-    board = dvach.Board.from_json(board_json)
+    # Скачиваем борду с тредами
+    board = dvach.Board(board_name)
+    board.update_threads()
 
     # Тред с которого скачивать файлы
     thread = board.threads[thread_num]
 
-    # Скачиваем json треда
-    json_thread = thread.json_download()
-
-    # Получаем посты
-    thread.get_posts(json_thread)
+    # Скачиваем посты треда
+    thread.update_posts()
 
     # Создаём папку с медиа
     if not os.path.exists(FOLDER_NAME):
