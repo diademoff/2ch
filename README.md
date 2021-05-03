@@ -26,6 +26,8 @@ python {название скрипта}.py
 * Уведомления о новых тредах на досках [`tracker.py`](./tracker.py)
 * Самый популярные треды на доске [`popular.py`](./popular.py)
 
+[Я ретард](https://drive.google.com/file/d/1LLfW1EWSTYcFTAoCR02h_Ai04-IzOlba/) памагите!
+
 # Использование
 Весь api хранится в файле `dvach.py`. Подключаем:
 
