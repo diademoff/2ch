@@ -1,12 +1,13 @@
 # Мониторинг доск
 
+from typing import List
 import dvach
 import time
-import os
 
-text_limit = 155 # Длина строки вывода в консоль
+text_limit = 155  # Длина строки вывода в консоль
 
-def print_new_threads(new_threads: []):
+
+def print_new_threads(new_threads: List[dvach.Thread]):
     for thread in new_threads:
 
         board_name = '{0:5}'.format(thread.board_name)
@@ -16,6 +17,7 @@ def print_new_threads(new_threads: []):
 
         # Если операционная система linux, то можно отправить уведомление
         # os.system(f'notify-send -t 25000 \"/{board_name} {thread.comment}\"')
+
 
 if __name__ == '__main__':
     board_names = 'b news sex v hw gg dev soc rf ma psy fet'
@@ -41,6 +43,7 @@ if __name__ == '__main__':
                 board_json = dvach.Board.json_download(b.name)
                 updated_board = dvach.Board.from_json(board_json)
             except:
+                print('.', end='')
                 time.sleep(3)
                 continue
 
@@ -58,6 +61,6 @@ if __name__ == '__main__':
 
         # Вывести новые треды
         print_new_threads(new_threads)
-        
+
         # Задержка между обновлениями
         time.sleep(15)
