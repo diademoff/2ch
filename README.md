@@ -1,8 +1,6 @@
-В этом репозитории представлен api [двача](https://2ch.hk) на питоне.
+# Установка
+[Видеоинструкция](https://drive.google.com/file/d/1LLfW1EWSTYcFTAoCR02h_Ai04-IzOlba/)
 
-# Готовые примеры
-
-## Установка
 Установите [python](https://www.python.org)
 
 Скачайте zip архив или:
@@ -21,15 +19,29 @@ pip install -r requirements.txt
 python {название скрипта}.py
 ```
 
-## Список скриптов
+# Список скриптов
 * Скачать все файлы с треда [`media.py`](./media.py)
 * Уведомления о новых тредах на досках [`tracker.py`](./tracker.py)
 * Самые популярные треды на доске [`popular.py`](./popular.py)
 * Скачивать все файлы доски [`board_media.py`](./board_media.py)
 
-[Я ретард](https://drive.google.com/file/d/1LLfW1EWSTYcFTAoCR02h_Ai04-IzOlba/) памагите!
+# Редактирование скриптов
+Все скрипты можно редактировать под ваши задачи.
+* `media.py`
+  * `FOLDER_NAME = 'media'` - Изменить имя папки, в которую будут сохраняться файлы
+* `tracker.py`
+  * `text_limit = 155` - Изменить длину строки
+  * `board_names = 'b news sex v hw gg dev soc rf ma psy fet'` - Изменить список досок (писать через пробел)
+* `popular.py`
+  * `text_limit = 164` - Длина строки
+  * `max_lines = 55` - Максимальное количество строк в выводе
+  * `board_name = 'b'` - Доска, которая парсится
+* `board_media.py`
+  * `BOARD = 'b'` - Имя борды, с которой скачивать файлы
+  * `FOLDER_NAME = 'media'` - Имя папки, в которую скачивать файлы
+  * `KEY_WORDS = []` - Отбирать треды по ключевым словам, если ключевые слова не указаны, то будут скачиваться файлы *всех* тредов
 
-# Использование
+# Для разработчиков
 Весь api хранится в файле `dvach.py`. Подключаем:
 
 ```py
@@ -247,3 +259,10 @@ if len(post.files) > 0:
     file.save(file.name)
     # file.save(f"/home/username/{file.name}")
 ```
+
+# FAQ
+* Ты используешь api двача
+Да. А конкретно: https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board=b&thread=245778221&post=1 и http://2ch.hk/b/threads.json
+* Зачем тебе beautiful soup?
+Преимущественно чтобы убирать html теги в постах. Если в посте **жирный текст**, то получается так:
+`<strong>текст</strong>`. Этот тэг нужно убрать, чтобы остался только текст.
