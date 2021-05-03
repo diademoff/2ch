@@ -4,7 +4,7 @@ import dvach
 import time
 import os
 
-text_limit = 155 # Длина строки вовода в консоль
+text_limit = 155 # Длина строки вывода в консоль
 
 def print_new_threads(new_threads: []):
     for thread in new_threads:
@@ -52,7 +52,7 @@ if __name__ == '__main__':
             for key in new.keys():
                 new_threads.append(new[key])
 
-            # Заменить старую доску новой чтобы потом сравнивать с новой
+            # Заменить старую доску новой, чтобы потом сравнивать с новой
             boards[i].threads = updated_board.threads
             time.sleep(1)
 
