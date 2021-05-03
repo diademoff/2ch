@@ -171,6 +171,9 @@ class Board:
                 if self.threads[key_i].score > self.threads[key_j].score:
                     self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
 
+    def update_threads(self):
+        self.threads = Board.from_json(Board.json_download(self.name)).threads
+
     def get_dead_threads(self, comparewith):
         """`comparewith` это новый список тредов"""
         dead = dict()
