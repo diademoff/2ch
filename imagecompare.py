@@ -62,3 +62,24 @@ def CompareHash(hash1, hash2):
             count = count + 1
         i = i + 1
     return count
+
+
+def get_better_img(img1: str, img2: str) -> str:
+    """Получить изображение с лучшим расширением
+
+    Args:
+        img1 (str): Первая картинка
+        img2 (str): Вторая картинка
+
+    Returns:
+        str: Лучшая картинка
+    """
+    i1 = imread(img1)
+    i2 = imread(img2)
+    height1, width1, channels1 = i1.shape
+    height2, width2, channels2 = i2.shape
+
+    if width1 > width2:
+        return img1
+    else:
+        return img2

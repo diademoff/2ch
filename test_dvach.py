@@ -166,3 +166,14 @@ class TestAnalytics(unittest.TestCase):
         self.assertEqual(r1, True)
         self.assertEqual(r2, False)
         self.assertEqual(r3, False)
+
+    def test_better_img(self):
+        """Тест поиска лучшего изображения из двух
+        """
+        # Первая картинка лучше
+        file1 = os.path.normpath('test_files/images/img1_1.jpg')
+        file2 = os.path.normpath('test_files/images/img1_2.jpg')
+
+        best = imagecompare.get_better_img(file1, file2)
+
+        self.assertEqual(best, file1)
