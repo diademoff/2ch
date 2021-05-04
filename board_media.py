@@ -41,6 +41,9 @@ class Hashtable:
         """
         try:
             self.table[hash] = path
+            f = open(self.path, 'a')
+            f.write(f'{hash}|{path}\n')
+            f.close()
         finally:
             pass
 
@@ -149,7 +152,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                     if same_photo != '':
                         os.remove(download_path)
                         os.symlink(os.path.abspath(same_photo), download_path, target_is_directory=False)
-                        print(f'Дубликат {download_path} обнаружен в {same_photo}. Ссылка создана')
+                        print(f'Создана ссылка {download_path} на {same_photo}')
                         continue
                     hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
 
@@ -208,5 +211,3 @@ if __name__ == '__main__':
         # Обойти все треды и выбрать те, с которых скачивать файлы
         # Затем скачать файлы
         search_threads(board)
-        print('Сохранение таблицы изображений')
-        hashtable.save_file()
