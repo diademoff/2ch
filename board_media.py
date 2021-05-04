@@ -25,6 +25,10 @@ EXTENTIONS = [
 # Если равен 0, то ограничений нет
 MAX_FILE_SIZE = 0
 
+# Задать минимальный размер файла в Килобайтах
+# Если равен 0, то ограничений нет
+MIN_FILE_SIZE = 0
+
 
 class Hashtable:
     """Файл с информацией об уже скаченных картинках
@@ -148,6 +152,9 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 continue
 
             if MAX_FILE_SIZE != 0 and file.size > MAX_FILE_SIZE:
+                continue
+
+            if MIN_FILE_SIZE != 0 and file.size < MIN_FILE_SIZE:
                 continue
 
             try:
