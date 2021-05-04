@@ -1,8 +1,13 @@
 import dvach
 import time
 
-text_limit = 164 # Длина строки
-max_lines = 55 # Ограничить количество строк. Если равен 0, то ограничений нет
+# Ключевые слова. Если список пустой, то отбора тредов не будет.
+KEY_WORDS = [
+    # "цуиь",
+    # "mp4"
+]
+text_limit = 164  # Длина строки
+max_lines = 55  # Ограничить количество строк. Если равен 0, то ограничений нет
 
 
 def print_threads(threads):
@@ -13,13 +18,20 @@ def print_threads(threads):
         key = list(threads.keys())[key_index]
         thread = threads[key]
 
+        comment_words = [str(x).lower() for x in thread.comment.split(' ')]  # слова ОП-поста в нижнем регистре
+        # Если какое-то из ключевых слов есть в ОП-посте и указаны ключевые слова
+        if not len(list(set(KEY_WORDS) & set(comment_words))) > 0 and len(KEY_WORDS) != 0:
+            continue
+
         # Отформатировать строку с информацией о треде и вывести на экран
-        comment_formatted = ('{0:' + str(text_limit) + '}').format(thread.comment[:text_limit:])
+        comment_formatted = (
+            '{0:' + str(text_limit) + '}').format(thread.comment[:text_limit:])
         score_str = '{0:3}'.format(round(thread.score))
 
         print(f"{score_str} | {comment_formatted} | {thread.get_link}")
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     # доска, которую нужно парсить
     board_name = 'b'
 
@@ -34,7 +46,7 @@ if __name__=='__main__':
             print('.', end='')
             time.sleep(3)
             continue
-        
+
         # Сортировка по очкам
         board.sort_threads_by_score()
 
