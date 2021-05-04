@@ -14,7 +14,7 @@ KEY_WORDS = [  # список ключевых слов
     # "webm",
     # "цуиь"
 ]
-EXTENTIONS = [
+EXTENSIONS = [
     'png',
     'jpg',
     'webm',
@@ -111,8 +111,8 @@ def isImage(fileName: str):
     Args:
         fileName (str): имя файла
     """
-    extention = fileName.split('.')[1]
-    return extention == 'png' or extention == 'jpg'
+    ext = fileName.split('.')[1]
+    return ext == 'png' or ext == 'jpg'
 
 
 def findInTable(hash: str):
@@ -148,7 +148,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 # print(f'Файл {file.name} из треда {thread_num} существует')
                 continue
 
-            if file.name.split('.')[1] not in EXTENTIONS:
+            if file.name.split('.')[1] not in EXTENSIONS:
                 continue
 
             if MAX_FILE_SIZE != 0 and file.size > MAX_FILE_SIZE:
