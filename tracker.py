@@ -5,10 +5,19 @@ import dvach
 import time
 
 text_limit = 155  # Длина строки вывода в консоль
+# Ключевые слова. Если список пустой, то выводятся все треды.
+KEY_WORDS = [
+    # "цуиь",
+    # "mp4"
+]
 
 
 def print_new_threads(new_threads: List[dvach.Thread]):
     for thread in new_threads:
+        comment_words = [str(x).lower() for x in thread.comment.split(' ')]  # слова ОП-поста в нижнем регистре
+        # Если какое-то из ключевых слов есть в ОП-посте и указаны ключевые слова
+        if not len(list(set(KEY_WORDS) & set(comment_words))) > 0 and len(KEY_WORDS) != 0:
+            continue
 
         board_name = '{0:5}'.format(thread.board_name)
         comment_formatted = ('{0:' + str(text_limit) + '}').format(thread.comment[:text_limit:])
