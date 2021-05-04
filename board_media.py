@@ -66,6 +66,12 @@ KEY_WORDS = [  # список ключевых слов
     # "webm",
     # "цуиь"
 ]
+EXTENTIONS = [
+    'png',
+    'jpg',
+    'webm',
+    'mp4'
+]
 
 
 def IsOk(comment: str):
@@ -131,25 +137,28 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 # print(f'Файл {file.name} из треда {thread_num} существует')
                 continue
 
-            # try:
-            file.save(download_path)
+            if file.name.split('.')[1] not in EXTENTIONS:
+                continue
 
-            if isImage(file.name):
-                image_hash = imagecompare.CalcImageHash(download_path)
-                same_photo = findInTable(image_hash)
-                if same_photo != '':
-                    os.remove(download_path)
-                    os.symlink(os.path.abspath(same_photo), download_path, target_is_directory=False)
-                    print(f'Дубликат {download_path} обнаружен в {same_photo}. Ссылка создана')
-                    continue
-                hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
+            try:
+                file.save(download_path)
 
-            print(f'Скачен файл из треда {thread_num}: {file.name}')
-            time.sleep(0.1)
-            # except:
-            #     # Если не получилось скачать файл
-            #     print('.', end='')
-            #     time.sleep(3)
+                if isImage(file.name):
+                    image_hash = imagecompare.CalcImageHash(download_path)
+                    same_photo = findInTable(image_hash)
+                    if same_photo != '':
+                        os.remove(download_path)
+                        os.symlink(os.path.abspath(same_photo), download_path, target_is_directory=False)
+                        print(f'Дубликат {download_path} обнаружен в {same_photo}. Ссылка создана')
+                        continue
+                    hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
+
+                print(f'Скачен файл из треда {thread_num}: {file.name}')
+                time.sleep(0.1)
+            except:
+                # Если не получилось скачать файл
+                print('.', end='')
+                time.sleep(3)
 
 
 def search_threads(board: dvach.Board):
@@ -182,6 +191,7 @@ if __name__ == '__main__':
     if not os.path.exists(FOLDER_NAME):
         os.mkdir(FOLDER_NAME)
 
+    print('Загрузка файла')
     global hashtable
     hashtable = Hashtable(HASH_TABLE)
 
