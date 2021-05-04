@@ -1,4 +1,5 @@
 import dvach
+from typing import List
 import time
 import os
 
@@ -32,6 +33,58 @@ def IsOk(comment: str):
     return False
 
 
+def download_thread_files(posts: List[dvach.Post], thread_num: str):
+    """Скачать файлы постов треда
+
+    Args:
+        posts (List[dvach.Post]): список постов
+    """
+    for post in posts:
+        for file in post.files:
+            download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
+            download_path = os.path.normpath(f'{download_folder}/' + file.name)
+
+            # Создаём папку с медиа треда
+            if not os.path.exists(download_folder):
+                os.mkdir(download_folder)
+            if os.path.exists(download_path):
+                # print(f'Файл {file.name} из треда {thread_num} существует')
+                continue
+            try:
+                file.save(download_path)
+                print(f'Скачен файл из треда {thread_num}: {file.name}')
+                time.sleep(0.1)
+            except:
+                # Если не получилось скачать файл
+                print('.', end='')
+                time.sleep(3)
+
+
+def search_threads(board: dvach.Board):
+    """Скачать файлы из тредов, которые подходят по ключевым словам
+
+    Args:
+        board (dvach.Board): доска, на которой искать треды
+    """
+    for thread_num in board.threads.keys():
+        # Тред с которого скачивать файлы
+        thread = board.threads[thread_num]
+
+        if not IsOk(thread.comment):
+            continue  # Если не подходит - пропускаем
+
+        # Скачиваем посты треда
+        try:
+            thread.update_posts()
+        except:
+            # Если не получислось скачать список постов
+            time.sleep(3)
+            continue
+
+        # Скачиваем файлы в папку media/{thread_num}
+        download_thread_files(thread.posts, thread.num)
+
+
 if __name__ == '__main__':
     # Создаём папку с медиа
     if not os.path.exists(FOLDER_NAME):
@@ -47,40 +100,6 @@ if __name__ == '__main__':
             time.sleep(3)
             continue
 
-        for thread_num in board.threads.keys():
-            # Тред с которого скачивать файлы
-            thread = board.threads[thread_num]
-
-            if not IsOk(thread.comment):
-                continue  # Если не подходит - пропускаем
-
-            # Скачиваем посты треда
-            try:
-                thread.update_posts()
-            except:
-                # Если не получислось скачать список постов
-                time.sleep(3)
-                continue
-
-            # Скачиваем файлы в папку media/{thread_num}
-            for post in thread.posts:
-                for file in post.files:
-                    download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
-                    download_path = os.path.normpath(f'{download_folder}/' + file.name)
-
-                    # Создаём папку с медиа треда
-                    if not os.path.exists(download_folder):
-                        os.mkdir(download_folder)
-
-                    if os.path.exists(download_path):
-                        # print(f'Файл {file.name} из треда {thread_num} существует')
-                        continue
-
-                    try:
-                        file.save(download_path)
-                        print(f'Скачен файл из треда {thread_num}: {file.name}')
-                        time.sleep(0.1)
-                    except:
-                        # Если не получилось скачать файл
-                        print('.', end='')
-                        time.sleep(3)
+        # Обойти все треды и выбрать те, с которых скачивать файлы
+        # Затем скачать файлы
+        search_threads(board)
