@@ -10,6 +10,7 @@ class Post_file:
     path: str
     width: int
     height: int
+    size: int
 
     def __init__(self, json_data):
         self.displayname = json_data['displayname']
@@ -17,6 +18,7 @@ class Post_file:
         self.path = json_data['path']
         self.width = json_data['width']
         self.height = json_data['height']
+        self.size = json_data['size']
 
     def save(self, path: str):
         r = requests.get(self.download_link)
