@@ -21,6 +21,10 @@ EXTENTIONS = [
     'mp4'
 ]
 
+# Задать максимальный размер файла в Килобайтах
+# Если равен 0, то ограничений нет
+MAX_FILE_SIZE = 0
+
 
 class Hashtable:
     """Файл с информацией об уже скаченных картинках
@@ -141,6 +145,9 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 continue
 
             if file.name.split('.')[1] not in EXTENTIONS:
+                continue
+
+            if MAX_FILE_SIZE != 0 and file.size > MAX_FILE_SIZE:
                 continue
 
             try:
