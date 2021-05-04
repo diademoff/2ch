@@ -31,7 +31,7 @@ MIN_FILE_SIZE = 0
 
 
 class Hashtable:
-    """Файл с информацией об уже скаченных картинках
+    """Файл с информацией об уже скачанных картинках
     """
     path: str
     table: dict
@@ -170,7 +170,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                         continue
                     hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
 
-                print(f'Скачен файл из треда {thread_num}: {file.name}')
+                print(f'Скачан файл из треда {thread_num}: {file.name}')
                 time.sleep(0.1)
             except:
                 # Если не получилось скачать файл

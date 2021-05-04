@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
             try:
                 file.save(download_path)
-                print(f'Скачен файл: {file.name}')
+                print(f'Скачан файл: {file.name}')
                 time.sleep(0.5)
             except:
                 print('.', end='')
