@@ -1,11 +1,48 @@
 import dvach
+import imagecompare
 from typing import List
 import time
 import os
 
+
+class Hashtable:
+    path: str
+    table: dict
+
+    def __init__(self, path: str):
+        self.path = path
+        if not os.path.exists(path):
+            open(path, 'w').close()
+        self.load_file()
+
+    def load_file(self):
+        self.table = dict()
+        f = open(self.path)
+        lines = f.readlines()
+        for line in lines:
+            try:
+                hash = line.split('|')[0]
+                path = line.split('|')[1]
+                self.table[hash] = path
+            finally:
+                pass
+        f.close()
+
+    def save_file(self):
+        f = open(self.path, 'w')
+        f.write('')  # отчистить предыдущие
+        for key in self.table.keys():
+            hash = key
+            path = self.table[key]
+            line = f"{hash}|{path}\n"
+            f.write(line)
+        f.close()
+
+
 # Скачать все файлы со всех тредов доски
 BOARD = 'b'
 FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
+HASH_TABLE = os.path.normpath(f'{FOLDER_NAME}/hashtable')
 KEY_WORDS = [  # список ключевых слов
     "WEBM",
     "webm",
@@ -33,6 +70,31 @@ def IsOk(comment: str):
     return False
 
 
+def isImage(fileName: str):
+    """Является ли файл .png или .jpg
+
+    Args:
+        fileName (str): имя файла
+    """
+    extention = fileName.split('.')[1]
+    return extention == 'png' or extention == 'jpg'
+
+
+def findInTable(hash: str):
+    """Найти такую-же фотографию в базе
+
+    Args:
+        hash (str): строковое представление фото
+
+    Returns:
+        str: путь к такой же фотографии, если дубликата нет - пустая строка
+    """
+    if hash in hashtable.table.keys():
+        return hashtable.table[hash]
+    else:
+        return ''
+
+
 def download_thread_files(posts: List[dvach.Post], thread_num: str):
     """Скачать файлы постов треда
 
@@ -50,14 +112,24 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
             if os.path.exists(download_path):
                 # print(f'Файл {file.name} из треда {thread_num} существует')
                 continue
-            try:
-                file.save(download_path)
-                print(f'Скачен файл из треда {thread_num}: {file.name}')
-                time.sleep(0.1)
-            except:
-                # Если не получилось скачать файл
-                print('.', end='')
-                time.sleep(3)
+
+            # try:
+            file.save(download_path)
+
+            if isImage(file.name):
+                image_hash = imagecompare.CalcImageHash(download_path)
+                same_photo = findInTable(image_hash)
+                if same_photo != '':
+                    print(f'Дубликат обнаружен в {same_photo}')
+                    # TODO: файл скачен как download_path, нужно заменить его символической ссылкой на same_photo
+                    continue
+
+            print(f'Скачен файл из треда {thread_num}: {file.name}')
+            time.sleep(0.1)
+            # except:
+            #     # Если не получилось скачать файл
+            #     print('.', end='')
+            #     time.sleep(3)
 
 
 def search_threads(board: dvach.Board):
@@ -89,6 +161,9 @@ if __name__ == '__main__':
     # Создаём папку с медиа
     if not os.path.exists(FOLDER_NAME):
         os.mkdir(FOLDER_NAME)
+
+    global hashtable
+    hashtable = Hashtable(HASH_TABLE)
 
     # Скачиваем доску с тредами
     board = dvach.Board(BOARD)
