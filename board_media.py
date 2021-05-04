@@ -6,6 +6,8 @@ import os
 
 
 class Hashtable:
+    """Файл с информацией об уже скаченных картинках
+    """
     path: str
     table: dict
 
@@ -16,6 +18,8 @@ class Hashtable:
         self.load_file()
 
     def load_file(self):
+        """Загрузить информацию из файла
+        """
         self.table = dict()
         f = open(self.path)
         lines = f.readlines()
@@ -28,7 +32,21 @@ class Hashtable:
                 pass
         f.close()
 
+    def add_image(self, path: str, hash: str):
+        """Добавить изображение в словарь
+
+        Args:
+            path (str): путь к изображению
+            hash (str): строковое представление изображения
+        """
+        try:
+            self.table[hash] = path
+        finally:
+            pass
+
     def save_file(self):
+        """Сохранить словарь в файл
+        """
         f = open(self.path, 'w')
         f.write('')  # отчистить предыдущие
         for key in self.table.keys():
@@ -44,9 +62,9 @@ BOARD = 'b'
 FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
 HASH_TABLE = os.path.normpath(f'{FOLDER_NAME}/hashtable')
 KEY_WORDS = [  # список ключевых слов
-    "WEBM",
-    "webm",
-    "цуиь"
+    # "WEBM",
+    # "webm",
+    # "цуиь"
 ]
 
 
@@ -90,7 +108,7 @@ def findInTable(hash: str):
         str: путь к такой же фотографии, если дубликата нет - пустая строка
     """
     if hash in hashtable.table.keys():
-        return hashtable.table[hash]
+        return str(hashtable.table[hash]).strip()
     else:
         return ''
 
@@ -120,9 +138,11 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 image_hash = imagecompare.CalcImageHash(download_path)
                 same_photo = findInTable(image_hash)
                 if same_photo != '':
-                    print(f'Дубликат обнаружен в {same_photo}')
-                    # TODO: файл скачен как download_path, нужно заменить его символической ссылкой на same_photo
+                    os.remove(download_path)
+                    os.symlink(os.path.abspath(same_photo), download_path, target_is_directory=False)
+                    print(f'Дубликат {download_path} обнаружен в {same_photo}. Ссылка создана')
                     continue
+                hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
 
             print(f'Скачен файл из треда {thread_num}: {file.name}')
             time.sleep(0.1)
@@ -178,3 +198,5 @@ if __name__ == '__main__':
         # Обойти все треды и выбрать те, с которых скачивать файлы
         # Затем скачать файлы
         search_threads(board)
+        print('Сохранение таблицы изображений')
+        hashtable.save_file()
