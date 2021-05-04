@@ -5,6 +5,23 @@ import time
 import os
 
 
+# Скачать все файлы со всех тредов доски
+BOARD = 'b'
+FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
+HASH_TABLE = os.path.normpath(f'{FOLDER_NAME}/hashtable')
+KEY_WORDS = [  # список ключевых слов
+    # "WEBM",
+    # "webm",
+    # "цуиь"
+]
+EXTENTIONS = [
+    'png',
+    'jpg',
+    'webm',
+    'mp4'
+]
+
+
 class Hashtable:
     """Файл с информацией об уже скаченных картинках
     """
@@ -58,23 +75,6 @@ class Hashtable:
             line = f"{hash}|{path}\n"
             f.write(line)
         f.close()
-
-
-# Скачать все файлы со всех тредов доски
-BOARD = 'b'
-FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
-HASH_TABLE = os.path.normpath(f'{FOLDER_NAME}/hashtable')
-KEY_WORDS = [  # список ключевых слов
-    # "WEBM",
-    # "webm",
-    # "цуиь"
-]
-EXTENTIONS = [
-    'png',
-    'jpg',
-    'webm',
-    'mp4'
-]
 
 
 def IsOk(comment: str):
