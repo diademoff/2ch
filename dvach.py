@@ -21,7 +21,15 @@ class Post_file:
         self.size = json_data['size']
 
     def save(self, path: str):
-        r = requests.get(self.download_link)
+        headers = {
+            "Accept": "image/webp,*/*",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
+            "Referer": self.download_link,
+            "Cookie": "usercode_auth=3c86e2be7602c264ffddd9723be0688b; wakabastyle=Futaba;"
+        }
+        r = requests.get(self.download_link, headers=headers)
         with open(path, 'wb') as output:
             output.write(r.content)
 
