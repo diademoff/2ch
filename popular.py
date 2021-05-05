@@ -18,9 +18,7 @@ def print_threads(threads):
         key = list(threads.keys())[key_index]
         thread = threads[key]
 
-        comment_words = [str(x).lower() for x in thread.comment.split(' ')]  # слова ОП-поста в нижнем регистре
-        # Если какое-то из ключевых слов есть в ОП-посте и указаны ключевые слова
-        if not len(list(set(KEY_WORDS) & set(comment_words))) > 0 and len(KEY_WORDS) != 0:
+        if not thread.IsOk(KEY_WORDS):
             continue
 
         # Отформатировать строку с информацией о треде и вывести на экран

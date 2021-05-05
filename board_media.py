@@ -85,26 +85,6 @@ class Hashtable:
         f.close()
 
 
-def IsOk(comment: str):
-    """Подходит ли тред по ключевым словам
-
-    Если хотя бы одно ключевое слово есть в тексте, тогда подходит.
-
-    Args:
-        comment (str): Текст в ОП-посте
-
-    Returns:
-        bool: Подходит ли по ключевым словам
-    """
-    if len(KEY_WORDS) != 0:
-        for word in KEY_WORDS:
-            if word in comment:
-                return True  # подходит если есть одно из ключевых слов
-    else:
-        return True  # Подходит если ключевые слова не указаны.
-    return False
-
-
 def isImage(fileName: str):
     """Является ли файл .png или .jpg
 
@@ -148,13 +128,8 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 # print(f'Файл {file.name} из треда {thread_num} существует')
                 continue
 
-            if file.name.split('.')[1] not in EXTENSIONS:
-                continue
-
-            if MAX_FILE_SIZE != 0 and file.size > MAX_FILE_SIZE:
-                continue
-
-            if MIN_FILE_SIZE != 0 and file.size < MIN_FILE_SIZE:
+            # Проверяем подходит ли файл
+            if not file.IsOk(EXTENSIONS, MAX_FILE_SIZE, MIN_FILE_SIZE):
                 continue
 
             try:
@@ -188,7 +163,7 @@ def search_threads(board: dvach.Board):
         # Тред с которого скачивать файлы
         thread = board.threads[thread_num]
 
-        if not IsOk(thread.comment):
+        if not thread.IsOk(KEY_WORDS):
             continue  # Если не подходит - пропускаем
 
         # Скачиваем посты треда

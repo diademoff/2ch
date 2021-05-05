@@ -25,6 +25,28 @@ class Post_file:
         with open(path, 'wb') as output:
             output.write(r.content)
 
+    def IsOk(self, EXTENSIONS: List[str], MAX_FILE_SIZE: int, MIN_FILE_SIZE: int):
+        """Подходит ли файл по заданным расширениям, максимальному и минимальному размеру
+
+        Args:
+            EXTENSIONS (List[str]): Список разрешенных расширений
+            MAX_FILE_SIZE (int): Максимальный размер файла
+            MIN_FILE_SIZE (int): Минимальный размер файла
+
+        Returns:
+            bool: Подходит ли
+        """
+        if self.name.split('.')[1].lower() not in EXTENSIONS:
+            return False
+
+        if MAX_FILE_SIZE != 0 and self.size > MAX_FILE_SIZE:
+            return False
+
+        if MIN_FILE_SIZE != 0 and self.size < MIN_FILE_SIZE:
+            return False
+
+        return True
+
     @property
     def download_link(self):
         return f'https://2ch.hk{self.path}'
@@ -117,6 +139,25 @@ class Thread:
                 ref_map[post_num].append(str(ref.get('data-num')))
 
         return ref_map
+
+    def IsOk(self, KEY_WORDS: List[str]):
+        """Подходит ли тред по ключевым словам
+
+        Если хотя бы одно ключевое слово есть в тексте, тогда подходит.
+
+        Args:
+            KEY_WORDS (List[str]): Ключевые слова
+
+        Returns:
+            bool: Подходит ли по ключевым словам
+        """
+        if len(KEY_WORDS) != 0:
+            for word in KEY_WORDS:
+                if word in self.comment.lower():
+                    return True  # подходит если есть одно из ключевых слов
+        else:
+            return True  # Подходит если ключевые слова не указаны.
+        return False
 
     def json_download(self):
         """Скачать json постов

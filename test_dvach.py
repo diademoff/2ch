@@ -177,3 +177,14 @@ class TestAnalytics(unittest.TestCase):
         best = imagecompare.get_better_img(file1, file2)
 
         self.assertEqual(best, file1)
+
+    def test_isOk(self):
+        json_plain = self.read_file('threads_json.json')
+        b = dvach.Board.from_json(json_plain)
+        thread_num = list(b.threads.keys())[0]
+        thread = b.threads[thread_num]
+
+        self.assertEqual(thread.IsOk([]), True)
+        self.assertEqual(thread.IsOk(["зумер"]), True)
+        self.assertEqual(thread.IsOk(["продолжаем"]), True)
+        self.assertEqual(thread.IsOk(["зумеры"]), False)
