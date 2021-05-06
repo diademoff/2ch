@@ -116,9 +116,12 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
     Args:
         posts (List[dvach.Post]): список постов
     """
+    # Сохранить текст треда
+    download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
+
+    thread_text = ''
     for post in posts:
         for file in post.files:
-            download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
             download_path = os.path.normpath(f'{download_folder}/' + file.name)
 
             # Создаём папку с медиа треда
@@ -151,6 +154,10 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 # Если не получилось скачать файл
                 print('.', end='')
                 time.sleep(3)
+        thread_text += f"[{post.num}] {post.comment}\n\n"
+
+    f = open(f'{download_folder}/index.txt', 'w')
+    f.write(thread_text)
 
 
 def search_threads(board: dvach.Board):
