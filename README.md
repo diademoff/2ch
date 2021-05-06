@@ -17,7 +17,7 @@
 git clone https://github.com/diademoff/2ch
 ```
 
-Установите зависимости
+Установите зависимости:
 ```
 cd 2ch
 pip install -r requirements.txt
@@ -68,9 +68,9 @@ python {название скрипта}.py
 * Ты используешь api двача?
 
 Да. А конкретно:
-```py
-f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
-f'http://2ch.hk/{self.name}/threads.json'
+```
+https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={board_name}&thread={num}&post=1
+http://2ch.hk/{name}/threads.json
 ```
 * Зачем тебе beautiful soup?
 
@@ -99,9 +99,9 @@ import dvach
 ```
 ## Структура
 * **Board**
-  * `name` - Имя доски
-  * `posts` - Список постов, это словарь. Ключ - это номер треда, значение - переменная типа `Thread`
-  * `json_link` - Ссылка на json тредов
+  * `name: str` - Имя доски
+  * `posts: dict` - Список постов, это словарь. Ключ - это номер треда, значение - переменная типа `Thread`
+  * `json_link: str` - Ссылка на json тредов
   * `from_json()` - Получить объект `Board` из json'а
   * `json_download()` - Скачать json доски
   * `thread_exists()` - Есть ли на доске тред с указанным номером
@@ -119,8 +119,8 @@ import dvach
   * `unique_posters: int` - Количество уникальных просмотров (появится после обновления постов)
   * `board_name: str` - Какой доске принадлежит тред
   * `posts = []` - Список постов
-  * `get_link` Ссылка на тред
-  * `json_posts_link` - Ссылка на json треда
+  * `get_link` - Ссылка на тред
+  * `json_posts_link: str` - Ссылка на json треда
   * `IsOk()` - Подходит ли тред по заданным ключевым словам
   * `update_posts()` - Скачать json и обновить их список, вызывает функцию `get_posts()`
   * `get_posts()` - Спарсить json и обновить `unique_posters` и `posts`
@@ -135,7 +135,7 @@ import dvach
   * `download_link: str` - Ссылка на скачивание
   * `width: int` - Ширина
   * `height: int` - Высота
-  * `size` - Размер файла
+  * `size: int` - Размер файла
   * `save()` - Сохранить файл по указанному пути
   * `IsOk()` - Подходит ли файл по заданным расширениям, максимальному и минимальному размеру
 
@@ -173,11 +173,11 @@ most_popular_num = thread_nums[0]
 ```
 
 ## Треды
-Мы получили *номер* самого популярного треда, теперь получим сам тред из словаря `threads`. В этом словаре значение имеет тип `Thread`
+Мы получили *номер* самого популярного треда, теперь получим сам тред из словаря `threads`:
 ```
 thread = board.threads[most_popular_num]
 ```
-Посмотрим тип переменной `thread`:
+В этом словаре значение имеет тип `Thread`. Посмотрим тип переменной `thread`:
 ```py
 print(type(thread))
 ```
@@ -227,7 +227,7 @@ print(f"Количество файлов: {len(post.files)}")
 ```
 
 ## Файлы
-Теперь получим первый файл в посте, если файл есть.
+Теперь получим первый файл в посте, если файл есть:
 ```py
 if len(post.files) > 0:
     file = post.files[0]
