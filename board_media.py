@@ -8,7 +8,6 @@ import os
 # Скачать все файлы со всех тредов доски
 BOARD = 'b'
 FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
-HASH_TABLE = os.path.normpath(f'{FOLDER_NAME}/hashtable')
 KEY_WORDS = [  # список ключевых слов
     # "WEBM",
     # "webm",
@@ -85,19 +84,83 @@ class Hashtable:
         f.close()
 
 
-def findInTable(hash: str):
-    """Найти такую-же фотографию в базе
+class FileDownloadInfo:
+    Succeed = 0
+    Exists = 1
+    IsNotOk = 2
+    LinkCreated = 3
+    Error = 4
 
-    Args:
-        hash (str): строковое представление фото
 
-    Returns:
-        str: путь к такой же фотографии, если дубликата нет - пустая строка
-    """
-    if hash in hashtable.table.keys():
-        return str(hashtable.table[hash]).strip()
-    else:
-        return ''
+class BoardMedia:
+    hashtable: Hashtable
+    download_folder: str
+
+    def __init__(self, path_to_folder: str) -> None:
+        self.download_folder = path_to_folder
+        self.hashtable = Hashtable(
+            os.path.normpath(f'{path_to_folder}/hashtable'))
+
+    def findInTable(self, hash: str):
+        """Найти такую-же фотографию в базе
+
+        Args:
+            hash (str): строковое представление фото
+
+        Returns:
+            str: путь к такой же фотографии, если дубликата нет - пустая строка
+        """
+        if hash in self.hashtable.table.keys():
+            return str(self.hashtable.table[hash]).strip()
+        else:
+            return ''
+
+    def download_file(self, thread_num: str, file: dvach.Post_file):
+        """Скачать файл и вернуть информацию о результате
+
+        Args:
+            thread_num (str): Номер треда
+            file (dvach.Post_file): Файл
+
+        Returns:
+            int: FileDownloadInfo
+        """
+        thread_folder = os.path.normpath(
+            f'{self.download_folder}/{thread_num}')
+        download_path = os.path.normpath(f'{thread_folder}/' + file.name)
+
+        # Создаём папку с media
+        if not os.path.exists(self.download_folder):
+            os.mkdir(self.download_folder)
+        # Создаём папку треда в media
+        if not os.path.exists(thread_folder):
+            os.mkdir(thread_folder)
+
+        if os.path.exists(download_path):
+            return FileDownloadInfo.Exists
+
+        # Проверяем подходит ли файл
+        if not file.IsOk(EXTENSIONS, MAX_FILE_SIZE, MIN_FILE_SIZE):
+            return FileDownloadInfo.IsNotOk
+
+        try:
+            file.save(download_path)
+
+            if file.IsImage:
+                image_hash = imagecompare.CalcImageHash(download_path)
+                same_photo = self.findInTable(image_hash)
+                if same_photo != '':
+                    os.remove(download_path)
+                    os.symlink(os.path.abspath(same_photo),
+                               download_path, target_is_directory=False)
+                    return FileDownloadInfo.LinkCreated
+                self.hashtable.add_image(
+                    download_path, imagecompare.CalcImageHash(download_path))
+
+            return FileDownloadInfo.Succeed
+        except:
+            # Если не получилось скачать файл
+            return FileDownloadInfo.Error
 
 
 def download_thread_files(posts: List[dvach.Post], thread_num: str):
@@ -106,73 +169,31 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
     Args:
         posts (List[dvach.Post]): список постов
     """
-    # Сохранить текст треда
-    download_folder = os.path.normpath(FOLDER_NAME + f'/{thread_num}')
-
     thread_text = ''
     for post in posts:
+        thread_text += f"[{post.num}] {post.comment}\n\n"
         for file in post.files:
-            download_path = os.path.normpath(f'{download_folder}/' + file.name)
+            i = boardmedia.download_file(thread_num, file)
 
-            # Создаём папку с медиа треда
-            if not os.path.exists(download_folder):
-                os.mkdir(download_folder)
-            if os.path.exists(download_path):
-                # print(f'Файл {file.name} из треда {thread_num} существует')
-                continue
-
-            # Проверяем подходит ли файл
-            if not file.IsOk(EXTENSIONS, MAX_FILE_SIZE, MIN_FILE_SIZE):
-                continue
-
-            try:
-                file.save(download_path)
-
-                if file.IsImage:
-                    image_hash = imagecompare.CalcImageHash(download_path)
-                    same_photo = findInTable(image_hash)
-                    if same_photo != '':
-                        os.remove(download_path)
-                        os.symlink(os.path.abspath(same_photo), download_path, target_is_directory=False)
-                        print(f'Создана ссылка {download_path} на {same_photo}')
-                        continue
-                    hashtable.add_image(download_path, imagecompare.CalcImageHash(download_path))
-
+            if i == FileDownloadInfo.Succeed:
                 print(f'Скачан файл из треда {thread_num}: {file.name}')
-                time.sleep(0.1)
-            except:
-                # Если не получилось скачать файл
+            elif i == FileDownloadInfo.Exists:
+                # Файл существует
+                pass
+            elif i == FileDownloadInfo.IsNotOk:
+                # Файл не подошел по критериям отбора
+                pass
+            elif i == FileDownloadInfo.LinkCreated:
+                # Ссылка создана
+                print(f'Создана ссылка в {thread_num}: {file.name}')
+            elif i == FileDownloadInfo.Error:
                 print('.', end='')
                 time.sleep(3)
-        thread_text += f"[{post.num}] {post.comment}\n\n"
 
-    f = open(f'{download_folder}/index.txt', 'w')
+            time.sleep(0.1)
+    f = open(os.path.normpath(f'{FOLDER_NAME}/{thread_num}/index.txt'), 'w')
     f.write(thread_text)
-
-
-def search_threads(board: dvach.Board):
-    """Скачать файлы из тредов, которые подходят по ключевым словам
-
-    Args:
-        board (dvach.Board): доска, на которой искать треды
-    """
-    for thread_num in board.threads.keys():
-        # Тред с которого скачивать файлы
-        thread = board.threads[thread_num]
-
-        if not thread.IsOk(KEY_WORDS):
-            continue  # Если не подходит - пропускаем
-
-        # Скачиваем посты треда
-        try:
-            thread.update_posts()
-        except:
-            # Если не получислось скачать список постов
-            time.sleep(3)
-            continue
-
-        # Скачиваем файлы в папку media/{thread_num}
-        download_thread_files(thread.posts, thread.num)
+    f.close()
 
 
 if __name__ == '__main__':
@@ -181,8 +202,8 @@ if __name__ == '__main__':
         os.mkdir(FOLDER_NAME)
 
     print('Загрузка файла')
-    global hashtable
-    hashtable = Hashtable(HASH_TABLE)
+    global boardmedia
+    boardmedia = BoardMedia(FOLDER_NAME)
 
     # Скачиваем доску с тредами
     board = dvach.Board(BOARD)
@@ -194,6 +215,21 @@ if __name__ == '__main__':
             time.sleep(3)
             continue
 
-        # Обойти все треды и выбрать те, с которых скачивать файлы
-        # Затем скачать файлы
-        search_threads(board)
+        for thread_num in board.threads.keys():
+            # Тред с которого скачивать файлы
+            thread = board.threads[thread_num]
+
+            if not thread.IsOk(KEY_WORDS):
+                continue  # Если не подходит - пропускаем
+
+            # Скачиваем посты треда
+            try:
+                thread.update_posts()
+            except:
+                # Если не получислось скачать список постов
+                print('.', end='')
+                time.sleep(3)
+                continue
+
+            # Скачиваем файлы в папку media/{thread_num}
+            download_thread_files(thread.posts, thread.num)
