@@ -85,16 +85,6 @@ class Hashtable:
         f.close()
 
 
-def isImage(fileName: str):
-    """Является ли файл .png или .jpg
-
-    Args:
-        fileName (str): имя файла
-    """
-    ext = fileName.split('.')[1]
-    return ext == 'png' or ext == 'jpg'
-
-
 def findInTable(hash: str):
     """Найти такую-же фотографию в базе
 
@@ -138,7 +128,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
             try:
                 file.save(download_path)
 
-                if isImage(file.name):
+                if file.IsImage:
                     image_hash = imagecompare.CalcImageHash(download_path)
                     same_photo = findInTable(image_hash)
                     if same_photo != '':

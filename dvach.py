@@ -33,6 +33,23 @@ class Post_file:
         with open(path, 'wb') as output:
             output.write(r.content)
 
+    @property
+    def IsImage(self) -> bool:
+        """Является ли файл .png или .jpg
+
+        Args:
+            fileName (str): имя файла
+        """
+        ext = self.name.split('.')[1]
+        return ext == 'png' or ext == 'jpg'
+
+    @property
+    def IsVideo(self) -> bool:
+        """Является ли файл видео
+        """
+        # Так как файл либо фото, либо видео
+        return not self.IsImage
+
     def IsOk(self, EXTENSIONS: List[str], MAX_FILE_SIZE: int, MIN_FILE_SIZE: int):
         """Подходит ли файл по заданным расширениям, максимальному и минимальному размеру
 
