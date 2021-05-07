@@ -191,7 +191,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 time.sleep(3)
 
             time.sleep(0.1)
-    f = open(os.path.normpath(f'{FOLDER_NAME}/{thread_num}/index.txt'), 'w')
+    f = open(os.path.normpath(f'{FOLDER_NAME}/{thread_num}/index.txt'), 'w', encoding='utf-8')
     f.write(thread_text)
     f.close()
 
