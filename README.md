@@ -1,5 +1,6 @@
 # О проекте
 ![GitHub repo size](https://img.shields.io/github/repo-size/diademoff/2ch)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/diademoff/2ch)
 ![GitHub](https://img.shields.io/github/license/diademoff/2ch)
 ![GitHub Repo stars](https://img.shields.io/github/stars/diademoff/2ch?style=social)
 
@@ -119,7 +120,7 @@ import dvach
   * `unique_posters: int` - Количество уникальных просмотров (появится после обновления постов)
   * `board_name: str` - Какой доске принадлежит тред
   * `posts = []` - Список постов
-  * `get_link` - Ссылка на тред
+  * `get_link: str` - Ссылка на тред
   * `json_posts_link: str` - Ссылка на json треда
   * `IsOk()` - Подходит ли тред по заданным ключевым словам
   * `update_posts()` - Скачать json и обновить их список, вызывает функцию `get_posts()`
