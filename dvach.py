@@ -2,6 +2,7 @@ import json
 from typing import List
 import requests
 from bs4 import BeautifulSoup
+import os
 
 
 class Post_file:
@@ -293,6 +294,77 @@ class Board:
     def json_link(self):
         """Ссылка на список тредов json."""
         return f'http://2ch.hk/{self.name}/threads.json'
+
+
+class HtmlGenerator:
+    """Создаёт html-страницу"""
+
+    @staticmethod
+    def _read_block(name: str) -> str:
+        return open(os.path.normpath(f'page_gen/blocks/{name}.html')).read()
+
+    @staticmethod
+    def _replace_str_in_html(html: str, key: str, value: str):
+        """Заменить значения в фигурных скобах на нужные
+
+        Args:
+            html (str): сам код
+            key (str): что заменить, например "{num}"
+            value (str): на что заменить
+
+        Returns:
+            str: возвращает исправленный html
+        """
+        return html.replace(key, value)
+
+    @staticmethod
+    def get_htmlhead() -> str:
+        return HtmlGenerator._read_block('head')
+
+    @staticmethod
+    def get_post_htmlpage(post: Post, order: int) -> str:
+        """ html для одного поста"""
+        htmlcode = HtmlGenerator._read_block('post')
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', "")
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
+        return htmlcode
+
+    @staticmethod
+    def get_posts_htmlpage(thread: Thread) -> str:
+        posts: List[Post] = thread.posts[1:]  # Без оп-поста
+        htmlcode = ""
+        for i in range(0, len(posts)):
+            htmlcode += HtmlGenerator.get_post_htmlpage(posts[i], i + 2)
+        return htmlcode
+
+    @staticmethod
+    def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
+        htmlcode = HtmlGenerator._read_block('op_post')
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', str(thread.lasthit))
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment)
+        return htmlcode
+
+    @staticmethod
+    def get_thread_htmlpage(thread: Thread, img_src: str) -> str:
+        """ Создать html страницу для треда"""
+        code = f"""
+        <!DOCTYPE html>
+        <html lang="ru">
+        {HtmlGenerator.get_htmlhead()}
+        <body>
+            <div class="container">
+            {HtmlGenerator.get_op_post_htmlpage(thread, img_src)}
+            {HtmlGenerator.get_posts_htmlpage(thread)}
+            </div>
+        </body>
+        </html>
+        """
+        return code
 
 
 def download_json(link: str) -> str:
