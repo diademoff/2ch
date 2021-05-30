@@ -128,6 +128,34 @@ class Thread:
             self.score_history = [self.score]
         self.board_name = board_name
 
+    def get_op_img_path(self) -> str:
+        """Получить путь к скаченному изображению из ОП-поста
+
+        Returns:
+            str: путь к изображению или пустая строка
+        """
+        files = self.posts[0].files
+        for file in files:
+            if file.IsImage:
+                path = os.path.normpath(f'{file.name}')
+                return path
+        return ""
+
+    def save(self, folder_path: str) -> str:
+        """Сохранить тред в папку (html файл)
+
+        Args:
+            folder_path (str): папка, в которую сохранять
+
+        Returns:
+            str: путь, куда сохранен файл
+        """
+        img_path = self.get_op_img_path()
+        html = HtmlGenerator.get_thread_htmlpage(self, img_path)
+        save_path = os.path.normpath(f'{folder_path}/thread_{self.num}.html')
+        open(save_path, 'w').write(html)
+        return save_path
+
     def update_posts(self):
         """Скачать посты и обновить их список
         """

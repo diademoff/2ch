@@ -122,6 +122,7 @@ import dvach
   * `posts = []` - Список постов
   * `get_link: str` - Ссылка на тред
   * `json_posts_link: str` - Ссылка на json треда
+  * `save(path)` - сохранить в html посты треда в указанную папку
   * `IsOk()` - Подходит ли тред по заданным ключевым словам
   * `update_posts()` - Скачать json и обновить их список, вызывает функцию `get_posts()`
   * `get_posts()` - Спарсить json и обновить `unique_posters` и `posts`
