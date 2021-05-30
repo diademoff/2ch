@@ -25,8 +25,8 @@ for (let i = 0; i < posts.length; i++) {
     });
 }
 
-// Конвертировать из "Пост" - "На кого отвечает"
-// "Пост" - "Ответы на этот пост"
+// Конвертировать из "Пост" - "На кого этот пост отвечает"
+// в "Пост" - "Ответы на этот пост"
 posts_answers = [];
 
 for (let i = 0; i < dict.length; i++) {
@@ -34,7 +34,6 @@ for (let i = 0; i < dict.length; i++) {
     answers = [];
 
     for (let j = 0; j < dict.length; j++) {
-        // На кого отвечает
         const replies_on = dict[j].replies;
         if (replies_on.includes(post_id)) {
             answers.push(dict[j].post_id);
@@ -51,6 +50,7 @@ for (let i = 0; i < dict.length; i++) {
 // Заполнить боковое меню
 let dashboard = document.getElementById('dashboard');
 
+// Получить элемент ссылки для меню навигации
 function get_link(post_id, prefix){
     var link = document.createElement("a");
     link.textContent = prefix + post_id;
@@ -64,7 +64,8 @@ function print_answers(answers, prefix){
         const answer = answers[i];
         printed_as_answers.push(answer);
         dashboard.appendChild(get_link(answer, prefix));
-        print_answers(get_answers_for(answer), prefix + '> ') // of answer
+        // Рекурсивный вызов с изменением префикса
+        print_answers(get_answers_for(answer), prefix + '> ')
     }
 }
 
@@ -75,12 +76,10 @@ function get_answers_for(post_id){
         if (id === post_id){
             return posts_answers[i].answers;
         }
-
     }
 }
 
 let printed_as_answers = [];
-let prefix = '';
 
 for (let i = 0; i < posts_answers.length; i++) {
     const post_id = posts_answers[i].post_id;
@@ -90,8 +89,9 @@ for (let i = 0; i < posts_answers.length; i++) {
         continue;
     }
 
+    // Вывести номер текущего поста
     dashboard.appendChild(get_link(post_id, ''));
 
+    // Вывести ответы на этот пост рекурсивно
     print_answers(answers, '> ')
 }
-
