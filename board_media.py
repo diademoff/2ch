@@ -38,14 +38,14 @@ class Hashtable:
     def __init__(self, path: str):
         self.path = path
         if not os.path.exists(path):
-            open(path, 'w').close()
+            open(path, 'w', encoding='utf-8').close()
         self.load_file()
 
     def load_file(self):
         """Загрузить информацию из файла
         """
         self.table = dict()
-        f = open(self.path)
+        f = open(self.path, encoding='utf-8')
         lines = f.readlines()
         for line in lines:
             try:
@@ -65,7 +65,7 @@ class Hashtable:
         """
         try:
             self.table[hash] = path
-            f = open(self.path, 'a')
+            f = open(self.path, 'a', encoding='utf-8')
             f.write(f'{hash}|{path}\n')
             f.close()
         finally:
@@ -74,7 +74,7 @@ class Hashtable:
     def save_file(self):
         """Сохранить словарь в файл
         """
-        f = open(self.path, 'w')
+        f = open(self.path, 'w', encoding='utf-8')
         f.write('')  # отчистить предыдущие
         for key in self.table.keys():
             hash = key

@@ -157,7 +157,7 @@ class Thread:
         img_path = self.get_op_img_path()
         html = HtmlGenerator.get_thread_htmlpage(self, img_path)
         save_path = os.path.normpath(f'{folder_path}/thread_{self.num}.html')
-        open(save_path, 'w').write(html)
+        open(save_path, 'w', encoding='utf-8').write(html)
         return save_path
 
     def update_posts(self):
@@ -333,7 +333,7 @@ class HtmlGenerator:
 
     @staticmethod
     def _read_block(name: str) -> str:
-        return open(os.path.normpath(f'page_gen/blocks/{name}.html')).read()
+        return open(os.path.normpath(f'page_gen/blocks/{name}.html'), encoding='utf-8').read()
 
     @staticmethod
     def _replace_str_in_html(html: str, key: str, value: str):
