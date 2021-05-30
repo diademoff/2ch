@@ -5,6 +5,15 @@ from bs4 import BeautifulSoup
 import os
 
 
+headers = {
+    "Accept": "image/webp,*/*",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
+    "Cookie": "usercode_auth=3c86e2be7602c264ffddd9723be0688b; wakabastyle=Futaba;"
+}
+
+
 class Post_file:
     displayname: str
     name: str
@@ -22,14 +31,6 @@ class Post_file:
         self.size = json_data['size']
 
     def save(self, path: str):
-        headers = {
-            "Accept": "image/webp,*/*",
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
-            "Referer": self.download_link,
-            "Cookie": "usercode_auth=3c86e2be7602c264ffddd9723be0688b; wakabastyle=Futaba;"
-        }
         r = requests.get(self.download_link, headers=headers)
         with open(path, 'wb') as output:
             output.write(r.content)
@@ -312,7 +313,7 @@ class Board:
     def json_download(board_name: str) -> str:
         """Скачать json."""
         download_link = Board(board_name).json_link
-        json_downloaded = requests.get(download_link, stream=True).text
+        json_downloaded = requests.get(download_link, stream=True, headers=headers).text
         return json_downloaded
 
     def thread_exists(self, num: str) -> bool:
@@ -429,4 +430,4 @@ def download_json(link: str) -> str:
     Returns:
         str: возвращает json
     """
-    return requests.get(link, stream=True).text
+    return requests.get(link, stream=True, headers=headers).text
