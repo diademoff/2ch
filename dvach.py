@@ -2,6 +2,7 @@ import json
 from typing import List
 import requests
 from bs4 import BeautifulSoup
+import os
 
 
 class Post_file:
@@ -79,11 +80,13 @@ class Post_file:
 
 class Post:
     comment: str
+    comment_html: str  # не очищенное от html
     num: str
     files: List[Post_file]
 
     def __init__(self, json_post_data):
         self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
+        self.comment_html = json_post_data['comment']
         self.num = json_post_data['num']
         self.files = []
         for json_file_data in json_post_data['files']:
@@ -93,6 +96,7 @@ class Post:
 class Thread:
     """Тред доски."""
     comment: str
+    comment_html: str  # не очищенное от html
     lasthit: int
     num: str
     posts_count: int
@@ -114,6 +118,7 @@ class Thread:
         """
         if json_thread_data != '':
             self.comment = json_thread_data['comment']
+            self.comment_html = json_thread_data['comment']
             self.lasthit = int(json_thread_data['lasthit'])
             self.num = json_thread_data['num']
             self.posts_count = int(json_thread_data['posts_count'])
@@ -126,6 +131,34 @@ class Thread:
 
             self.score_history = [self.score]
         self.board_name = board_name
+
+    def get_op_img_path(self) -> str:
+        """Получить путь к скаченному изображению из ОП-поста
+
+        Returns:
+            str: путь к изображению или пустая строка
+        """
+        files = self.posts[0].files
+        for file in files:
+            if file.IsImage:
+                path = os.path.normpath(f'{file.name}')
+                return path
+        return ""
+
+    def save(self, folder_path: str) -> str:
+        """Сохранить тред в папку (html файл)
+
+        Args:
+            folder_path (str): папка, в которую сохранять
+
+        Returns:
+            str: путь, куда сохранен файл
+        """
+        img_path = self.get_op_img_path()
+        html = HtmlGenerator.get_thread_htmlpage(self, img_path)
+        save_path = os.path.normpath(f'{folder_path}/thread_{self.num}.html')
+        open(save_path, 'w').write(html)
+        return save_path
 
     def update_posts(self):
         """Скачать посты и обновить их список
@@ -293,6 +326,77 @@ class Board:
     def json_link(self):
         """Ссылка на список тредов json."""
         return f'http://2ch.hk/{self.name}/threads.json'
+
+
+class HtmlGenerator:
+    """Создаёт html-страницу"""
+
+    @staticmethod
+    def _read_block(name: str) -> str:
+        return open(os.path.normpath(f'page_gen/blocks/{name}.html')).read()
+
+    @staticmethod
+    def _replace_str_in_html(html: str, key: str, value: str):
+        """Заменить значения в фигурных скобах на нужные
+
+        Args:
+            html (str): сам код
+            key (str): что заменить, например "{num}"
+            value (str): на что заменить
+
+        Returns:
+            str: возвращает исправленный html
+        """
+        return html.replace(key, value)
+
+    @staticmethod
+    def get_htmlhead() -> str:
+        return HtmlGenerator._read_block('head')
+
+    @staticmethod
+    def get_post_htmlpage(post: Post, order: int) -> str:
+        """ html для одного поста"""
+        htmlcode = HtmlGenerator._read_block('post')
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', "")
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
+        return htmlcode
+
+    @staticmethod
+    def get_posts_htmlpage(thread: Thread) -> str:
+        posts: List[Post] = thread.posts[1:]  # Без оп-поста
+        htmlcode = ""
+        for i in range(0, len(posts)):
+            htmlcode += HtmlGenerator.get_post_htmlpage(posts[i], i + 2)
+        return htmlcode
+
+    @staticmethod
+    def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
+        htmlcode = HtmlGenerator._read_block('op_post')
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', str(thread.lasthit))
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment_html)
+        return htmlcode
+
+    @staticmethod
+    def get_thread_htmlpage(thread: Thread, img_src: str) -> str:
+        """ Создать html страницу для треда"""
+        code = f"""
+        <!DOCTYPE html>
+        <html lang="ru">
+        {HtmlGenerator.get_htmlhead()}
+        <body>
+            <div class="container">
+            {HtmlGenerator.get_op_post_htmlpage(thread, img_src)}
+            {HtmlGenerator.get_posts_htmlpage(thread)}
+            </div>
+        </body>
+        </html>
+        """
+        return code
 
 
 def download_json(link: str) -> str:

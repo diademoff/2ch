@@ -169,9 +169,7 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
     Args:
         posts (List[dvach.Post]): список постов
     """
-    thread_text = ''
     for post in posts:
-        thread_text += f"[{post.num}] {post.comment}\n\n"
         for file in post.files:
             i = boardmedia.download_file(thread_num, file)
 
@@ -191,9 +189,6 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 time.sleep(3)
 
             time.sleep(0.1)
-    f = open(os.path.normpath(f'{FOLDER_NAME}/{thread_num}/index.txt'), 'w', encoding='utf-8')
-    f.write(thread_text)
-    f.close()
 
 
 if __name__ == '__main__':
@@ -233,3 +228,6 @@ if __name__ == '__main__':
 
             # Скачиваем файлы в папку media/{thread_num}
             download_thread_files(thread.posts, thread.num)
+
+            # Скачать посты треда
+            thread.save(FOLDER_NAME + f'/{thread.num}')

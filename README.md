@@ -122,6 +122,7 @@ import dvach
   * `posts = []` - Список постов
   * `get_link: str` - Ссылка на тред
   * `json_posts_link: str` - Ссылка на json треда
+  * `save(path)` - сохранить в html посты треда в указанную папку
   * `IsOk()` - Подходит ли тред по заданным ключевым словам
   * `update_posts()` - Скачать json и обновить их список, вызывает функцию `get_posts()`
   * `get_posts()` - Спарсить json и обновить `unique_posters` и `posts`
@@ -210,6 +211,23 @@ print(f"Уникальных просмотров: {thread.unique_posters}")
 
 Получение количества постов с помощью `len(thread.posts)` является точнее, но требует загрузки всех постов, в то время как `thread.posts_count` известно во время *получения тредов на доске*.
 
+## Сохранение треда в html
+Для сохранение треда используйте класс `HtmlGenerator` и метод `get_thread_htmlpage`. Этот метод возвращает html код, который можно сохранить в файл.
+```py
+op_file = thread.posts[0].files[0]  # Картинка в ОП-посте
+img_path = os.path.normpath(f'./{op_file.name}')  # Путь, куда мы ее сохраним
+op_file.save(img_path)  # Сохраняем картинку
+
+# Получаем html
+html = dvach.HtmlGenerator.get_thread_htmlpage(thread, img_path)
+
+# Создаём файл
+file = open(f'thread_{thread.num}.html', 'w')
+
+# Записывает туда html страницу
+file.write(html)
+```
+
 ## Посты
 После получения списка постов с помощью `update_posts()` в поле `posts` появился список постов начиная с ОП-поста.
 
@@ -273,6 +291,7 @@ file.save(f"/home/username/{file.name}")
 Весь код, используемый в примерах:
 ```py
 import dvach
+import os
 
 # Объявить доску
 board = dvach.Board('b')
@@ -306,6 +325,19 @@ thread.update_posts()
 
 print(f"Количество постов (длина posts): {len(thread.posts)}")
 print(f"Уникальных просмотров: {thread.unique_posters}")
+
+op_file = thread.posts[0].files[0]  # Картинка в ОП-посте
+img_path = os.path.normpath(f'./{op_file.name}')  # Путь, куда мы ее сохраним
+op_file.save(img_path)  # Сохраняем картинку
+
+# Получаем html
+html = dvach.HtmlGenerator.get_thread_htmlpage(thread, img_path)
+
+# Создаём файл
+file = open(f'thread_{thread.num}.html', 'w')
+
+# Записывает туда html страницу
+file.write(html)
 
 # Получить второй пост (который сразу после ОП-поста)
 post = thread.posts[1]

@@ -3,7 +3,7 @@ import os
 import dvach
 
 # Скачать все файлы с треда
-FOLDER_NAME = 'media' # название папки, куда будут скачиваться файлы
+FOLDER_NAME = 'media'  # название папки, куда будут скачиваться файлы
 
 if __name__ == '__main__':
     print('Введите название доски: ', end='')
@@ -24,6 +24,10 @@ if __name__ == '__main__':
     # Создаём папку с медиа
     if not os.path.exists(FOLDER_NAME):
         os.mkdir(FOLDER_NAME)
+
+    # Сохраняем сам тред
+    thread.save(FOLDER_NAME)
+    print('Тред скачен')
 
     # Скачиваем файлы в папку media
     for post in thread.posts:
