@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #f68439;
+}
+
 .container {
     display: flex;
     flex-direction: column;

@@ -80,11 +80,13 @@ class Post_file:
 
 class Post:
     comment: str
+    comment_html: str  # не очищенное от html
     num: str
     files: List[Post_file]
 
     def __init__(self, json_post_data):
         self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
+        self.comment_html = json_post_data['comment']
         self.num = json_post_data['num']
         self.files = []
         for json_file_data in json_post_data['files']:
@@ -94,6 +96,7 @@ class Post:
 class Thread:
     """Тред доски."""
     comment: str
+    comment_html: str  # не очищенное от html
     lasthit: int
     num: str
     posts_count: int
@@ -115,6 +118,7 @@ class Thread:
         """
         if json_thread_data != '':
             self.comment = json_thread_data['comment']
+            self.comment_html = json_thread_data['comment']
             self.lasthit = int(json_thread_data['lasthit'])
             self.num = json_thread_data['num']
             self.posts_count = int(json_thread_data['posts_count'])
@@ -356,7 +360,7 @@ class HtmlGenerator:
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', "")
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
         return htmlcode
 
@@ -374,7 +378,7 @@ class HtmlGenerator:
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', str(thread.lasthit))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment_html)
         return htmlcode
 
     @staticmethod
