@@ -78,6 +78,10 @@ a {
     word-wrap: normal;
 }
 
+.post_msg a:visited {
+    color: grey;
+}
+
 .post_footer {
     display: flex;
     margin-top: 20px;
