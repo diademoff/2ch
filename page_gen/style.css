@@ -11,7 +11,8 @@ a {
 .container {
     display: flex;
     flex-direction: column;
-    margin: 0 20%;
+    margin-left: 30%;
+    margin-right: 5%;
 }
 
 .op_post {
@@ -73,7 +74,7 @@ a {
     margin-left: 20px;
 }
 
-.post_msg{
+.post_msg {
     word-wrap: normal;
 }
 
@@ -98,7 +99,11 @@ a {
     padding-left: 5px;
     padding-right: 15px;
     max-height: 100vh;
-    max-width: 350px;
+    max-width: 30%;
+}
+
+.dashboard a {
+    white-space: nowrap;
 }
 
 .dashboard a:visited {

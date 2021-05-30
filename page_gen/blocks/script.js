@@ -95,3 +95,15 @@ for (let i = 0; i < posts_answers.length; i++) {
     // Вывести ответы на этот пост рекурсивно
     print_answers(answers, '> ')
 }
+
+// Заменить ссылки
+for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    replies_links = post.getElementsByClassName('post-reply-link');
+    for (let j = 0; j < replies_links.length; j++) {
+        const reply = replies_links[j];
+        let text = reply.text;
+        let reply_id = text.substring(2).split(' ')[0];
+        replies_links[j].href = "#post_" + reply_id;
+    }
+}
