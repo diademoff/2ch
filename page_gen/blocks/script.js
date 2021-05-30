@@ -20,7 +20,7 @@ for (let i = 0; i < posts.length; i++) {
     }
 
     dict.push({
-        post_id:   post_id, // Пост
+        post_id: post_id, // Пост
         replies: post_replies // На кого отвечает
     });
 }
@@ -51,7 +51,7 @@ for (let i = 0; i < dict.length; i++) {
 let dashboard = document.getElementById('dashboard');
 
 // Получить элемент ссылки для меню навигации
-function get_link(post_id, prefix){
+function get_link(post_id, prefix) {
     var link = document.createElement("a");
     link.textContent = prefix + post_id;
     link.href = '#post_' + post_id;
@@ -59,7 +59,7 @@ function get_link(post_id, prefix){
 }
 
 // Функция для рекурсивного заполнения ответов
-function print_answers(answers, prefix){
+function print_answers(answers, prefix) {
     for (let i = 0; i < answers.length; i++) {
         const answer = answers[i];
         printed_as_answers.push(answer);
@@ -70,10 +70,10 @@ function print_answers(answers, prefix){
 }
 
 // Получить ответы на пост с заданным айди
-function get_answers_for(post_id){
+function get_answers_for(post_id) {
     for (let i = 0; i < posts_answers.length; i++) {
         const id = posts_answers[i].post_id;
-        if (id === post_id){
+        if (id === post_id) {
             return posts_answers[i].answers;
         }
     }
@@ -105,5 +105,17 @@ for (let i = 0; i < posts.length; i++) {
         let text = reply.text;
         let reply_id = text.substring(2).split(' ')[0];
         replies_links[j].href = "#post_" + reply_id;
+    }
+
+    // Добавить footer ответы
+    footer = post.getElementsByClassName('post_footer')[0];
+    answers_for_current = get_answers_for(posts[i].id.split('_')[1])
+
+    for (let i = 0; i < answers_for_current.length; i++) {
+        const element = answers_for_current[i];
+
+        let curr_link = get_link(element, '>>')
+
+        footer.appendChild(curr_link);
     }
 }

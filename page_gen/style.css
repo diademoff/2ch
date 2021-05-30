@@ -84,6 +84,15 @@ a {
     flex-wrap: wrap;
 }
 
+.post_footer a {
+    font-size: small;
+    margin-right: 5px;
+}
+
+.post_footer a:visited {
+    color: grey;
+}
+
 .post_footer_answer {
     margin-right: 7px;
     line-height: 1.3;
