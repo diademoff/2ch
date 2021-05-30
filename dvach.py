@@ -333,7 +333,7 @@ class HtmlGenerator:
 
     @staticmethod
     def _read_block(name: str) -> str:
-        return open(os.path.normpath(f'page_gen/blocks/{name}.html'), encoding='utf-8').read()
+        return open(os.path.normpath(f'page_gen/blocks/{name}'), encoding='utf-8').read()
 
     @staticmethod
     def _replace_str_in_html(html: str, key: str, value: str):
@@ -351,12 +351,29 @@ class HtmlGenerator:
 
     @staticmethod
     def get_htmlhead() -> str:
-        return HtmlGenerator._read_block('head')
+        return f"""
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <style>
+                {open(os.path.normpath(f'page_gen/style.css'), encoding='utf-8').read()}
+            </style>
+            <title>Thread</title>
+        </head>
+        """
+
+    @staticmethod
+    def get_htmldashboard() -> str:
+        return HtmlGenerator._read_block('dashboard.html')
+
+    @staticmethod
+    def get_js_script() -> str:
+        return HtmlGenerator._read_block('script.js')
 
     @staticmethod
     def get_post_htmlpage(post: Post, order: int) -> str:
         """ html для одного поста"""
-        htmlcode = HtmlGenerator._read_block('post')
+        htmlcode = HtmlGenerator._read_block('post.html')
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', "")
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
@@ -374,7 +391,7 @@ class HtmlGenerator:
 
     @staticmethod
     def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
-        htmlcode = HtmlGenerator._read_block('op_post')
+        htmlcode = HtmlGenerator._read_block('op_post.html')
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', str(thread.lasthit))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
@@ -389,10 +406,14 @@ class HtmlGenerator:
         <html lang="ru">
         {HtmlGenerator.get_htmlhead()}
         <body>
+            {HtmlGenerator.get_htmldashboard()}
             <div class="container">
-            {HtmlGenerator.get_op_post_htmlpage(thread, img_src)}
-            {HtmlGenerator.get_posts_htmlpage(thread)}
+                {HtmlGenerator.get_op_post_htmlpage(thread, img_src)}
+                {HtmlGenerator.get_posts_htmlpage(thread)}
             </div>
+            <script>
+                {HtmlGenerator.get_js_script()}
+            </script>
         </body>
         </html>
         """
