@@ -2,7 +2,7 @@ import dvach
 import time
 import os
 
-DELAY = 5
+DELAY = 15
 SAVE_MEDIA = True
 FOLDER = "saver"
 
@@ -59,9 +59,12 @@ def add_new_posts(safe_thread: dvach.Thread, posts):
 def print_deleted_posts(safe_thread: dvach.Thread, posts):
     for post in safe_thread.posts:
         if not is_post_in_list(post, posts):
-            print(f"Удаленный пост: {post.num}")
+            if post.num not in deleted_posts:
+                print(f"Удаленный пост: {post.num}")
+                deleted_posts.append(post.num)
 
 
+deleted_posts = []
 if __name__ == '__main__':
     print('Введите название доски: ', end='')
     board_name = input()
