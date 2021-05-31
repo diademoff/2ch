@@ -123,6 +123,7 @@ import dvach
   * `board_name: str` - Какой доске принадлежит тред
   * `posts = []` - Список постов
   * `get_link: str` - Ссылка на тред
+  * `get_op_post: Post` - Получить ОП-пост
   * `json_posts_link: str` - Ссылка на json треда
   * `save(path)` - сохранить в html посты треда в указанную папку
   * `IsOk()` - Подходит ли тред по заданным ключевым словам
@@ -131,6 +132,9 @@ import dvach
   * `json_download()` - Получить json постов в чистом виде
 * **Post**
   * `comment: str` - Текст
+  * `date: str` - Дата поста
+  * `email: str`
+  * `op: int`
   * `num: str` - Номер
   * `files: []` - Список файлов
 * **Post_file**

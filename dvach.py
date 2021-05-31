@@ -82,13 +82,22 @@ class Post_file:
 class Post:
     comment: str
     comment_html: str  # не очищенное от html
+    date: str
+    email: str
+    op: int
     num: str
     files: List[Post_file]
 
     def __init__(self, json_post_data):
-        self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
+        self.comment = json_post_data['comment']
+        # отчистить если есть открывающий тег
+        if '<' in self.comment:
+            self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
         self.comment_html = json_post_data['comment']
         self.num = json_post_data['num']
+        self.date = json_post_data['date']
+        self.email = json_post_data['email']
+        self.op = json_post_data['op']
         self.files = []
         for json_file_data in json_post_data['files']:
             self.files.append(Post_file(json_file_data))
@@ -127,11 +136,19 @@ class Thread:
             self.subject = json_thread_data['subject']
             self.timestamp = int(json_thread_data['timestamp'])
             self.views = int(json_thread_data['views'])
-            # отчистить от html
-            self.comment = BeautifulSoup(self.comment, 'lxml').text.strip()
+            # отчистить от html, если есть открывающий тег
+            if '<' in self.comment:
+                self.comment = BeautifulSoup(self.comment, 'lxml').text.strip()
 
             self.score_history = [self.score]
         self.board_name = board_name
+
+    @property
+    def get_op_post(self):
+        if len(self.posts) >= 1:
+            return self.posts[0]
+        else:
+            return None
 
     def get_op_img_path(self) -> str:
         """Получить путь к скаченному изображению из ОП-поста
