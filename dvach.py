@@ -179,8 +179,7 @@ class Thread:
         return save_path
 
     def update_posts(self):
-        """Скачать посты и обновить их список
-        """
+        """Скачать посты и обновить их список"""
         json_posts = self.json_download()
         self.get_posts(json_posts)
 
@@ -298,8 +297,7 @@ class Board:
         return Board(name_json, downloaded_threads)
 
     def sort_threads_by_score(self):
-        """Сортировка тредов по очкам
-        """
+        """ Сортировка тредов по очкам"""
         for i in range(len(self.threads.keys())):
             for j in range(len(self.threads.keys())):
                 key_i = list(self.threads.keys())[i]
@@ -392,7 +390,7 @@ class HtmlGenerator:
     def get_post_htmlpage(post: Post, order: int) -> str:
         """ html для одного поста"""
         htmlcode = HtmlGenerator._read_block('post.html')
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', "")
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', post.date)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
@@ -410,7 +408,7 @@ class HtmlGenerator:
     @staticmethod
     def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
         htmlcode = HtmlGenerator._read_block('op_post.html')
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', str(thread.lasthit))
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', thread.get_op_post.date)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment_html)
