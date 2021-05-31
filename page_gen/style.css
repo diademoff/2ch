@@ -122,3 +122,9 @@ a {
 .dashboard a:visited {
     color: grey;
 }
+
+.spam {
+    color: grey;
+    text-decoration: line-through;
+    font-size: smaller;
+}

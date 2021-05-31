@@ -10,6 +10,7 @@ for (let i = 0; i < posts.length; i++) {
 
     // На кого отвечает
     post_replies = [];
+    let replies_count = 0;
 
     replies_links = post.getElementsByClassName('post-reply-link');
     for (let j = 0; j < replies_links.length; j++) {
@@ -17,11 +18,13 @@ for (let i = 0; i < posts.length; i++) {
         let text = reply.text;
         let reply_id = text.substring(2).split(' ')[0];
         post_replies.push(reply_id)
+        replies_count += 1;
     }
 
     dict.push({
         post_id: post_id, // Пост
-        replies: post_replies // На кого отвечает
+        replies: post_replies, // На кого отвечает
+        replies_count: replies_count
     });
 }
 
@@ -43,8 +46,17 @@ for (let i = 0; i < dict.length; i++) {
 
     posts_answers.push({
         post_id: post_id,
-        answers: answers
+        answers: answers,
     });
+}
+
+function post_answering_on_count(post_id) {
+    for (let i = 0; i < dict.length; i++) {
+        const element = dict[i];
+        if (post_id == element.post_id) {
+            return element.replies_count;
+        }
+    }
 }
 
 // Заполнить боковое меню
@@ -53,7 +65,14 @@ let dashboard = document.getElementById('dashboard');
 // Получить элемент ссылки для меню навигации
 function get_link(post_id, prefix) {
     var link = document.createElement("a");
-    link.textContent = prefix + post_id;
+    postfix = '';
+    if (post_answering_on_count(post_id) > 10) {
+        // Пост считается спамом если отвечает
+        // более чем на 10 постов
+        postfix += ' (spam)';
+        link.classList.add('spam')
+    }
+    link.textContent = prefix + post_id + postfix;
     link.href = '#post_' + post_id;
     return link;
 }
