@@ -3,7 +3,7 @@ from typing import List
 import requests
 from bs4 import BeautifulSoup
 import os
-
+from requests.models import Response
 
 headers = {
     "Accept": "image/webp,*/*",
@@ -31,7 +31,14 @@ class Post_file:
         self.size = json_data['size']
 
     def save(self, path: str):
-        r = requests.get(self.download_link, headers=headers)
+        """Сохранить файл
+
+        Args:
+            path (str): Путь к файлу, в которой сохранить файл
+        """
+        if os.path.isdir(path):
+            raise Exception("Вы указали папку, но требуется файл")
+        r = download_link(self.download_link)
         with open(path, 'wb') as output:
             output.write(r.content)
 
@@ -145,17 +152,18 @@ class Thread:
 
     @property
     def get_op_post(self):
-        if len(self.posts) >= 1:
-            return self.posts[0]
-        else:
-            return None
+        if len(self.posts) == 0:
+            raise Exception("Посты не скачаны")
+        return self.posts[0]
 
     def get_op_img_path(self) -> str:
-        """Получить путь к скаченному изображению из ОП-поста
+        """Получить путь к скаченному изображению из ОП-поста. Видео игнорируются
 
         Returns:
             str: путь к изображению или пустая строка
         """
+        if len(self.posts) == 0:
+            raise Exception("Посты не скачаны")
         files = self.posts[0].files
         for file in files:
             if file.IsImage:
@@ -172,6 +180,11 @@ class Thread:
         Returns:
             str: путь, куда сохранен файл
         """
+        if len(self.posts) == 0:
+            raise Exception("Посты не скачаны")
+        if os.path.isfile(folder_path):
+            raise Exception("Вы указали файл, но требуется директория")
+
         img_path = self.get_op_img_path()
         html = HtmlGenerator.get_thread_htmlpage(self, img_path)
         save_path = os.path.normpath(f'{folder_path}/thread_{self.num}.html')
@@ -190,30 +203,6 @@ class Thread:
         self.posts = []
         for post in posts_json:
             self.posts.append(Post(post))
-
-    def get_hierarchy(self, html_thread):
-        """
-        Получить иерархию тредов (без учета ОП-поста).
-
-        Ключ является номером поста, значение - это список ответов на пост
-        """
-        ref_map = {}
-
-        soup = BeautifulSoup(html_thread, "lxml")
-        posts = soup.find_all('div', class_="thread__post")
-
-        for post in posts:
-            post_num = str(post.get('id'))
-            post_num = post_num.split('-')[1]
-
-            refmap = post.find_all('div', class_='post__refmap')[0]
-            refs = refmap.find_all('a', class_='post-reply-link')
-
-            ref_map[post_num] = []
-            for ref in refs:
-                ref_map[post_num].append(str(ref.get('data-num')))
-
-        return ref_map
 
     def IsOk(self, KEY_WORDS: List[str]):
         """Подходит ли тред по ключевым словам
@@ -234,13 +223,13 @@ class Thread:
             return True  # Подходит если ключевые слова не указаны.
         return False
 
-    def json_download(self):
+    def json_download(self) -> str:
         """Скачать json постов
 
         Returns:
             str: json постов
         """
-        return download_json(self.json_posts_link)
+        return download_link(self.json_posts_link).text
 
     @property
     def json_posts_link(self) -> str:
@@ -255,8 +244,8 @@ class Thread:
 class BoardRefreshInfo:
     """Информация об изменениях на доске."""
 
-    deadThreads = []
-    newThreads = []
+    deadThreads = List[Thread]
+    newThreads = List[Thread]
 
     def __init__(self, deadThreads, newThreads):
         """Инициализация"""
@@ -299,17 +288,18 @@ class Board:
     def sort_threads_by_score(self):
         """ Сортировка тредов по очкам"""
         for i in range(len(self.threads.keys())):
-            for j in range(len(self.threads.keys())):
+            for j in range(i, len(self.threads.keys())):
                 key_i = list(self.threads.keys())[i]
                 key_j = list(self.threads.keys())[j]
                 if self.threads[key_i].score > self.threads[key_j].score:
                     self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
 
     def update_threads(self):
+        """ Скачать треды"""
         self.threads = Board.from_json(Board.json_download(self.name)).threads
 
     def get_dead_threads(self, comparewith):
-        """`comparewith` это новый список тредов"""
+        """`comparewith` это новый скачанный список тредов с которым сравнивать текущие треды"""
         dead = dict()
         for t in self.threads.keys():
             if t not in comparewith.keys():
@@ -317,7 +307,7 @@ class Board:
         return dead
 
     def get_new_threads(self, comparewith):
-        """`comparewith` это новый список тредов"""
+        """`comparewith` это новый скачанный список тредов с которым сравнивать текущие треды"""
         new_threads = dict()
         for new in comparewith.keys():
             if not (new in self.threads.keys()):
@@ -326,21 +316,21 @@ class Board:
 
     @staticmethod
     def json_download(board_name: str) -> str:
-        """Скачать json."""
-        download_link = Board(board_name).json_link
-        json_downloaded = requests.get(download_link, stream=True, headers=headers).text
+        """Скачать json"""
+        link = Board(board_name).json_link
+        json_downloaded = download_link(link).text
         return json_downloaded
 
     def thread_exists(self, num: str) -> bool:
-        """Существует ли тред."""
+        """Существует ли тред"""
         for thread in self.threads:
             if thread.num == num:
                 return True
         return False
 
     @property
-    def json_link(self):
-        """Ссылка на список тредов json."""
+    def json_link(self) -> str:
+        """Ссылка на список тредов json"""
         return f'http://2ch.hk/{self.name}/threads.json'
 
 
@@ -436,13 +426,10 @@ class HtmlGenerator:
         return code
 
 
-def download_json(link: str) -> str:
+def download_link(link: str) -> Response:
     """Скачать json
 
     Args:
         link (str): ссылка на скачивание
-
-    Returns:
-        str: возвращает json
     """
-    return requests.get(link, stream=True, headers=headers).text
+    return requests.get(link, stream=True, headers=headers)
