@@ -11,7 +11,8 @@ a {
 .container {
     display: flex;
     flex-direction: column;
-    margin: 0 20%;
+    margin-left: 30%;
+    margin-right: 5%;
 }
 
 .op_post {
@@ -73,14 +74,27 @@ a {
     margin-left: 20px;
 }
 
-.post_msg{
+.post_msg {
     word-wrap: normal;
+}
+
+.post_msg a:visited {
+    color: grey;
 }
 
 .post_footer {
     display: flex;
     margin-top: 20px;
     flex-wrap: wrap;
+}
+
+.post_footer a {
+    font-size: small;
+    margin-right: 5px;
+}
+
+.post_footer a:visited {
+    color: grey;
 }
 
 .post_footer_answer {
@@ -98,9 +112,19 @@ a {
     padding-left: 5px;
     padding-right: 15px;
     max-height: 100vh;
-    max-width: 350px;
+    max-width: 30%;
+}
+
+.dashboard a {
+    white-space: nowrap;
 }
 
 .dashboard a:visited {
     color: grey;
+}
+
+.spam {
+    color: grey;
+    text-decoration: line-through;
+    font-size: smaller;
 }
