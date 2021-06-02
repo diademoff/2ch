@@ -1,9 +1,11 @@
 import dvach
 import time
 import os
+import sys
 
 DELAY = 15
 SAVE_MEDIA = True
+global FOLDER
 FOLDER = "saver"
 
 
@@ -21,6 +23,8 @@ def get_board(board_name: str) -> dvach.Board:
 
 def get_thread(board, thread_num):
     while True:
+        if thread_num not in list(board.threads.keys()):
+            raise Exception('Тред не существует')
         try:
             thread = board.threads[thread_num]
             thread.update_posts()
@@ -64,12 +68,40 @@ def print_deleted_posts(safe_thread: dvach.Thread, posts):
                 deleted_posts.append(post.num)
 
 
+def get_input():
+    """Скрипт можно запустить, передав параметры из консоли.
+
+    Параметры:
+        1 - название доски
+        2 - номер треда
+        3 (не обязательный) - имя папки
+
+    Returns:
+        board_name, thread_num
+    """
+    if len(sys.argv) >= 1:
+        # Первый аргумент это название файла, он не нужен
+        sys.argv = sys.argv[1:]
+
+    if len(sys.argv) == 0:
+        print('Введите название доски: ', end='')
+        board_name = input()
+        print('Введите номер треда: ', end='')
+        thread_num = input()
+        return (board_name, thread_num)
+
+    if len(sys.argv) >= 2:
+        return (sys.argv[0], sys.argv[1])
+    else:
+        raise Exception("Переданны не корректные параметры")
+
+
 deleted_posts = []
 if __name__ == '__main__':
-    print('Введите название доски: ', end='')
-    board_name = input()
-    print('Введите номер треда: ', end='')
-    thread_num = input()
+    board_name, thread_num = get_input()
+
+    if len(sys.argv) >= 3:
+        FOLDER = sys.argv[2]
 
     if not os.path.exists(FOLDER):
         os.mkdir(FOLDER)
