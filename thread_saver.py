@@ -120,15 +120,15 @@ if __name__ == '__main__':
     safe_thread.comment_html = thread.comment_html
 
     while True:
+        add_new_posts(safe_thread, thread.posts)
+
+        print_deleted_posts(safe_thread, thread.posts)
+
+        safe_thread.save(FOLDER)
+
+        time.sleep(DELAY)
+
         try:
-            add_new_posts(safe_thread, thread.posts)
-
-            print_deleted_posts(safe_thread, thread.posts)
-
-            safe_thread.save(FOLDER)
-
-            time.sleep(DELAY)
-
             # Снова скачать тред
             thread = get_thread(board, thread_num)
         except:
