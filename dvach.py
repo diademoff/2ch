@@ -356,7 +356,7 @@ class HtmlGenerator:
         return html.replace(key, value)
 
     @staticmethod
-    def get_htmlhead() -> str:
+    def get_htmlhead(thread: Thread) -> str:
         return f"""
         <head>
             <meta charset="UTF-8">
@@ -364,7 +364,7 @@ class HtmlGenerator:
             <style>
                 {open(os.path.normpath(f'page_gen/style.css'), encoding='utf-8').read()}
             </style>
-            <title>Thread</title>
+            <title>{thread.get_op_post.comment}</title>
         </head>
         """
 
@@ -377,6 +377,21 @@ class HtmlGenerator:
         return HtmlGenerator._read_block('script.js')
 
     @staticmethod
+    def get_post_images(post: Post) -> str:
+        # <img src="{img_src}" alt="" style="max-height:70px">
+        images = []  # Изображения поста (видео игнорируются)
+        for file in post.files:
+            if file.IsImage:
+                images.append(file)
+
+        result_html = ""
+        for i in images:
+            img_path = i.name
+            image_html = f"<img src=\"{img_path}\" alt=\"\" style=\"max-height:70px\">\n"
+            result_html += f"<a href=\"{img_path}\" target=\"_blank\">{image_html}</a>\n"
+        return result_html
+
+    @staticmethod
     def get_post_htmlpage(post: Post, order: int) -> str:
         """ html для одного поста"""
         htmlcode = HtmlGenerator._read_block('post.html')
@@ -385,6 +400,7 @@ class HtmlGenerator:
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{images}', HtmlGenerator.get_post_images(post))
         return htmlcode
 
     @staticmethod
@@ -410,7 +426,7 @@ class HtmlGenerator:
         code = f"""
         <!DOCTYPE html>
         <html lang="ru">
-        {HtmlGenerator.get_htmlhead()}
+        {HtmlGenerator.get_htmlhead(thread)}
         <body>
             {HtmlGenerator.get_htmldashboard()}
             <div class="container">
