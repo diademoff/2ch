@@ -285,13 +285,13 @@ class Board:
 
         return Board(name_json, downloaded_threads)
 
-    def sort_threads_by_score(self):
-        """ Сортировка тредов по очкам"""
+    def sort_threads_by_posts(self):
+        """ Сортировка тредов по количеству постов"""
         for i in range(len(self.threads.keys())):
             for j in range(i, len(self.threads.keys())):
                 key_i = list(self.threads.keys())[i]
                 key_j = list(self.threads.keys())[j]
-                if self.threads[key_i].score > self.threads[key_j].score:
+                if self.threads[key_i].posts_count < self.threads[key_j].posts_count:
                     self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
 
     def update_threads(self):
