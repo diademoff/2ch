@@ -1,4 +1,5 @@
 from cv2 import imread, resize, cvtColor, threshold, INTER_AREA, COLOR_BGR2GRAY
+import hashlib
 
 
 def are_similar(img1, img2) -> bool:
@@ -23,7 +24,20 @@ def are_similar(img1, img2) -> bool:
         return False
 
 
-def CalcImageHash(img):
+def CalcVideoHash(video: str) -> str:
+    BLOCK_SIZE = 65536
+    file_hash = hashlib.sha256()
+    with open(video, 'rb') as f:
+        fb = f.read(BLOCK_SIZE)
+        while len(fb) > 0:
+            file_hash.update(fb)
+            fb = f.read(BLOCK_SIZE)
+
+    # Get the hexadecimal digest of the hash
+    return file_hash.hexdigest()
+
+
+def CalcImageHash(img: str) -> str:
     """Преобразовать картинку в строку
 
     Args:
