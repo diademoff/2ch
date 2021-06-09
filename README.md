@@ -109,7 +109,7 @@ import dvach
   * `json_download()` - Скачать json доски
   * `thread_exists()` - Есть ли на доске тред с указанным номером
   * `update_threads()` - Обновить список тредов на доске
-  * `sort_threads_by_score()` - Отсортировать список тредов по очкам, чем ближе элемент к началу списка, тем больше у него очков
+  * `sort_threads_by_posts()` - Отсортировать список тредов по количеству постов, чем ближе элемент к началу списка, тем больше в нем постов
   * `get_new_threads()` - Сравнить текущий список тредов с другим и получить словарь новых тредов
   * `get_dead_threads()` - Сравнить текущий список тредов с другим и получить словарь утонувших тредов
 * **Thread**
@@ -173,7 +173,7 @@ thread_nums = list(board.threads.keys())
 
 Отсортируем по популярности и снова получим список номеров тредов:
 ```py
-board.sort_threads_by_score()
+board.sort_threads_by_posts()
 thread_nums = list(board.threads.keys())
 ```
 
@@ -314,8 +314,8 @@ board.update_threads()
 # Получить список номеров тредов
 thread_nums = list(board.threads.keys())
 
-# Отсортировать по очкам
-board.sort_threads_by_score()
+# Отсортировать по количеству постов
+board.sort_threads_by_posts()
 
 # Обновить список с номерами тредов
 thread_nums = list(board.threads.keys())

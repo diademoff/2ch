@@ -1,6 +1,6 @@
 import unittest
 import dvach
-import imagecompare
+import filecompare
 import os
 
 
@@ -120,17 +120,17 @@ class TestAnalytics(unittest.TestCase):
         # Эти фото отличаются размером
         file1_1 = os.path.normpath('test_files/images/img1_1.jpg')
         file1_2 = os.path.normpath('test_files/images/img1_2.jpg')
-        r1 = imagecompare.are_similar(file1_1, file1_2)
+        r1 = filecompare.are_similar(file1_1, file1_2)
 
         # Эти фото различаются незначительными деталями, но они не одинаковые
         file2_1 = os.path.normpath('test_files/images/img2_1.png')
         file2_2 = os.path.normpath('test_files/images/img2_2.png')
-        r2 = imagecompare.are_similar(file2_1, file2_2)
+        r2 = filecompare.are_similar(file2_1, file2_2)
 
         # Эти фото значительно отличаются
         file3_1 = os.path.normpath('test_files/images/img3_1.jpg')
         file3_2 = os.path.normpath('test_files/images/img3_2.jpg')
-        r3 = imagecompare.are_similar(file3_1, file3_2)
+        r3 = filecompare.are_similar(file3_1, file3_2)
 
         self.assertEqual(r1, True)
         self.assertEqual(r2, False)
@@ -143,7 +143,7 @@ class TestAnalytics(unittest.TestCase):
         file1 = os.path.normpath('test_files/images/img1_1.jpg')
         file2 = os.path.normpath('test_files/images/img1_2.jpg')
 
-        best = imagecompare.get_better_img(file1, file2)
+        best = filecompare.get_better_img(file1, file2)
 
         self.assertEqual(best, file1)
 

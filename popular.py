@@ -24,9 +24,9 @@ def print_threads(threads):
         # Отформатировать строку с информацией о треде и вывести на экран
         comment_formatted = (
             '{0:' + str(text_limit) + '}').format(thread.comment[:text_limit:])
-        score_str = '{0:3}'.format(round(thread.score))
+        posts_count_str = '{0:3}'.format(round(thread.posts_count))
 
-        print(f"{score_str} | {comment_formatted} | {thread.get_link}")
+        print(f"{posts_count_str} | {comment_formatted} | {thread.get_link}")
 
 
 if __name__ == '__main__':
@@ -45,8 +45,8 @@ if __name__ == '__main__':
             time.sleep(3)
             continue
 
-        # Сортировка по очкам
-        board.sort_threads_by_score()
+        # Сортировка по количеству постов
+        board.sort_threads_by_posts()
 
         # Вывести на экран
         print_threads(board.threads)

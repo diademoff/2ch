@@ -1,5 +1,5 @@
 import dvach
-import imagecompare
+import filecompare
 from typing import List
 import time
 import os
@@ -31,8 +31,7 @@ MIN_FILE_SIZE = 0
 
 
 class Hashtable:
-    """Файл с информацией об уже скачанных картинках
-    """
+    """ Файл с информацией об уже скачанных картинках"""
     path: str
     table: dict
 
@@ -43,8 +42,7 @@ class Hashtable:
         self.load_file()
 
     def load_file(self):
-        """Загрузить информацию из файла
-        """
+        """ Загрузить информацию из файла"""
         self.table = dict()
         f = open(self.path, encoding='utf-8')
         lines = f.readlines()
@@ -57,24 +55,26 @@ class Hashtable:
                 pass
         f.close()
 
-    def add_image(self, path: str, hash: str):
-        """Добавить изображение в словарь
+    def add_hash(self, path: str, hash: str):
+        """Добавить хеш в словарь
 
         Args:
-            path (str): путь к изображению
-            hash (str): строковое представление изображения
+            path (str): путь к файлу
+            hash (str): строковое представление файла
         """
         try:
             self.table[hash] = path
-            f = open(self.path, 'a', encoding='utf-8')
-            f.write(f'{hash}|{path}\n')
-            f.close()
+            self.__write_to_file(f'{hash}|{path}\n')
         finally:
             pass
 
+    def __write_to_file(self, text: str):
+        f = open(self.path, 'a', encoding='utf-8')
+        f.write(text)
+        f.close()
+
     def save_file(self):
-        """Сохранить словарь в файл
-        """
+        """Сохранить словарь в файл"""
         f = open(self.path, 'w', encoding='utf-8')
         f.write('')  # отчистить предыдущие
         for key in self.table.keys():
@@ -130,13 +130,6 @@ class BoardMedia:
             f'{self.download_folder}/{thread_num}')
         download_path = os.path.normpath(f'{thread_folder}/' + file.name)
 
-        # Создаём папку с media
-        if not os.path.exists(self.download_folder):
-            os.mkdir(self.download_folder)
-        # Создаём папку треда в media
-        if not os.path.exists(thread_folder):
-            os.mkdir(thread_folder)
-
         if os.path.exists(download_path):
             return FileDownloadInfo.Exists
 
@@ -146,22 +139,29 @@ class BoardMedia:
 
         try:
             file.save(download_path)
-
-            if file.IsImage:
-                image_hash = imagecompare.CalcImageHash(download_path)
-                same_photo = self.findInTable(image_hash)
-                if same_photo != '':
-                    os.remove(download_path)
-                    os.symlink(os.path.abspath(same_photo),
-                               download_path, target_is_directory=False)
-                    return FileDownloadInfo.LinkCreated
-                self.hashtable.add_image(
-                    download_path, imagecompare.CalcImageHash(download_path))
-
-            return FileDownloadInfo.Succeed
         except:
             # Если не получилось скачать файл
             return FileDownloadInfo.Error
+
+        # Получить хэш
+        if file.IsImage:
+            file_hash = filecompare.CalcImageHash(download_path)
+        elif file.IsVideo:
+            file_hash = filecompare.CalcVideoHash(download_path)
+
+        same_file = self.findInTable(file_hash)
+
+        if same_file != '':
+            # Если такой же файл есть, то создать ссылку
+            os.remove(download_path)
+            os.symlink(os.path.abspath(same_file),
+                       download_path, target_is_directory=False)
+            return FileDownloadInfo.LinkCreated
+
+        # Если такого же файла нет, то сохранить хеш в таблицу
+        self.hashtable.add_hash(download_path, file_hash)
+
+        return FileDownloadInfo.Succeed
 
 
 def download_thread_files(posts: List[dvach.Post], thread_num: str):
@@ -190,6 +190,17 @@ def download_thread_files(posts: List[dvach.Post], thread_num: str):
                 time.sleep(3)
 
             time.sleep(0.1)
+
+
+def create_thread_folder(download_folder: str, thread_folder: str):
+    download_folder = os.path.normpath(download_folder)
+    thread_folder = os.path.normpath(thread_folder)
+    # Создаём папку с media
+    if not os.path.exists(download_folder):
+        os.mkdir(download_folder)
+    # Создаём папку треда в media
+    if not os.path.exists(thread_folder):
+        os.mkdir(thread_folder)
 
 
 if __name__ == '__main__':
@@ -226,6 +237,9 @@ if __name__ == '__main__':
                 print('.', end='')
                 time.sleep(3)
                 continue
+
+            # Создаем папку, в которую сохраняется тред
+            create_thread_folder(FOLDER_NAME, f"{FOLDER_NAME}/{thread.num}")
 
             # Скачиваем файлы в папку media/{thread_num}
             download_thread_files(thread.posts, thread.num)
