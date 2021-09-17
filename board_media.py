@@ -144,10 +144,15 @@ class BoardMedia:
             return FileDownloadInfo.Error
 
         # Получить хэш
-        if file.IsImage:
-            file_hash = filecompare.CalcImageHash(download_path)
-        elif file.IsVideo:
-            file_hash = filecompare.CalcVideoHash(download_path)
+        try:
+            if file.IsImage:
+                file_hash = filecompare.CalcImageHash(download_path)
+            elif file.IsVideo:
+                file_hash = filecompare.CalcVideoHash(download_path)
+        except:
+            # Не получилось посчитать хэш
+            return FileDownloadInfo.Succeed
+
 
         same_file = self.findInTable(file_hash)
 

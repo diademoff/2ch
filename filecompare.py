@@ -25,13 +25,18 @@ def are_similar(img1, img2) -> bool:
 
 
 def CalcVideoHash(video: str) -> str:
-    BLOCK_SIZE = 65536
-    file_hash = hashlib.sha256()
-    with open(video, 'rb') as f:
-        fb = f.read(BLOCK_SIZE)
-        while len(fb) > 0:
-            file_hash.update(fb)
-            fb = f.read(BLOCK_SIZE)
+    for i in range(2):
+        try:
+            BLOCK_SIZE = 65536
+            file_hash = hashlib.sha256()
+            with open(video, 'rb') as f:
+                fb = f.read(BLOCK_SIZE)
+                while len(fb) > 0:
+                    file_hash.update(fb)
+                    fb = f.read(BLOCK_SIZE)
+            break
+        except:
+            print("Ошибка во время чтения видео, повтор")
 
     # Get the hexadecimal digest of the hash
     return file_hash.hexdigest()
@@ -46,14 +51,19 @@ def CalcImageHash(img: str) -> str:
     Returns:
         str: строковое представление картинки
     """
-    image = imread(img)  # Прочитаем картинку
-    # Уменьшим картинку
-    resized = resize(image, (8, 8), interpolation=INTER_AREA)
-    # Переведем в черно-белый формат
-    gray_image = cvtColor(resized, COLOR_BGR2GRAY)
-    avg = gray_image.mean()  # Среднее значение пикселя
-    _, threshold_image = threshold(
-        gray_image, avg, 255, 0)  # Бинаризация по порогу
+    for i in range(2):
+        try:
+            image = imread(img)  # Прочитаем картинку
+            # Уменьшим картинку
+            resized = resize(image, (8, 8), interpolation=INTER_AREA)
+            # Переведем в черно-белый формат
+            gray_image = cvtColor(resized, COLOR_BGR2GRAY)
+            avg = gray_image.mean()  # Среднее значение пикселя
+            _, threshold_image = threshold(
+                gray_image, avg, 255, 0)  # Бинаризация по порогу
+            break
+        except:
+            print("Ошибка во время обработки изображения, повтор")
 
     # Рассчитаем хэш
     _hash = ""
