@@ -22,6 +22,7 @@ def get_board(board_name: str) -> dvach.Board:
 
 
 def get_thread(board, thread_num):
+    thread_num = int(thread_num)
     while True:
         if thread_num not in list(board.threads.keys()):
             raise Exception('Тред не существует')
