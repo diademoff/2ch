@@ -106,8 +106,9 @@ class Post:
         self.email = json_post_data['email']
         self.op = json_post_data['op']
         self.files = []
-        for json_file_data in json_post_data['files']:
-            self.files.append(Post_file(json_file_data))
+        if json_post_data.get('files'):
+            for json_file_data in json_post_data['files']:
+                self.files.append(Post_file(json_file_data))
 
 
 class Thread:
@@ -199,9 +200,10 @@ class Thread:
     def get_posts(self, json_posts):
         """Перезаписать список постов в треде из json"""
         posts_json = json.loads(json_posts)
-        self.unique_posters = int(posts_json[0]['unique_posters'])
+        posts_threads = posts_json.get('threads')[0].get('posts')
+        self.unique_posters = int(posts_json['unique_posters'])
         self.posts = []
-        for post in posts_json:
+        for post in posts_threads:
             self.posts.append(Post(post))
 
     def IsOk(self, KEY_WORDS: List[str]):
@@ -233,7 +235,8 @@ class Thread:
 
     @property
     def json_posts_link(self) -> str:
-        return f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
+        # return f"https://2ch.hk/makaba/mobile.fcgi?task=get_thread&board={self.board_name}&thread={self.num}&post=1"
+        return f"https://2ch.hk/{self.board_name}/res/{self.num}.json"
 
     @property
     def get_link(self) -> str:
@@ -396,7 +399,7 @@ class HtmlGenerator:
         """ html для одного поста"""
         htmlcode = HtmlGenerator._read_block('post.html')
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', post.date)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', post.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', str(post.num))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
@@ -415,7 +418,7 @@ class HtmlGenerator:
     def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
         htmlcode = HtmlGenerator._read_block('op_post.html')
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', thread.get_op_post.date)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', thread.num)
+        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', str(thread.num))
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
         htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment_html)
         return htmlcode
