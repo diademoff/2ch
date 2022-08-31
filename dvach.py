@@ -200,10 +200,9 @@ class Thread:
     def get_posts(self, json_posts):
         """Перезаписать список постов в треде из json"""
         posts_json = json.loads(json_posts)
-        posts_threads = posts_json.get('threads')[0].get('posts')
-        self.unique_posters = int(posts_json['unique_posters'])
+        self.unique_posters = int(posts_json[0]['unique_posters'])
         self.posts = []
-        for post in posts_threads:
+        for post in posts_json:
             self.posts.append(Post(post))
 
     def IsOk(self, KEY_WORDS: List[str]):
