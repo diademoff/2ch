@@ -451,4 +451,6 @@ def download_link(link: str) -> Response:
     Args:
         link (str): ссылка на скачивание
     """
-    return requests.get(link, stream=True, headers=headers)
+    # return requests.get(link, stream=True, headers=headers)
+    # Заголовки запроса больше не актуальны
+    return requests.get(link, stream=True)
