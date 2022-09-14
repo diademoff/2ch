@@ -95,6 +95,7 @@ class TestAnalytics(unittest.TestCase):
     def test_read_posts(self):
         """Тест парсига постов в треде по json
         """
+        #  taken from: https://2ch.hk/{self.board_name}/res/{self.num}.json
         json_plain = self.read_file('posts_json.json')
 
         thread = dvach.Thread('b')
