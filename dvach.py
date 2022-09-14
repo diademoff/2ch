@@ -101,7 +101,7 @@ class Post:
         if '<' in self.comment:
             self.comment = BeautifulSoup(json_post_data['comment'], 'lxml').text.strip()
         self.comment_html = json_post_data['comment']
-        self.num = json_post_data['num']
+        self.num = str(json_post_data['num'])
         self.date = json_post_data['date']
         self.email = json_post_data['email']
         self.op = json_post_data['op']
@@ -200,9 +200,9 @@ class Thread:
     def get_posts(self, json_posts):
         """Перезаписать список постов в треде из json"""
         posts_json = json.loads(json_posts)
-        self.unique_posters = int(posts_json[0]['unique_posters'])
+        self.unique_posters = int(posts_json['unique_posters'])
         self.posts = []
-        for post in posts_json:
+        for post in posts_json['threads'][0]['posts']:
             self.posts.append(Post(post))
 
     def IsOk(self, KEY_WORDS: List[str]):
