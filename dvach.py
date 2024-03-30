@@ -218,7 +218,7 @@ class Thread:
         """
         if len(KEY_WORDS) != 0:
             for word in KEY_WORDS:
-                if word in self.comment.lower():
+                if word.lower() in self.comment.lower():
                     return True  # подходит если есть одно из ключевых слов
         else:
             return True  # Подходит если ключевые слова не указаны.
@@ -294,6 +294,15 @@ class Board:
                 key_i = list(self.threads.keys())[i]
                 key_j = list(self.threads.keys())[j]
                 if self.threads[key_i].posts_count < self.threads[key_j].posts_count:
+                    self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
+
+     def sort_threads_by_timestamp(self):
+        """ Сортировка тредов по unix timestamp"""
+        for i in range(len(self.threads.keys())):
+            for j in range(i, len(self.threads.keys())):
+                key_i = list(self.threads.keys())[i]
+                key_j = list(self.threads.keys())[j]
+                if self.threads[key_i].timestamp > self.threads[key_j].timestamp:
                     self.threads[key_i], self.threads[key_j] = self.threads[key_j], self.threads[key_i]
 
     def update_threads(self):
