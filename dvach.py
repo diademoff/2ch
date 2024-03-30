@@ -218,7 +218,7 @@ class Thread:
         """
         if len(KEY_WORDS) != 0:
             for word in KEY_WORDS:
-                if word in self.comment.lower():
+                if word.lower() in self.comment.lower():
                     return True  # подходит если есть одно из ключевых слов
         else:
             return True  # Подходит если ключевые слова не указаны.
