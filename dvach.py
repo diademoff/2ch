@@ -333,7 +333,7 @@ class Board:
     @property
     def json_link(self) -> str:
         """Ссылка на список тредов json"""
-        return f'http://2ch.hk/{self.name}/threads.json'
+        return f'https://2ch.hk/{self.name}/threads.json'
 
 
 class HtmlGenerator:
@@ -444,12 +444,16 @@ class HtmlGenerator:
         return code
 
 
-def download_link(link: str) -> Response:
+def download_link(link: str, retries=3) -> Response:
     """Скачать json
 
     Args:
         link (str): ссылка на скачивание
     """
-    # return requests.get(link, stream=True, headers=headers)
-    # Заголовки запроса больше не актуальны
-    return requests.get(link, stream=True)
+    for _ in range(retries):
+        try:
+            return requests.get(link, timeout=15, stream=True)
+        except requests.exceptions.SSLError as e:
+            time.sleep(1)
+    raise
+
