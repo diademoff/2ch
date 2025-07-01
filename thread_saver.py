@@ -16,8 +16,8 @@ def get_board(board_name: str) -> dvach.Board:
                 dvach.Board.json_download(board_name))
             board.update_threads()
             return board
-        except:
-            print("Не удалось подключиться, повтор")
+        except Exception as e:
+            print(f"Не удалось подключиться, повтор {type(e).__name__}")
             time.sleep(5)
 
 
@@ -54,11 +54,18 @@ def save_post_files(post: dvach.Post):
 
 def add_new_posts(safe_thread: dvach.Thread, posts):
     for post in posts:
-        if not is_post_in_list(post, safe_thread.posts):
-            safe_thread.posts.append(post)
-            print(f'Новый пост: {post.num}')
-            if SAVE_MEDIA:
+        if is_post_in_list(post, safe_thread.posts):
+            continue
+
+        safe_thread.posts.append(post)
+        print(f'Новый пост: {post.num}')
+
+        if SAVE_MEDIA:
+            try:
                 save_post_files(post)
+            except Exception:
+                print(f'❌ Не удалось скачать файлы из поста {post.num}')
+                continue
 
 
 def print_deleted_posts(safe_thread: dvach.Thread, posts):
