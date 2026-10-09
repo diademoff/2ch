@@ -43,11 +43,35 @@ a {
     color: #a6a6a6;
 }
 
-.op_post_img {
-    display: inline;
-    cursor: pointer;
-    float: left;
-    margin-right: 10px;
+.op_post_files,
+.post_files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.op_post_file,
+.post_file {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.op_post_file img,
+.op_post_file video,
+.post_file img,
+.post_file video {
+    display: block;
+    max-width: min(270px, 100%);
+    max-height: 170px;
+    width: auto;
+    height: auto;
+}
+
+.post_file img {
+    max-height: 70px;
 }
 
 .op_post_text {

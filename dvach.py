@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import os
 from requests.models import Response
 import time
+from html import escape
+from urllib.parse import quote
 
 headers = {
     "Accept": "image/webp,*/*",
@@ -159,21 +161,6 @@ class Thread:
             raise Exception("Посты не скачаны")
         return self.posts[0]
 
-    def get_op_img_path(self) -> str:
-        """Получить путь к скаченному изображению из ОП-поста. Видео игнорируются
-
-        Returns:
-            str: путь к изображению или пустая строка
-        """
-        if len(self.posts) == 0:
-            raise Exception("Посты не скачаны")
-        files = self.posts[0].files
-        for file in files:
-            if file.IsImage:
-                path = os.path.normpath(f'{file.name}')
-                return path
-        return ""
-
     def save(self, folder_path: str) -> str:
         """Сохранить тред в папку (html файл)
 
@@ -188,8 +175,7 @@ class Thread:
         if os.path.isfile(folder_path):
             raise Exception("Вы указали файл, но требуется директория")
 
-        img_path = self.get_op_img_path()
-        html = HtmlGenerator.get_thread_htmlpage(self, img_path)
+        html = HtmlGenerator.get_thread_htmlpage(self)
         save_path = os.path.normpath(f'{folder_path}/thread_{self.num}.html')
         open(save_path, 'w', encoding='utf-8').write(html)
         return save_path
@@ -382,31 +368,16 @@ class HtmlGenerator:
         return HtmlGenerator._read_block('script.js')
 
     @staticmethod
-    def get_post_images(post: Post) -> str:
-        # <img src="{img_src}" alt="" style="max-height:70px">
-        images = []  # Изображения поста (видео игнорируются)
-        for file in post.files:
-            if file.IsImage:
-                images.append(file)
-
-        result_html = ""
-        for i in images:
-            img_path = i.name
-            image_html = f"<img src=\"{img_path}\" alt=\"\" style=\"max-height:70px\">\n"
-            result_html += f"<a href=\"{img_path}\" target=\"_blank\">{image_html}</a>\n"
-        return result_html
-
-    @staticmethod
     def get_post_htmlpage(post: Post, order: int) -> str:
         """ html для одного поста"""
-        htmlcode = HtmlGenerator._read_block('post.html')
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', post.date)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', str(post.num))
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{order}', str(order))
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', post.comment_html)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{answers}', "")
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{images}', HtmlGenerator.get_post_images(post))
-        return htmlcode
+        blocks = HtmlGenerator._read_block('post.html').split('{images}')
+        for index, block in enumerate(blocks):
+            block = HtmlGenerator._replace_str_in_html(block, '{date}', post.date)
+            block = HtmlGenerator._replace_str_in_html(block, '{num}', str(post.num))
+            block = HtmlGenerator._replace_str_in_html(block, '{order}', str(order))
+            block = HtmlGenerator._replace_str_in_html(block, '{answers}', "")
+            blocks[index] = HtmlGenerator._replace_str_in_html(block, '{msg}', post.comment_html)
+        return HtmlGenerator.get_post_files(post).join(blocks)
 
     @staticmethod
     def get_posts_htmlpage(thread: Thread) -> str:
@@ -417,16 +388,37 @@ class HtmlGenerator:
         return htmlcode
 
     @staticmethod
-    def get_op_post_htmlpage(thread: Thread, img_src: str) -> str:
-        htmlcode = HtmlGenerator._read_block('op_post.html')
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{date}', thread.get_op_post.date)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{num}', str(thread.num))
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{img_src}', img_src)
-        htmlcode = HtmlGenerator._replace_str_in_html(htmlcode, '{msg}', thread.comment_html)
-        return htmlcode
+    def get_post_files(post: Post, prefix: str = 'post') -> str:
+        """Share classification, escaping and attachment structure for all posts."""
+        attachments = []
+        for file in post.files:
+            url = escape('./' + quote(file.name, safe=''), quote=True)
+            label = escape(file.displayname or file.name, quote=True)
+            extension = os.path.splitext(file.name)[1].lower()
+            preview = f'<a href="{url}">{label}</a>'
+            if extension in {'.jpg', '.jpeg', '.png', '.gif', '.webp'}:
+                target = ' target="_blank"' if prefix == 'post' else ''
+                preview = f'<a href="{url}"{target}><img src="{url}" alt="{label}"></a>'
+            elif extension in {'.mp4', '.webm'}:
+                preview = f'<video src="{url}" controls preload="none"></video>{preview}'
+            attachments.append(f'<div class="{prefix}_file">{preview}</div>')
+        if not attachments:
+            return ''
+        return f'<div class="{prefix}_files">' + '\n'.join(attachments) + '</div>'
 
     @staticmethod
-    def get_thread_htmlpage(thread: Thread, img_src: str) -> str:
+    def get_op_post_htmlpage(thread: Thread, img_src: str = '') -> str:
+        # img_src is retained for compatibility; all paths now come from file.name.
+        # Split the template first so placeholder-like text in messages or names stays literal.
+        blocks = HtmlGenerator._read_block('op_post.html').split('{files}')
+        for index, block in enumerate(blocks):
+            block = HtmlGenerator._replace_str_in_html(block, '{date}', thread.get_op_post.date)
+            block = HtmlGenerator._replace_str_in_html(block, '{num}', str(thread.num))
+            blocks[index] = HtmlGenerator._replace_str_in_html(block, '{msg}', thread.comment_html)
+        return HtmlGenerator.get_post_files(thread.get_op_post, 'op_post').join(blocks)
+
+    @staticmethod
+    def get_thread_htmlpage(thread: Thread, img_src: str = '') -> str:
         """ Создать html страницу для треда"""
         code = f"""
         <!DOCTYPE html>
@@ -459,4 +451,3 @@ def download_link(link: str, retries=3) -> Response:
         except requests.exceptions.SSLError as e:
             time.sleep(1)
     raise
-
